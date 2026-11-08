@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belajarin Kos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Belajarin <span>Kos</span></div>
+    <div class="ai-pick">
+      <select id="provider" aria-label="Provider"></select>
+      <select id="model" aria-label="Model"></select>
+      <select id="lang" aria-label="Bahasa keluaran">
+        <option value="id">Indonesia</option>
+        <option value="en">English</option>
+      </select>
+      <input id="pw" type="password" placeholder="Password" hidden>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="side">
+      <button id="newBtn" class="btn primary block">+ Materi baru</button>
+      <h2>Riwayat</h2>
+      <ul id="libList" class="lib"></ul>
+      <p id="libEmpty" class="muted small">Belum ada materi tersimpan.</p>
+    </aside>
+
+    <main class="main">
+      <div id="toast" class="toast" hidden></div>
+
+      <section id="intake" class="card">
+        <h1>Mau belajar apa hari ini?</h1>
+        <p class="muted">Upload materi atau paste teks. Nanti jadi ringkasan, flashcard, kuis, dan tutor chat.</p>
+
+        <label id="drop" class="drop">
+          <input id="file" type="file" accept=".pdf,.docx,.pptx,.xlsx,.txt,.md,.csv" hidden>
+          <strong id="dropText">Klik atau seret file ke sini</strong>
+          <span class="muted small">PDF, DOCX, PPTX, XLSX, TXT (maks 20 MB)</span>
+        </label>
+
+        <div class="or">atau</div>
+        <textarea id="paste" class="input" rows="5" placeholder="Paste catatan / materi di sini"></textarea>
+
+        <div class="row end">
+          <button id="goBtn" class="btn primary">Proses materi</button>
+        </div>
+      </section>
+
+      <section id="work" hidden>
+        <div class="card head">
+          <div>
+            <h1 id="mTitle"></h1>
+            <p id="mMeta" class="muted small"></p>
+          </div>
+          <button id="delBtn" class="btn ghost small">Hapus</button>
+        </div>
+
+        <nav class="tabs" role="tablist">
+          <button class="tab active" data-tab="summary">Ringkasan</button>
+          <button class="tab" data-tab="cards">Flashcard</button>
+          <button class="tab" data-tab="quiz">Kuis</button>
+          <button class="tab" data-tab="chat">Tutor</button>
+        </nav>
+
+        <div id="pane-summary" class="card pane"></div>
+        <div id="pane-cards" class="card pane" hidden></div>
+        <div id="pane-quiz" class="card pane" hidden></div>
+        <div id="pane-chat" class="card pane" hidden></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
