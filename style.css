@@ -1623,6 +1623,7 @@ ol {
   position: relative;
   width: 100%;
   height: 100%;
+  transform-style: preserve-3d;
 }
 
 .fc-face {
@@ -3239,6 +3240,27 @@ body.lb-open {
     height: calc(100vh - 225px);
     min-height: 460px;
     border-radius: 18px;
+  }
+
+  /* Tutor di HP: sembunyikan intro materi supaya kolom chat
+     dan tombol kirim muat dalam satu layar. */
+  body.is-tutor .material-intro,
+  body.is-tutor .material-meter {
+    display: none;
+  }
+
+  body.is-tutor .material-head {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  body.is-tutor .tabs {
+    margin: 0 0 14px;
+  }
+
+  body.is-tutor .tutor-shell {
+    height: calc(100vh - 148px);
+    min-height: 420px;
   }
 
   .tutor-head {

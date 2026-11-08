@@ -85,6 +85,7 @@ function render() {
   const m = r.name === 'material' ? material(r.id) : null;
 
   app.innerHTML = r.name === 'home' ? homeView() : materialView(m, r.tab);
+  document.body.classList.toggle('is-tutor', r.name === 'material' && r.tab === 'tutor');
   renderSidebar(r);
 
   document.title =
