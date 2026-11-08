@@ -1,78 +1,93 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Belajarin Kos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belajar Logika — Semantic Tree &amp; Substitusi</title>
+  <meta name="description" content="Ruang belajar untuk dua materi Logika Informatika: Semantic Tree & Proof by Falsification dan Substitusi. Ringkasan, flashcard, kuis, tutor, dan slide asli." />
+  <meta name="theme-color" content="#f6f4ee" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="top">
-    <div class="brand">Belajarin <span>Kos</span></div>
-    <div class="ai-pick">
-      <select id="provider" aria-label="Provider"></select>
-      <select id="model" aria-label="Model"></select>
-      <select id="lang" aria-label="Bahasa keluaran">
-        <option value="id">Indonesia</option>
-        <option value="en">English</option>
-      </select>
-      <input id="pw" type="password" placeholder="Password" hidden>
-    </div>
-  </header>
+  <a class="skip-link" href="#app">Lewati ke konten</a>
 
-  <div class="layout">
-    <aside class="side">
-      <button id="newBtn" class="btn primary block">+ Materi baru</button>
-      <h2>Riwayat</h2>
-      <ul id="libList" class="lib"></ul>
-      <p id="libEmpty" class="muted small">Belum ada materi tersimpan.</p>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/" aria-label="Belajar Logika, ke beranda">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M8 22.5V9.5L16 5l8 4.5v13L16 27l-8-4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 9.5 16 14l8-4.5M16 14v13" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="14" r="2.2" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-text"><strong>belajar<em>logika</em></strong><small>ruang belajar pribadi</small></span>
+      </a>
+
+      <nav class="side-nav" aria-label="Navigasi utama">
+        <a class="side-link side-home" href="#/" data-nav="home">
+          <span class="side-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="side-label">Beranda</span>
+        </a>
+        <p class="side-heading">Materi</p>
+        <div id="sidebar-materials"></div>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div id="sidebar-progress"></div>
+        <p class="side-note">Dibuat dari 2 file slide kuliah.<br />Tanpa API, tanpa biaya.</p>
+      </div>
     </aside>
 
-    <main class="main">
-      <div id="toast" class="toast" hidden></div>
+    <div class="main-wrap">
+      <header class="mobilebar">
+        <a class="brand brand-mobile" href="#/">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 22.5V9.5L16 5l8 4.5v13L16 27l-8-4.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 9.5 16 14l8-4.5M16 14v13" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="14" r="2.2" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-text"><strong>belajar<em>logika</em></strong></span>
+        </a>
+        <div id="mobile-materials" class="mobile-materials"></div>
+      </header>
 
-      <section id="intake" class="card">
-        <h1>Mau belajar apa hari ini?</h1>
-        <p class="muted">Upload materi atau paste teks. Nanti jadi ringkasan, flashcard, kuis, dan tutor chat.</p>
+      <main id="app" tabindex="-1"></main>
 
-        <label id="drop" class="drop">
-          <input id="file" type="file" accept=".pdf,.docx,.pptx,.xlsx,.txt,.md,.csv" hidden>
-          <strong id="dropText">Klik atau seret file ke sini</strong>
-          <span class="muted small">PDF, DOCX, PPTX, XLSX, TXT (maks 20 MB)</span>
-        </label>
-
-        <div class="or">atau</div>
-        <textarea id="paste" class="input" rows="5" placeholder="Paste catatan / materi di sini"></textarea>
-
-        <div class="row end">
-          <button id="goBtn" class="btn primary">Proses materi</button>
-        </div>
-      </section>
-
-      <section id="work" hidden>
-        <div class="card head">
-          <div>
-            <h1 id="mTitle"></h1>
-            <p id="mMeta" class="muted small"></p>
-          </div>
-          <button id="delBtn" class="btn ghost small">Hapus</button>
-        </div>
-
-        <nav class="tabs" role="tablist">
-          <button class="tab active" data-tab="summary">Ringkasan</button>
-          <button class="tab" data-tab="cards">Flashcard</button>
-          <button class="tab" data-tab="quiz">Kuis</button>
-          <button class="tab" data-tab="chat">Tutor</button>
-        </nav>
-
-        <div id="pane-summary" class="card pane"></div>
-        <div id="pane-cards" class="card pane" hidden></div>
-        <div id="pane-quiz" class="card pane" hidden></div>
-        <div id="pane-chat" class="card pane" hidden></div>
-      </section>
-    </main>
+      <footer class="site-foot">
+        <p><strong>Belajar Logika</strong> · catatan belajar dari slide Logika Informatika oleh Ikrima Alfi, S.T., M.Eng.</p>
+        <p class="foot-small">Semua ringkasan, flashcard, dan kuis disusun dari isi slide. Progres disimpan di browser ini.</p>
+      </footer>
+    </div>
   </div>
 
-  <script src="app.js"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Penampil slide">
+    <div class="lb-backdrop" data-lb-close></div>
+    <div class="lb-panel">
+      <div class="lb-top">
+        <div class="lb-meta"><span id="lb-material">Slide</span><span class="lb-count" id="lb-count">1 / 1</span></div>
+        <button class="icon-btn" type="button" data-lb-close aria-label="Tutup penampil slide">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <div class="lb-stage">
+        <button class="lb-nav lb-prev" type="button" data-lb-prev aria-label="Slide sebelumnya">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m14 6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <img id="lb-img" alt="" />
+        <button class="lb-nav lb-next" type="button" data-lb-next aria-label="Slide berikutnya">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m10 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="lb-foot">
+        <span id="lb-source">—</span>
+        <span class="lb-hint">← → untuk pindah slide · Esc untuk menutup</span>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
