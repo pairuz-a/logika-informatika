@@ -7,6 +7,8 @@ Ruang belajar pribadi untuk **dua materi Logika Informatika**:
 
 Semua isi diambil dari dua file slide kuliah di folder ini. Tidak ada API key, tidak ada biaya, dan tidak perlu koneksi ke layanan AI.
 
+**Situs live:** <https://pairuz-a.github.io/logika-informatika/>
+
 ## Fitur
 
 - **Ringkasan** tiap materi, disusun ulang dalam bahasa yang lebih mudah dibaca.
