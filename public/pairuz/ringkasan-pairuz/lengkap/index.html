@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M10 8h12v16H10z' fill='%23fff'/%3E%3Cpath d='M13 12h6M13 16h6M13 20h4' stroke='%230f766e' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+<title>Cheat Book UTS — Semantic Tree &amp; Substitusi</title>
+<style>
+  :root {
+    --ink: #1d1b17;
+    --muted: #5d594f;
+    --faint: #8a8477;
+    --line: #d9d2c2;
+    --line-soft: #e9e3d5;
+    --paper: #fffdf8;
+    --paper-2: #f7f3e9;
+    --teal: #0f766e;
+    --teal-soft: #e3f3ee;
+    --violet: #6d28d9;
+    --violet-soft: #f0e9ff;
+    --amber: #9a5b00;
+    --amber-soft: #fdf1d6;
+    --rose: #9f1239;
+    --rose-soft: #fde8ee;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    --mono: "Cascadia Mono", Consolas, "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: #eee9dc;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .wrap {
+    width: min(100%, 1120px);
+    margin: 0 auto;
+    padding: 22px 20px 70px;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 34px 28px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background:
+      radial-gradient(560px 240px at 88% -20%, var(--teal-soft), transparent 70%),
+      var(--paper);
+    box-shadow: 0 18px 40px -30px rgba(45, 38, 25, 0.5);
+  }
+
+  .masthead::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: linear-gradient(var(--teal), var(--violet));
+  }
+
+  .eyebrow {
+    margin: 0 0 8px;
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(30px, 4.4vw, 46px);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  h1 em {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  .lede {
+    max-width: 68ch;
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 16px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .chip i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  .chip.v i { background: var(--violet); }
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 15px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn:hover { border-color: var(--teal); color: var(--teal); }
+
+  .btn.primary {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .btn.primary:hover { background: #34302a; color: #fff; }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line-soft);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--line);
+  }
+
+  .toc a:hover { color: var(--teal); border-color: var(--teal); }
+
+  /* ---------- Sections ---------- */
+  .sheet {
+    margin-top: 20px;
+    padding: 26px 30px 30px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--paper);
+    box-shadow: 0 16px 34px -32px rgba(45, 38, 25, 0.55);
+  }
+
+  .sheet.sub { border-top: 4px solid var(--violet); }
+
+  h2 {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 4px;
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .num {
+    display: inline-grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    border-radius: 9px;
+    background: var(--teal-soft);
+    color: var(--teal);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .sheet.sub .num { background: var(--violet-soft); color: var(--violet); }
+
+  h3 {
+    margin: 20px 0 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  h3:first-of-type { margin-top: 14px; }
+
+  p { margin: 8px 0; }
+
+  .subnote {
+    margin: 2px 0 0;
+    color: var(--faint);
+    font-size: 12px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .grid.tight { gap: 12px; }
+
+  .block {
+    min-width: 0;
+  }
+
+  .card {
+    padding: 14px 16px;
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    background: var(--paper-2);
+  }
+
+  .card.white { background: #fff; }
+
+  .card h4 {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+
+  .card p:last-child, .card ul:last-child, .card ol:last-child { margin-bottom: 0; }
+
+  /* ---------- Lists ---------- */
+  ul, ol { margin: 7px 0; padding-left: 20px; }
+
+  li { margin: 4px 0; }
+
+  li::marker { color: var(--faint); font-weight: 700; }
+
+  .steps { list-style: none; padding-left: 0; counter-reset: step; }
+
+  .steps li {
+    position: relative;
+    margin: 7px 0;
+    padding-left: 30px;
+    counter-increment: step;
+  }
+
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    display: grid;
+    place-items: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: var(--teal-soft);
+    color: var(--teal);
+    font-size: 10.5px;
+    font-weight: 800;
+  }
+
+  .sheet.sub .steps li::before { background: var(--violet-soft); color: var(--violet); }
+
+  /* ---------- Tables ---------- */
+  table {
+    width: 100%;
+    margin: 9px 0;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  th, td {
+    padding: 6px 9px;
+    border: 1px solid var(--line-soft);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--paper-2);
+    color: var(--muted);
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  tbody tr:nth-child(even) td { background: #fdfbf5; }
+
+  td.c, th.c { text-align: center; }
+
+  .ok { color: var(--teal); font-weight: 800; }
+  .no { color: var(--rose); font-weight: 800; }
+
+  /* ---------- Formulas ---------- */
+  .f {
+    display: inline-block;
+    padding: 2px 6px;
+    border: 1px solid var(--line-soft);
+    border-radius: 6px;
+    background: #fff;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+
+  .f.block {
+    display: block;
+    padding: 9px 12px;
+    margin: 8px 0;
+    white-space: normal;
+    font-size: 13px;
+  }
+
+  .f .hl { color: var(--teal); font-weight: 700; }
+
+  .sheet.sub .f .hl { color: var(--violet); }
+
+  .eq {
+    margin: 8px 0;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ---------- Callouts ---------- */
+  .callout {
+    margin: 12px 0;
+    padding: 11px 14px;
+    border-left: 3px solid var(--teal);
+    border-radius: 0 11px 11px 0;
+    background: var(--teal-soft);
+    font-size: 12.5px;
+  }
+
+  .callout strong { color: var(--teal); }
+
+  .callout.warn {
+    border-color: #d08a17;
+    background: var(--amber-soft);
+  }
+
+  .callout.warn strong { color: var(--amber); }
+
+  .callout.bad {
+    border-color: #c0345d;
+    background: var(--rose-soft);
+  }
+
+  .callout.bad strong { color: var(--rose); }
+
+  .callout p:first-child { margin-top: 0; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* ---------- Tree figure ---------- */
+  figure {
+    margin: 10px 0;
+    padding: 12px 14px 8px;
+    border: 1px solid var(--line-soft);
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  figure svg { display: block; width: 100%; height: auto; }
+
+  figcaption {
+    margin-top: 6px;
+    color: var(--faint);
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .tree-t { fill: var(--teal); font-weight: 700; }
+  .tree-f { fill: var(--rose); font-weight: 700; }
+  .tree-node { fill: #fff; stroke: var(--ink); stroke-width: 1.6; }
+  .tree-edge { stroke: #8f8a7d; stroke-width: 1.6; fill: none; }
+  .tree-text { fill: var(--ink); font-family: "Segoe UI", system-ui, sans-serif; }
+  .tree-label { fill: var(--muted); font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; }
+  .tree-num { fill: var(--ink); font-family: "Segoe UI", system-ui, sans-serif; font-size: 11px; font-weight: 700; }
+
+  /* ---------- Answer boxes ---------- */
+  .answer {
+    padding: 10px 13px;
+    border: 1px dashed var(--line);
+    border-radius: 11px;
+    background: #fff;
+    font-size: 12.5px;
+  }
+
+  .answer strong { color: var(--teal); }
+
+  .sheet.sub .answer strong { color: var(--violet); }
+
+  .pill {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .pill.ok { background: var(--teal-soft); color: var(--teal); }
+  .pill.no { background: var(--rose-soft); color: var(--rose); }
+
+  /* ---------- Checklist ---------- */
+  .checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 22px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: check;
+  }
+
+  .checklist li {
+    position: relative;
+    margin: 0;
+    padding: 3px 0 3px 27px;
+    counter-increment: check;
+    font-size: 12.5px;
+  }
+
+  .checklist li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    background: var(--teal-soft);
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .foot {
+    margin-top: 22px;
+    color: var(--faint);
+    font-size: 11px;
+    text-align: center;
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    @page { size: A4; margin: 8mm 8mm 9mm; }
+
+    body {
+      background: #fff;
+      font-size: 8.6pt;
+      line-height: 1.3;
+    }
+
+    .wrap { width: auto; max-width: none; margin: 0; padding: 0; }
+
+    .toolbar, .toc, .noprint, .chips { display: none !important; }
+
+    .masthead {
+      padding: 7px 10px 6px;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 2px solid var(--ink);
+      box-shadow: none;
+      background: #fff;
+    }
+
+    .masthead::before { display: none; }
+
+    h1 { font-size: 17pt; }
+
+    .lede { font-size: 8.4pt; margin-top: 3px; }
+
+    .sheet {
+      margin-top: 6px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      background: #fff;
+    }
+
+    .sheet.sub { border-top: 0; }
+
+    .sheet + .sheet { border-top: 1px solid var(--line); padding-top: 6px; }
+
+    h2 { font-size: 12.5pt; margin-bottom: 2px; gap: 6px; }
+
+    .num { width: 17px; height: 17px; font-size: 7.6pt; border-radius: 5px; }
+
+    .subnote { font-size: 7.6pt; }
+
+    h3 { font-size: 8.6pt; margin: 6px 0 3px; }
+
+    h4 { font-size: 7.8pt; margin-bottom: 3px; }
+
+    p { margin: 3px 0; }
+
+    p, li { orphans: 2; widows: 2; }
+
+    .card { padding: 5px 7px; border-radius: 6px; background: #fff; }
+
+    .callout { margin: 5px 0; padding: 4px 7px; font-size: 8.1pt; border-radius: 0 5px 5px 0; }
+
+    table { font-size: 7.5pt; margin: 3px 0; }
+
+    th, td { padding: 2px 3px; }
+
+    th { font-size: 6.7pt; }
+
+    .f { font-size: 7.5pt; padding: 1px 3px; }
+    .f.block { font-size: 7.9pt; padding: 3px 5px; margin: 3px 0; }
+    .eq { font-size: 7.9pt; margin: 2px 0; }
+
+    figure { max-width: 470px; margin: 4px auto; padding: 2px 5px 0; border-radius: 6px; }
+
+    .grid { gap: 7px; }
+
+    .steps li { margin: 2px 0; padding-left: 20px; }
+    .steps li::before { width: 13px; height: 13px; font-size: 6.6pt; }
+
+    .checklist { gap: 2px 14px; }
+    .checklist li { font-size: 8pt; padding-left: 19px; }
+    .checklist li::before { width: 13px; height: 13px; font-size: 7pt; }
+
+    thead { display: table-header-group; }
+
+    tr, .steps li, .checklist li { break-inside: avoid; }
+
+    .callout, .answer, figure, .eq { break-inside: avoid; }
+
+    h2, h3, h4 { break-after: avoid; }
+
+    .foot { font-size: 7pt; margin-top: 6px; }
+
+    a { color: inherit; text-decoration: none; }
+  }
+
+  @media (max-width: 760px) {
+    .wrap { padding: 14px 12px 50px; }
+    .masthead { padding: 24px 20px 22px; border-radius: 16px; }
+    .sheet { padding: 22px 18px 24px; border-radius: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .checklist { grid-template-columns: 1fr; }
+    h2 { font-size: 22px; }
+    table { font-size: 11.5px; }
+    th, td { padding: 5px 6px; }
+    .f { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Cheat Book · Versi Lengkap</p>
+    <h1>Logika Informatika<br /><em>Semantic Tree &amp; Substitusi</em></h1>
+    <p class="lede">Rangkuman padat Materi 7 dan 8: pohon semantik, proof by falsification, dan seluruh jenis substitusi. Disusun dari slide kuliah Ikrima Alfi, S.T., M.Eng.</p>
+    <div class="chips">
+      <span class="chip"><i></i> 2 materi</span>
+      <span class="chip"><i></i> 59 slide</span>
+      <span class="chip v"><i></i> siap cetak A4</span>
+      <span class="chip v"><i></i> contoh + jebakan ujian</span>
+    </div>
+    <div class="toolbar noprint">
+      <a class="btn primary" href="../">← Versi 1 lembar A4</a>
+      <button class="btn" type="button" onclick="window.print()">Cetak / Simpan PDF</button>
+      <a class="btn" href="../../../">Situs</a>
+    </div>
+    <nav class="toc">
+      <a href="#peta">Peta soal → metode</a>
+      <a href="#dasar">Dasar logika</a>
+      <a href="#pohon">Pohon semantik</a>
+      <a href="#falsifikasi">Proof by falsification</a>
+      <a href="#substitusi">Substitusi</a>
+      <a href="#checklist">Checklist UTS</a>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       PETA SOAL
+       ============================================================ -->
+  <section class="sheet" id="peta">
+    <h2><span class="num">0</span> Peta cepat: soal minta apa?</h2>
+    <p class="subnote">Baca kata kerja di soal, lalu pilih alatnya. Ini yang paling sering menyelamatkan waktu saat open book.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:34%">Kalau soal meminta…</th>
+          <th style="width:22%">Pakai</th>
+          <th>Kunci singkat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cek validitas, variabel sedikit (± 2–3)</td>
+          <td><strong>Tabel kebenaran</strong></td>
+          <td>Cari satu baris yang membuat kalimat <span class="no">false</span>. Ada? invalid. Tidak ada? valid.</td>
+        </tr>
+        <tr>
+          <td>Gambar pohon / uji validitas lebih cepat</td>
+          <td><strong>Pohon semantik</strong></td>
+          <td>Kiri = <span class="ok">T</span>, kanan = <span class="no">F</span>. Berhenti saat daun sudah dapat T/F.</td>
+        </tr>
+        <tr>
+          <td>Buktikan valid / cari counterexample</td>
+          <td><strong>Proof by falsification</strong></td>
+          <td>Anggap kalimat <span class="no">salah</span>. Kontradiksi ⇒ valid. Konsisten ⇒ invalid.</td>
+        </tr>
+        <tr>
+          <td>Tentukan sifat kalimat</td>
+          <td><strong>Lihat daun</strong></td>
+          <td>Semua T = valid; minimal 1 T = satisfiable; semua F = contradictory.</td>
+        </tr>
+        <tr>
+          <td>Ganti satu kalimat bagian</td>
+          <td><strong>Substitusi tunggal</strong></td>
+          <td>Total <span class="f">◀</span> = semua kemunculan. Parsial <span class="f">◁</span> = sebagian / bertahap.</td>
+        </tr>
+        <tr>
+          <td>Ganti beberapa kalimat bagian</td>
+          <td><strong>Substitusi multi</strong></td>
+          <td>Ganti <em>Gj</em> yang lebih besar dulu, baru <em>Gi</em> yang menjadi bagiannya.</td>
+        </tr>
+        <tr>
+          <td>Hitung banyak hasil parsial</td>
+          <td><strong>Rumus 2<sup>n</sup></strong></td>
+          <td>Satu G: <span class="f">2<sup>n</sup></span>. Banyak G: <span class="f">2<sup>n1+n2+…+nm</sup></span>.</td>
+        </tr>
+        <tr>
+          <td>Substitusi berantai</td>
+          <td><strong>Substitusi berulang</strong></td>
+          <td>Selesaikan R1 dulu; hasil R1 menjadi input R2.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============================================================
+       DASAR
+       ============================================================ -->
+  <section class="sheet" id="dasar">
+    <h2><span class="num">1</span> Dasar yang wajib nempel</h2>
+    <p class="subnote">Semua metode di bawah memakai tabel kebenaran ini. Hafalkan baris yang <strong>false</strong> saja.</p>
+
+    <div class="grid">
+      <div class="block">
+        <table>
+          <thead>
+            <tr>
+              <th class="c">P</th>
+              <th class="c">Q</th>
+              <th class="c">¬P</th>
+              <th class="c">P ∧ Q</th>
+              <th class="c">P ∨ Q</th>
+              <th class="c">P → Q</th>
+              <th class="c">P ↔ Q</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="c">T</td><td class="c">T</td><td class="c">F</td><td class="c">T</td><td class="c">T</td><td class="c">T</td><td class="c">T</td></tr>
+            <tr><td class="c">T</td><td class="c">F</td><td class="c">F</td><td class="c">F</td><td class="c">T</td><td class="no c">F</td><td class="c">F</td></tr>
+            <tr><td class="c">F</td><td class="c">T</td><td class="c">T</td><td class="c">F</td><td class="c">T</td><td class="c">T</td><td class="c">F</td></tr>
+            <tr><td class="c">F</td><td class="c">F</td><td class="c">T</td><td class="c">F</td><td class="c">F</td><td class="c">T</td><td class="c">T</td></tr>
+          </tbody>
+        </table>
+        <div class="callout warn">
+          <p><strong>Implikasi P → Q hanya salah saat P = T dan Q = F.</strong> Untuk membuktikan implikasi salah, paksa anteseden T dan konsekuen F.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="card white">
+          <h4>Ekuivalensi yang sering dipakai</h4>
+          <div class="eq">P → Q ≡ ¬P ∨ Q</div>
+          <div class="eq">¬(P ∧ Q) ≡ ¬P ∨ ¬Q</div>
+          <div class="eq">¬(P ∨ Q) ≡ ¬P ∧ ¬Q</div>
+          <div class="eq">P ↔ Q ≡ (P → Q) ∧ (Q → P)</div>
+          <div class="eq">P → Q ≡ ¬Q → ¬P</div>
+          <p class="subnote">Dua yang terakhir adalah kontraposisi dan definisi ekuivalensi; sering mempercepat proof by falsification.</p>
+        </div>
+        <div class="card" style="margin-top:10px">
+          <h4>Istilah yang jangan tertukar</h4>
+          <ul>
+            <li><strong>Valid / tautologi</strong> — selalu <span class="ok">T</span> untuk semua interpretasi.</li>
+            <li><strong>Satisfiable</strong> — minimal ada satu interpretasi yang membuatnya <span class="ok">T</span>.</li>
+            <li><strong>Contradictory</strong> — selalu <span class="no">F</span> untuk semua interpretasi.</li>
+            <li><strong>Invalid</strong> — minimal ada satu interpretasi yang membuatnya <span class="no">F</span>.</li>
+          </ul>
+          <p class="subnote">Valid pasti satisfiable. Contradictory tidak satisfiable. Jangan balik arahnya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       POHON SEMANTIK
+       ============================================================ -->
+  <section class="sheet" id="pohon">
+    <h2><span class="num">2</span> Pohon semantik</h2>
+    <p class="subnote">Materi 7 — menguji validitas dengan memecah kasus true/false menjadi cabang.</p>
+
+    <div class="grid tight">
+      <div class="block">
+        <div class="card">
+          <h4>Definisi &amp; ide utama</h4>
+          <p>Pohon semantik adalah metode pengujian validitas yang digambarkan sebagai pohon. Setiap simbol proposisional membentuk dua cabang:</p>
+          <ul>
+            <li><strong>cabang kiri = true</strong></li>
+            <li><strong>cabang kanan = false</strong></li>
+          </ul>
+          <p>Lebih efisien daripada tabel kebenaran karena evaluasi berhenti begitu nilai kalimat pada suatu cabang sudah bisa ditentukan T atau F.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="card">
+          <h4>Anatomi pohon</h4>
+          <ul>
+            <li><strong>Node akar</strong> — node pertama (node 1).</li>
+            <li><strong>Node daun / leaf</strong> — ujung cabang yang sudah punya nilai T/F.</li>
+            <li><strong>Node internal</strong> — node yang bukan akar dan bukan daun.</li>
+            <li><strong>Jumlah jalur</strong> — banyaknya jalur dari akar sampai daun.</li>
+            <li><strong>Panjang jalur</strong> — banyaknya garis penghubung dari akar sampai daun.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3>Langkah membuat pohon</h3>
+    <ol class="steps">
+      <li>Buat node 1 (akar), node 2, dan garis penghubungnya.</li>
+      <li>Pilih satu simbol proposisional, misalnya P. Cabang kiri diberi <strong>P true</strong>, cabang kanan <strong>P false</strong>.</li>
+      <li>Hitung nilai kalimat pada cabang itu. Kalau sudah T/F, tulis nilainya di bawah node.</li>
+      <li>Kalau belum, buat cabang baru untuk simbol berikutnya (misalnya Q), lalu ulangi.</li>
+      <li>Lakukan sampai semua cabang punya nilai T/F.</li>
+      <li>Tulis interpretasi yang sesuai untuk tiap daun.</li>
+    </ol>
+    <div class="callout">
+      <p><strong>Tips memilih simbol:</strong> pilih simbol yang paling banyak muncul, atau yang paling cepat membuat kalimat bisa dievaluasi. Simbol yang muncul di luar implikasi sering lebih cepat menentukan hasil.</p>
+    </div>
+
+    <h3>Contoh 1 — <span class="f">E = ¬R → (¬R ∧ Q)</span></h3>
+
+    <figure>
+      <svg viewBox="0 0 560 328" role="img" aria-label="Pohon semantik untuk E = not R implies (not R and Q)">
+        <text x="280" y="16" text-anchor="middle" class="tree-text" font-size="12.5" font-weight="700">E = ¬R → (¬R ∧ Q)</text>
+
+        <line x1="280" y1="62" x2="152" y2="137" class="tree-edge" />
+        <line x1="280" y1="62" x2="408" y2="137" class="tree-edge" />
+        <line x1="408" y1="159" x2="330" y2="240" class="tree-edge" />
+        <line x1="408" y1="159" x2="486" y2="240" class="tree-edge" />
+
+        <text x="212" y="94" class="tree-t" font-size="11.5" text-anchor="middle">T</text>
+        <text x="348" y="94" class="tree-f" font-size="11.5" text-anchor="middle">F</text>
+        <text x="371" y="196" class="tree-t" font-size="11.5" text-anchor="middle">T</text>
+        <text x="447" y="196" class="tree-f" font-size="11.5" text-anchor="middle">F</text>
+
+        <circle cx="280" cy="45" r="17" class="tree-node" />
+        <text x="280" y="49" text-anchor="middle" class="tree-num">1</text>
+        <text x="280" y="82" text-anchor="middle" class="tree-label">R?</text>
+
+        <circle cx="152" cy="148" r="17" class="tree-node" />
+        <text x="152" y="152" text-anchor="middle" class="tree-num">2</text>
+        <text x="152" y="184" text-anchor="middle" class="tree-label">R = T</text>
+        <text x="152" y="201" text-anchor="middle" class="tree-t" font-size="15" font-weight="800">T</text>
+
+        <circle cx="408" cy="148" r="17" class="tree-node" />
+        <text x="408" y="152" text-anchor="middle" class="tree-num">3</text>
+        <text x="408" y="184" text-anchor="middle" class="tree-label">R = F</text>
+        <text x="408" y="201" text-anchor="middle" class="tree-label">E = Q</text>
+
+        <circle cx="330" cy="251" r="17" class="tree-node" />
+        <text x="330" y="255" text-anchor="middle" class="tree-num">4</text>
+        <text x="330" y="287" text-anchor="middle" class="tree-label">Q = T</text>
+        <text x="330" y="304" text-anchor="middle" class="tree-t" font-size="15" font-weight="800">T</text>
+
+        <circle cx="486" cy="251" r="17" class="tree-node" />
+        <text x="486" y="255" text-anchor="middle" class="tree-num">5</text>
+        <text x="486" y="287" text-anchor="middle" class="tree-label">Q = F</text>
+        <text x="486" y="304" text-anchor="middle" class="tree-f" font-size="15" font-weight="800">F</text>
+      </svg>
+      <figcaption>Kiri selalu true, kanan selalu false. Daun: T, T, F.</figcaption>
+    </figure>
+
+    <div class="grid tight">
+      <div class="block">
+        <div class="answer">
+          <p><strong>Daun:</strong> T (R=T) · T (R=F, Q=T) · F (R=F, Q=F).</p>
+          <p><strong>Kesimpulan:</strong> ada daun F ⇒ <span class="pill no">tidak valid</span>. Ada daun T ⇒ <span class="pill ok">satisfiable</span>.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="card">
+          <h4>Hitung jalur pada pohon ini</h4>
+          <ul>
+            <li>Jalur <span class="f">1–2</span> → panjang <strong>1</strong></li>
+            <li>Jalur <span class="f">1–3–4</span> → panjang <strong>2</strong></li>
+            <li>Jalur <span class="f">1–3–5</span> → panjang <strong>2</strong></li>
+          </ul>
+          <p><strong>Jumlah jalur = 3.</strong> Jumlah jalur selalu sama dengan jumlah daun.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Contoh 2 — <span class="f">G = (P → Q) → (¬P → ¬Q)</span></h3>
+    <div class="grid tight">
+      <div class="block">
+        <table>
+          <thead>
+            <tr>
+              <th class="c">P</th>
+              <th class="c">Q</th>
+              <th class="c">P → Q</th>
+              <th class="c">¬P → ¬Q</th>
+              <th class="c">G</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="c">T</td><td class="c">T</td><td class="c">T</td><td class="c">T</td><td class="c ok">T</td></tr>
+            <tr><td class="c">T</td><td class="c">F</td><td class="c">F</td><td class="c">T</td><td class="c ok">T</td></tr>
+            <tr><td class="c">F</td><td class="c">T</td><td class="c">T</td><td class="c no">F</td><td class="c no">F</td></tr>
+            <tr><td class="c">F</td><td class="c">F</td><td class="c">T</td><td class="c">T</td><td class="c ok">T</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block">
+        <div class="answer">
+          <p><strong>Daun:</strong> T, T, F, T.</p>
+          <p>Karena ada daun F, G <span class="pill no">tidak valid</span>. G tetap <span class="pill ok">satisfiable</span> karena masih ada daun T.</p>
+          <p><strong>Counterexample:</strong> <span class="f">P = F, Q = T</span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Sifat kalimat dari label daun</h3>
+    <table>
+      <thead>
+        <tr><th style="width:26%">Sifat</th><th style="width:34%">Pohon semantik</th><th>Arti</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Valid / tautologi</strong></td><td><strong>Semua</strong> daun <span class="ok">true</span></td><td>True pada semua interpretasi.</td></tr>
+        <tr><td><strong>Satisfiable</strong></td><td><strong>Minimal satu</strong> daun <span class="ok">true</span></td><td>Ada interpretasi yang membuatnya true.</td></tr>
+        <tr><td><strong>Contradictory</strong></td><td><strong>Semua</strong> daun <span class="no">false</span></td><td>False pada semua interpretasi.</td></tr>
+        <tr><td><strong>Invalid</strong></td><td><strong>Minimal satu</strong> daun <span class="no">false</span></td><td>Ada interpretasi yang membuatnya false.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bad">
+      <p><strong>Jebakan nomor satu:</strong> satu daun F sudah cukup untuk menyimpulkan <em>tidak valid</em>. Jangan bilang “satisfiable” lalu lupa menyebut “tidak valid” — dua-duanya bisa benar sekaligus.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FALSIFIKASI
+       ============================================================ -->
+  <section class="sheet" id="falsifikasi">
+    <h2><span class="num">3</span> Proof by falsification</h2>
+    <p class="subnote">“Metode menyalahkan”: buktikan validitas dengan menunjukkan bahwa kalimat <em>tidak mungkin</em> salah.</p>
+
+    <div class="grid">
+      <div class="block">
+        <h3>Langkah baku</h3>
+        <ol class="steps">
+          <li>Anggap kalimat itu <strong>salah</strong>.</li>
+          <li>Runtuhkan syarat agar kalimat salah (untuk implikasi: anteseden T, konsekuen F).</li>
+          <li>Cek apakah syarat itu bisa dipenuhi.</li>
+          <li><strong>Mustahil / kontradiksi</strong> ⇒ kalimat <span class="pill ok">valid</span>. <strong>Bisa dipenuhi</strong> ⇒ kalimat <span class="pill no">invalid</span>; tulis interpretasinya sebagai counterexample.</li>
+        </ol>
+        <div class="callout">
+          <p><strong>Kenapa sah?</strong> Kalimat valid berarti true di semua interpretasi. Kalau asumsi “salah” berujung kontradiksi, tidak ada interpretasi yang membuatnya salah — jadi pasti valid.</p>
+        </div>
+      </div>
+      <div class="block">
+        <h3>Template jawaban ujian</h3>
+        <div class="card white">
+          <p><strong>1.</strong> Andaikan <span class="f">X</span> salah.</p>
+          <p><strong>2.</strong> Maka … (tulis syarat tiap operator).</p>
+          <p><strong>3.</strong> Dari langkah 2 diperoleh …</p>
+          <p><strong>4.</strong> Kontradiksi / ditemukan nilai P, Q, …</p>
+          <p><strong>5.</strong> Jadi <span class="f">X</span> valid / invalid.</p>
+        </div>
+        <p class="subnote">Selalu tulis nilai proposisi yang kamu pilih. Untuk soal invalid, counterexample adalah jawaban intinya.</p>
+      </div>
+    </div>
+
+    <h3>Contoh valid — <span class="f">E = (¬P ∨ ¬Q) → ¬(P ∧ Q)</span></h3>
+    <div class="card">
+      <p><strong>Andaikan E salah.</strong> Implikasi salah hanya jika anteseden T dan konsekuen F.</p>
+      <p>Konsekuen F: <span class="f">¬(P ∧ Q) = F</span> ⇒ <span class="f">P ∧ Q = T</span> ⇒ <span class="f">P = T, Q = T</span>.</p>
+      <p>Cek anteseden dengan P = T, Q = T: <span class="f">¬P ∨ ¬Q = F ∨ F = F</span>.</p>
+      <p>Padahal anteseden harus T. <strong>Kontradiksi</strong> ⇒ tidak ada cara membuat E salah ⇒ E <span class="pill ok">valid</span>.</p>
+      <p class="subnote">Bentuk ini juga langsung terlihat dari De Morgan: ¬P ∨ ¬Q ≡ ¬(P ∧ Q), jadi E berbentuk X → X.</p>
+    </div>
+
+    <div class="grid tight" style="margin-top:12px">
+      <div class="block">
+        <h3>Contoh valid lain — <span class="f">H = (P → Q) ∨ (P ∧ ¬Q)</span></h3>
+        <div class="card">
+          <p><strong>Andaikan H salah.</strong> Disjungsi salah berarti <em>kedua</em> sisi F.</p>
+          <p><span class="f">P → Q = F</span> ⇒ <span class="f">P = T, Q = F</span>.</p>
+          <p>Lalu <span class="f">P ∧ ¬Q = T ∧ T = T</span>, bertentangan dengan syarat sisi kedua F.</p>
+          <p><strong>Kontradiksi</strong> ⇒ H <span class="pill ok">valid</span>.</p>
+        </div>
+      </div>
+      <div class="block">
+        <h3>Contoh invalid — <span class="f">F = (P → Q) → (¬P → ¬Q)</span></h3>
+        <div class="card">
+          <p><strong>Andaikan F salah.</strong> Maka <span class="f">P → Q = T</span> dan <span class="f">¬P → ¬Q = F</span>.</p>
+          <p>Dari sisi kedua: <span class="f">¬P = T, ¬Q = F</span> ⇒ <span class="f">P = F, Q = T</span>.</p>
+          <p>Cek sisi pertama: <span class="f">P → Q = F → T = T</span>. Konsisten.</p>
+          <p>Jadi F <span class="pill no">invalid</span>; counterexample <span class="f">P = F, Q = T</span>.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Latihan dari slide</h3>
+    <table>
+      <thead>
+        <tr><th style="width:40%">Kalimat</th><th style="width:16%">Hasil</th><th>Alasan / counterexample</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="f">(P → Q) ↔ (¬P ∨ Q)</span></td>
+          <td><span class="pill ok">Valid</span></td>
+          <td>Kedua ruas ekuivalen menurut hukum implikasi, jadi selalu true.</td>
+        </tr>
+        <tr>
+          <td><span class="f">(P → Q) → ((P ∧ Q) ∨ S)</span></td>
+          <td><span class="pill no">Invalid</span></td>
+          <td>Ambil <span class="f">P = F, S = F</span>: anteseden <span class="f">F → Q = T</span>; konsekuen <span class="f">(F ∧ Q) ∨ F = F</span>; hasil <span class="f">T → F = F</span>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <p><strong>Urutan meruntuhkan operator:</strong> implikasi salah ⇒ T → F. Disjungsi salah ⇒ keduanya F. Konjungsi salah ⇒ minimal satu F. Negasi salah ⇒ isinya T. Ekuivalensi salah ⇒ nilai kedua sisi berbeda.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SUBSTITUSI
+       ============================================================ -->
+  <section class="sheet sub" id="substitusi">
+    <h2><span class="num">4</span> Substitusi</h2>
+    <p class="subnote">Materi 8 — mengganti kalimat bagian (subformula) dengan kalimat lain.</p>
+
+    <div class="grid">
+      <div class="block">
+        <div class="card">
+          <h4>Definisi &amp; notasi</h4>
+          <p>Substitusi adalah mengganti satu atau lebih <strong>kalimat bagian</strong> di dalam suatu kalimat dengan kalimat lain.</p>
+          <ul>
+            <li><strong>F</strong> — kalimat yang dikenai substitusi</li>
+            <li><strong>G</strong> — kalimat yang diganti</li>
+            <li><strong>H</strong> — kalimat pengganti</li>
+          </ul>
+          <p>Hasilnya kalimat baru. Bentuk dan nilai kebenarannya <em>bisa sama atau berbeda</em> dari kalimat semula.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="card">
+          <h4>Dua operator — jangan tertukar</h4>
+          <p><span class="f">F ◀ G ← H</span> — substitusi <strong>total</strong> (segitiga hitam).</p>
+          <p><span class="f">F ◁ G ← H</span> — substitusi <strong>parsial</strong> (segitiga putih).</p>
+          <p>Ingat: <strong>hitam = penuh / semua</strong>; <strong>putih = sebagian</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Jenis-jenis substitusi</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:20%">Jenis</th>
+          <th class="c" style="width:11%">Operator</th>
+          <th style="width:26%">Notasi</th>
+          <th>Hasil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tunggal total</strong></td>
+          <td class="c"><span class="f">◀</span></td>
+          <td><span class="f">F ◀ G ← H</span></td>
+          <td>1 hasil: <strong>semua</strong> kemunculan G diganti H sekaligus.</td>
+        </tr>
+        <tr>
+          <td><strong>Tunggal parsial</strong></td>
+          <td class="c"><span class="f">◁</span></td>
+          <td><span class="f">F ◁ G ← H</span></td>
+          <td>Banyak hasil: 0, 1, 2, …, sampai semua kemunculan. Maksimal <span class="f">2<sup>n</sup></span>.</td>
+        </tr>
+        <tr>
+          <td><strong>Multi total</strong></td>
+          <td class="c"><span class="f">◀</span></td>
+          <td><span class="f">F ◀ G₁←H₁, G₂←H₂, …</span></td>
+          <td>1 hasil: semua kemunculan beberapa G diganti sekaligus.</td>
+        </tr>
+        <tr>
+          <td><strong>Multi parsial</strong></td>
+          <td class="c"><span class="f">◁</span></td>
+          <td><span class="f">F ◁ G₁←H₁, G₂←H₂, …</span></td>
+          <td>Banyak hasil: sebagian kemunculan beberapa G diganti bertahap. Maksimal <span class="f">2<sup>n1+n2+…+nm</sup></span>.</td>
+        </tr>
+        <tr>
+          <td><strong>Berulang</strong></td>
+          <td class="c">—</td>
+          <td><span class="f">R1 lalu R2</span></td>
+          <td>Hasil R1 menjadi input R2. R1 harus selesai dulu.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>1) Substitusi tunggal total</h3>
+    <div class="grid tight">
+      <div class="block">
+        <div class="card">
+          <p><span class="f">F = (P ∧ Q) → Q</span>, <span class="f">G = Q</span>, <span class="f">H = R ∧ S</span>.</p>
+          <p>Q muncul <strong>dua kali</strong> (di anteseden dan konsekuen). Karena total, <strong>semua</strong> diganti sekaligus:</p>
+          <div class="f block">F ◀ Q ← (R ∧ S) = (P ∧ (R ∧ S)) → (R ∧ S)</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="callout bad">
+          <p><strong>Salah kalau cuma satu:</strong> <span class="f">(P ∧ (R ∧ S)) → Q</span> bukan hasil total — itu hasil parsial.</p>
+          <p>Total = <em>semua kemunculan</em>, dalam satu langkah.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>2) Substitusi tunggal parsial</h3>
+    <p>Dengan F, G, H yang sama dan Q muncul dua kali, ada <span class="f">2<sup>2</sup> = 4</span> hasil:</p>
+    <div class="grid tight">
+      <div class="block">
+        <table>
+          <thead>
+            <tr><th class="c" style="width:12%">#</th><th style="width:38%">Yang diganti</th><th>Hasil</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="c">0</td><td>tidak ada</td><td><span class="f">(P ∧ Q) → Q</span></td></tr>
+            <tr><td class="c">1</td><td>Q pertama (anteseden)</td><td><span class="f">(P ∧ (R ∧ S)) → Q</span></td></tr>
+            <tr><td class="c">2</td><td>Q kedua (konsekuen)</td><td><span class="f">(P ∧ Q) → (R ∧ S)</span></td></tr>
+            <tr><td class="c">3</td><td>keduanya</td><td><span class="f">(P ∧ (R ∧ S)) → (R ∧ S)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block">
+        <div class="callout">
+          <p><strong>Hasil nol penggantian tetap dihitung:</strong> hasilnya kalimat asli. Jangan lupa menuliskannya saat soal meminta “semua hasil”.</p>
+        </div>
+        <div class="card">
+          <h4>Rumus banyak hasil</h4>
+          <p>Satu G dengan n kemunculan:</p>
+          <div class="eq">banyak hasil = 2<sup>n</sup></div>
+          <p>Beberapa G dengan n₁, n₂, …, nₘ kemunculan:</p>
+          <div class="eq">2<sup>n1</sup> × 2<sup>n2</sup> × … × 2<sup>nm</sup> = 2<sup>n1+n2+…+nm</sup></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>3) Substitusi multi total &amp; aturan prioritas</h3>
+    <div class="callout warn">
+      <p><strong>Aturan prioritas:</strong> kalau <em>Gi</em> adalah kalimat bagian dari <em>Gj</em>, ganti <strong>Gj dulu</strong> (yang lebih besar), baru <em>Gi</em>. Kalau <em>Gi</em> diganti dulu, kemunculannya di dalam <em>Gj</em> bisa hilang atau terlewat.</p>
+    </div>
+    <div class="card">
+      <p><span class="f">F = ((P ∧ Q) ∨ S) → (Q ∨ R)</span></p>
+      <p><span class="f">G₁ = Q</span>, <span class="f">H₁ = R ∧ S</span> · <span class="f">G₂ = P ∧ Q</span>, <span class="f">H₂ = R</span></p>
+      <p>Karena Q adalah bagian dari P ∧ Q, dahulukan <strong>G₂</strong>:</p>
+      <div class="eq">G₂ → R:&nbsp;&nbsp; (R ∨ S) → (Q ∨ R)</div>
+      <div class="eq">lalu Q yang tersisa di konsekuen → R ∧ S:</div>
+      <div class="f block">F ◀ G₁←(R∧S), G₂←R = (R ∨ S) → ((R ∧ S) ∨ R)</div>
+    </div>
+
+    <h3>4) Substitusi multi parsial</h3>
+    <div class="grid tight">
+      <div class="block">
+        <p>Dengan F dan aturan yang sama, hitung kemunculan yang <strong>berdiri sendiri</strong>: <span class="f">n₁ = 1</span> (Q di konsekuen) dan <span class="f">n₂ = 1</span> (P ∧ Q). Maka ada <span class="f">2 × 2 = 4</span> hasil:</p>
+        <table>
+          <thead>
+            <tr><th class="c" style="width:12%">#</th><th style="width:36%">Yang diganti</th><th>Hasil</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="c">0</td><td>tidak ada</td><td><span class="f">((P ∧ Q) ∨ S) → (Q ∨ R)</span></td></tr>
+            <tr><td class="c">1</td><td>hanya G₁</td><td><span class="f">((P ∧ Q) ∨ S) → ((R ∧ S) ∨ R)</span></td></tr>
+            <tr><td class="c">2</td><td>hanya G₂</td><td><span class="f">(R ∨ S) → (Q ∨ R)</span></td></tr>
+            <tr><td class="c">3</td><td>G₂ lalu G₁</td><td><span class="f">(R ∨ S) → ((R ∧ S) ∨ R)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block">
+        <div class="callout">
+          <p><strong>Jangan menghitung ganda.</strong> Q di dalam P ∧ Q sudah tercakup oleh G₂, jadi bukan kemunculan mandiri G₁. Hitung yang berdiri sendiri saja.</p>
+        </div>
+        <div class="card">
+          <h4>Urutan aman multi parsial</h4>
+          <ol class="steps">
+            <li>Tulis semua G dan H.</li>
+            <li>Tandai kemunculan mandiri tiap G.</li>
+            <li>Tentukan prioritas: Gj lebih besar dulu.</li>
+            <li>Daftar semua kombinasi (termasuk nol penggantian).</li>
+            <li>Cek jumlah hasil dengan rumus 2<sup>Σn</sup>.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <h3>5) Substitusi berulang</h3>
+    <div class="card">
+      <p><span class="f">E = (P ∧ Q) → (P ∨ S)</span></p>
+      <p><strong>R1:</strong> ganti P di anteseden dengan <span class="f">R ∨ S</span>.</p>
+      <div class="eq">E₁ = ((R ∨ S) ∧ Q) → (P ∨ S)</div>
+      <p><strong>R2:</strong> pada E₁, ganti P di konsekuen dengan <span class="f">¬P</span> dan S dengan <span class="f">Q ∧ P</span>.</p>
+      <div class="f block">E₂ = ((R ∨ S) ∧ Q) → (¬P ∨ (Q ∧ P))</div>
+      <p class="subnote">R1 harus selesai dulu. Hasil R1 adalah input R2, bukan kalimat asli.</p>
+    </div>
+
+    <h3>Kesalahan umum substitusi</h3>
+    <div class="grid tight">
+      <div class="block">
+        <div class="callout bad">
+          <p><strong>Total:</strong> lupa mengganti semua kemunculan.</p>
+          <p><strong>Parsial:</strong> mengira hasilnya cuma satu, atau lupa hasil nol penggantian.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="callout bad">
+          <p><strong>Multi:</strong> salah prioritas — harus Gj dulu jika Gi bagian dari Gj.</p>
+          <p><strong>Umum:</strong> lupa tanda kurung, atau tertukar <span class="f">◀</span> dengan <span class="f">◁</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHECKLIST
+       ============================================================ -->
+  <section class="sheet" id="checklist">
+    <h2><span class="num">5</span> Checklist 5 menit sebelum ujian</h2>
+    <p class="subnote">Baca dari atas ke bawah. Kalau semua bisa kamu jawab tanpa buka slide, kamu siap.</p>
+
+    <ol class="checklist">
+      <li>Implikasi <span class="f">P → Q</span> hanya salah saat <span class="f">P = T, Q = F</span>.</li>
+      <li>Pohon semantik: <strong>kiri T</strong>, <strong>kanan F</strong>.</li>
+      <li>Node akar = node 1; daun = ujung yang sudah T/F; internal = di antaranya.</li>
+      <li>Jumlah jalur = jumlah daun; panjang jalur = jumlah garis penghubung.</li>
+      <li>Semua daun T ⇒ valid; minimal 1 T ⇒ satisfiable; semua F ⇒ contradictory.</li>
+      <li>Falsifikasi: anggap salah → runtuhkan → kontradiksi berarti valid.</li>
+      <li>Invalid wajib disertai counterexample nilai proposisi.</li>
+      <li>Substitusi total <span class="f">◀</span> = semua; parsial <span class="f">◁</span> = sebagian.</li>
+      <li>Banyak hasil parsial = <span class="f">2<sup>n</sup></span>; multi = <span class="f">2<sup>Σn</sup></span>.</li>
+      <li>Multi: ganti Gj yang lebih besar dulu, baru Gi.</li>
+      <li>Berulang: R1 selesai dulu, hasilnya jadi input R2.</li>
+      <li>Cek ulang tanda kurung dan operator sebelum menyerahkan lembar.</li>
+    </ol>
+
+    <div class="grid tight" style="margin-top:14px">
+      <div class="block">
+        <div class="card white">
+          <h4>Rumus saku</h4>
+          <div class="eq">P → Q ≡ ¬P ∨ Q</div>
+          <div class="eq">¬(P ∧ Q) ≡ ¬P ∨ ¬Q</div>
+          <div class="eq">¬(P ∨ Q) ≡ ¬P ∧ ¬Q</div>
+          <div class="eq">hasil parsial tunggal = 2<sup>n</sup></div>
+          <div class="eq">hasil parsial multi = 2<sup>n1+n2+…+nm</sup></div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="card white">
+          <h4>Kalimat yang sering muncul</h4>
+          <p><span class="f">(P→Q)→(¬P→¬Q)</span> <span class="pill no">invalid</span> — counterexample P=F, Q=T.</p>
+          <p><span class="f">(¬P∨¬Q)→¬(P∧Q)</span> <span class="pill ok">valid</span> — De Morgan.</p>
+          <p><span class="f">(P→Q)∨(P∧¬Q)</span> <span class="pill ok">valid</span>.</p>
+          <p><span class="f">(P→Q)↔(¬P∨Q)</span> <span class="pill ok">valid</span>.</p>
+          <p><span class="f">(P→Q)→((P∧Q)∨S)</span> <span class="pill no">invalid</span> — P=F, S=F.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:14px">
+      <p><strong>Strategi open book:</strong> jangan membaca semua slide dari awal. Baca kata kunci soal → buka bagian yang sesuai di cheat book ini → kerjakan → cek ulang dengan tabel/daun. Waktu paling banyak habis saat menggambar pohon; tulis cabang T/F secara rapi supaya tidak salah hitung daun.</p>
+    </div>
+  </section>
+
+  <p class="foot">Cheat book pribadi · disusun dari Materi 7 &amp; 8 Logika Informatika · halaman ini tidak ditautkan dari navigasi utama.</p>
+</div>
+</body>
+</html>
