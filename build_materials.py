@@ -1,0 +1,381 @@
+import json, os
+
+summary1 = """## Gambaran besar
+Ada tiga cara untuk menguji validitas sebuah kalimat:
+1. **Tabel kebenaran** — cek semua kombinasi nilai proposisi.
+2. **Pohon semantik** — pecah kasus true/false menjadi cabang.
+3. **Proof by falsification** — anggap kalimat salah, lalu cek apakah anggapan itu bisa dipenuhi.
+
+## 1. Pohon semantik
+Pohon semantik adalah metode pengujian validitas yang digambarkan sebagai pohon. Setiap simbol proposisional membentuk dua cabang:
+- **kiri = true**
+- **kanan = false**
+
+Metode ini lebih efisien daripada tabel kebenaran karena kita berhenti begitu nilai kalimat sudah bisa ditentukan.
+
+### Anatomi pohon
+- **Node akar**: node pertama (node 1).
+- **Node daun/leaf**: ujung cabang yang sudah punya nilai kebenaran T/F.
+- **Node internal**: node yang bukan akar dan bukan daun.
+- **Jumlah jalur**: banyaknya jalur dari akar sampai daun.
+- **Panjang jalur**: banyaknya garis penghubung dari akar sampai daun.
+
+### Langkah membuat pohon semantik
+1. Buat node 1 (akar), node 2, dan garis penghubungnya.
+2. Pilih satu simbol proposisional, misalnya P. Cabang kiri diberi **P true**.
+3. Hitung nilai kalimat pada cabang itu. Kalau sudah T/F, tulis di bawah node.
+4. Kalau belum, buat cabang baru untuk simbol berikutnya (misalnya Q) dan ulangi.
+5. Lakukan sampai semua cabang punya nilai.
+6. Tulis interpretasi yang sesuai.
+
+> Tips: pilih simbol yang paling banyak muncul atau yang paling cepat membuat kalimat bisa dievaluasi.
+
+### Contoh 1
+`E = ¬R → (¬R ∧ Q)`
+
+- Jika **R = true**, maka `¬R = false`, sehingga implikasi bernilai **true**. Cabang selesai.
+- Jika **R = false**, maka `¬R = true`, sehingga `E = true → (true ∧ Q) = Q`.
+  - Q = true → **true**
+  - Q = false → **false**
+
+Daun yang terbentuk: T (R=true), T (R=false,Q=true), F (R=false,Q=false). Jadi E **satisfiable**, tetapi **tidak valid** karena ada daun F.
+
+### Contoh 2
+`G = (P → Q) → (¬P → ¬Q)`
+
+Cabang:
+- P=T, Q=T → T
+- P=T, Q=F → T
+- P=F, Q=T → F
+- P=F, Q=F → T
+
+Karena ada daun F, G **tidak valid**. G tetap **satisfiable** karena ada daun T.
+
+## 2. Sifat kalimat dari daun
+- **Valid / tautologi**: semua daun bernilai **true**.
+- **Satisfiable**: minimal ada satu daun bernilai **true**.
+- **Contradictory**: semua daun bernilai **false**.
+
+## 3. Proof by falsification
+Proof by falsification adalah “metode menyalahkan”:
+1. Anggap kalimat itu **salah**.
+2. Cari apakah anggapan salah itu bisa dipenuhi.
+3. Kalau anggapan salah **mustahil** (menghasilkan kontradiksi), kalimat **VALID**.
+4. Kalau anggapan salah **bisa dipenuhi**, kalimat **INVALID**.
+
+### Contoh valid
+`E = (~P ∨ ~Q) → ~(P ∧ Q)`
+
+Anggap E salah. Implikasi salah hanya jika anteseden true dan konsekuen false. Ternyata kombinasi itu tidak bisa dipenuhi, sehingga E **valid**.
+
+### Contoh invalid
+`F = (P → Q) → (¬P → ¬Q)`
+
+Ambil **P = false, Q = true**:
+- `P → Q` = true
+- `¬P → ¬Q` = false
+- Jadi F = true → false = **false**.
+
+Karena ada interpretasi yang membuat F false, F **invalid**.
+
+### Contoh valid lain
+`H = (P → Q) ∨ (P ∧ ¬Q)`
+
+Coba P=true, Q=false:
+- `P → Q` = false
+- `P ∧ ¬Q` = true
+- Jadi H = true.
+
+Tidak ada cara membuat H false, sehingga H **valid**.
+
+## 4. Latihan dari slide
+- `F = (P → Q) ↔ (¬P ∨ Q)` → **valid** (ekuivalensi implikasi).
+- `G = (P → Q) → ((P ∧ Q) ∨ S)` → **invalid**; ambil P=false, S=false, maka anteseden true tetapi konsekuen false.
+
+## Yang sering keluar di ujian
+- Membedakan node akar, internal, dan daun.
+- Menghitung jumlah jalur dan panjang jalur.
+- Menentukan valid/satisfiable/contradictory dari label daun.
+- Mengerjakan pohon semantik dan proof by falsification untuk satu kalimat.
+- Menjelaskan mengapa proof by falsification bisa membuktikan validitas."""
+
+summary2 = """## Gambaran besar
+Substitusi adalah mengganti satu atau lebih **kalimat bagian** (subformula) di dalam suatu kalimat dengan kalimat lain.
+- Kalimat yang dikenai substitusi: **F**
+- Kalimat yang diganti: **G**
+- Kalimat pengganti: **H**
+
+Hasilnya berupa kalimat baru. Bentuk dan nilai kebenarannya bisa sama atau berbeda dari kalimat semula.
+
+## 1. Substitusi tunggal
+Hanya satu kalimat bagian yang diganti.
+
+### a. Substitusi total
+- Mengganti **semua kemunculan** G dengan H secara bersamaan.
+- Operator: **◀** (segitiga hitam).
+- Notasi: `F ◀ G ← H`
+- Contoh:
+  `F = if (P and Q) then Q`, `G = Q`, `H = R and S`
+  Q muncul dua kali, jadi keduanya diganti:
+  `F ◀ Q ← (R and S) = if (P and (R and S)) then (R and S)`
+
+### b. Substitusi parsial
+- Mengganti **sebagian** kemunculan G secara bertahap.
+- Operator: **◁** (segitiga putih).
+- Notasi: `F ◁ G ← H`
+- Hasilnya tidak tunggal: bisa 0, 1, 2, ..., semua kemunculan.
+- Contoh yang sama, Q muncul dua kali, jadi ada 4 hasil:
+  1. 0 kemunculan: `if (P and Q) then Q`
+  2. kemunculan pertama: `if (P and (R and S)) then Q`
+  3. kemunculan kedua: `if (P and Q) then (R and S)`
+  4. semua kemunculan: `if (P and (R and S)) then (R and S)`
+
+## 2. Substitusi multi
+Mengganti lebih dari satu kalimat bagian.
+- **Multi total**: semua kemunculan beberapa G diganti sekaligus; operator ◀.
+- **Multi parsial**: sebagian kemunculan beberapa G diganti bertahap; operator ◁.
+- Notasi: `F ◀ G1 ← H1, G2 ← H2, ..., Gn ← Hn`
+
+### Aturan prioritas
+Kalau Gi adalah kalimat bagian dari Gj, ganti **Gj dulu** (yang lebih besar), baru Gi. Kalau tidak, kemunculan Gi di dalam Gj bisa hilang atau terlewat.
+
+Contoh:
+`F = ((P ∧ Q) ∨ S) → (Q ∨ R)`
+- `G1 = Q`, `H1 = R ∧ S`
+- `G2 = P ∧ Q`, `H2 = R`
+
+Karena Q adalah bagian dari P∧Q, dahulukan G2:
+- G2 diganti R → `(R ∨ S) → (Q ∨ R)`
+- lalu G1 (Q yang tersisa di konsekuen) diganti R∧S → `(R ∨ S) → ((R ∧ S) ∨ R)`
+
+## 3. Menghitung hasil substitusi parsial
+Untuk m kalimat yang diganti, dengan n_i kemunculan G_i, banyak hasil maksimal:
+`2^{n1} × 2^{n2} × ... × 2^{nm} = 2^{n1+n2+...+nm}`
+
+Setiap kemunculan punya 2 pilihan: diganti atau tidak. Contoh: m=2, n1=1, n2=1 → 2×2 = 4 hasil.
+
+> Catatan: kalau Gi adalah bagian dari Gj, hitung kemunculan Gi yang berdiri sendiri, bukan yang sudah tercakup di Gj.
+
+## 4. Substitusi berulang
+- Dilakukan beberapa kali secara berurutan.
+- Hasil aturan pertama menjadi input aturan kedua.
+- Contoh:
+  `E = if (P ∧ Q) then (P ∨ S)`
+  `R1: ganti P di anteseden dengan R ∨ S`
+  → `E1 = if ((R ∨ S) ∧ Q) then (P ∨ S)`
+  `R2: ganti P di konsekuen dengan ¬P, dan S dengan Q ∧ P`
+  → `E2 = if ((R ∨ S) ∧ Q) then (¬P ∨ (Q ∧ P))`
+- R1 harus selesai dulu sebelum R2.
+
+## 5. Kesalahan umum
+- Total: lupa mengganti semua kemunculan.
+- Parsial: mengira hasilnya cuma satu.
+- Multi: salah prioritas (harus Gj dulu jika Gi bagian dari Gj).
+- Lupa tanda kurung.
+- Mencampur operator ◀ dan ◁."""
+
+sections1 = [
+  {"title": "Tiga metode uji validitas", "slides": "2", "body": "Validitas kalimat bisa diuji dengan tabel kebenaran, pohon semantik, atau proof by falsification. Pohon semantik lebih efisien karena tidak perlu mengecek semua kombinasi."},
+  {"title": "Definisi pohon semantik", "slides": "4", "body": "Pohon semantik adalah metode pengujian validitas yang berbentuk pohon. Setiap proposisi membentuk cabang kiri true dan cabang kanan false."},
+  {"title": "Anatomi node dan jalur", "slides": "5", "body": "Node akar adalah node pertama. Node daun adalah ujung cabang yang sudah punya nilai T/F. Node internal berada di antara akar dan daun. Jumlah jalur dihitung dari akar ke daun, panjang jalur adalah jumlah garis penghubung."},
+  {"title": "Langkah membuat pohon semantik", "slides": "6-7", "body": "Buat node 1 dan 2, beri cabang kiri nilai true untuk simbol pertama. Evaluasi kalimat. Kalau belum T/F, buat cabang untuk simbol berikutnya. Ulangi sampai semua cabang punya nilai, lalu tulis interpretasinya."},
+  {"title": "Contoh 1: not R then (not R and Q)", "slides": "8-10", "body": "E = not R then (not R and Q). Jika R true, E true. Jika R false, E = Q, sehingga Q true menghasilkan T dan Q false menghasilkan F. Daunnya T, T, F. E satisfiable tetapi tidak valid."},
+  {"title": "Contoh 2: (P then Q) then (not P then not Q)", "slides": "11", "body": "G = (P then Q) then (not P then not Q). Empat cabang menghasilkan T, T, F, T. Karena ada daun F, G invalid. G tetap satisfiable karena ada daun T."},
+  {"title": "Sifat kalimat", "slides": "12", "body": "Valid atau tautologi jika semua daun true. Satisfiable jika minimal satu daun true. Contradictory jika semua daun false."},
+  {"title": "Proof by falsification", "slides": "14", "body": "Metode menyalahkan: anggap kalimat salah. Jika anggapan salah mustahil dipenuhi, kalimat valid. Jika anggapan salah bisa dipenuhi, kalimat invalid."},
+  {"title": "Contoh falsifikasi valid", "slides": "15,17", "body": "E = (not P or not Q) then not(P and Q) valid. H = (P then Q) or (P and not Q) juga valid karena tidak ada cara membuatnya false."},
+  {"title": "Contoh falsifikasi invalid", "slides": "16", "body": "F = (P then Q) then (not P then not Q) invalid. Ambil P false dan Q true, maka anteseden true dan konsekuen false, sehingga F false."},
+  {"title": "Latihan", "slides": "18", "body": "Latihan F: (P then Q) iff (not P or Q) valid. Latihan G: (P then Q) then ((P and Q) or S) invalid, ambil P false dan S false."},
+  {"title": "Tips ujian", "slides": "2-18", "body": "Kuasai definisi node, cara membuat pohon, sifat kalimat dari daun, dan langkah proof by falsification. Biasakan menulis tanda kurung dan interpretasi nilai P, Q, R."}
+]
+
+cards1 = [
+  {"front": "Sebutkan tiga metode untuk menguji validitas kalimat.", "back": "Tabel kebenaran, pohon semantik, dan proof by falsification."},
+  {"front": "Apa itu pohon semantik?", "back": "Metode uji validitas berbentuk pohon. Cabang kiri = true, cabang kanan = false."},
+  {"front": "Kenapa pohon semantik lebih efisien dari tabel kebenaran?", "back": "Karena evaluasi berhenti begitu nilai kalimat pada suatu cabang sudah bisa ditentukan."},
+  {"front": "Apa itu node akar?", "back": "Node pertama pada pohon, biasanya node 1."},
+  {"front": "Apa itu node daun (leaf)?", "back": "Node ujung cabang yang sudah memiliki nilai kebenaran T/F."},
+  {"front": "Apa itu node internal?", "back": "Node yang bukan node akar dan bukan node daun."},
+  {"front": "Apa itu jumlah jalur?", "back": "Banyaknya jalur dari node akar sampai node daun."},
+  {"front": "Apa itu panjang jalur?", "back": "Banyaknya garis penghubung dari akar sampai daun."},
+  {"front": "Apa langkah pertama membuat pohon semantik?", "back": "Buat node 1, node 2, dan garis penghubung. Cabang kiri diberi nilai true untuk simbol pertama."},
+  {"front": "Kapan pohon semantik selesai?", "back": "Saat semua cabang sudah punya nilai kebenaran T/F."},
+  {"front": "Apa ciri kalimat valid/tautologi pada pohon semantik?", "back": "Semua node daun bernilai true."},
+  {"front": "Apa ciri kalimat satisfiable?", "back": "Minimal ada satu node daun bernilai true."},
+  {"front": "Apa ciri kalimat contradictory?", "back": "Semua node daun bernilai false."},
+  {"front": "Apa itu proof by falsification?", "back": "Membuktikan validitas dengan menduga kalimat salah. Jika dugaan salah mustahil, kalimat valid."},
+  {"front": "Jika dugaan 'salah' pada proof by falsification bisa dipenuhi, apa artinya?", "back": "Kalimat invalid, karena ada interpretasi yang membuatnya false."},
+  {"front": "Apa hasil pohon semantik untuk ¬R → (¬R ∧ Q)?", "back": "Daun: T saat R=true; T saat R=false,Q=true; F saat R=false,Q=false. Jadi satisfiable, tidak valid."},
+  {"front": "Apa hasil pohon semantik untuk (P→Q)→(¬P→¬Q)?", "back": "T, T, F, T untuk empat kombinasi P,Q. Ada daun F, jadi invalid."},
+  {"front": "Sebutkan contoh kalimat valid dari slide.", "back": "(~P ∨ ~Q) → ~(P ∧ Q) dan (P→Q) ∨ (P∧¬Q)."},
+  {"front": "Sebutkan contoh kalimat invalid dari slide.", "back": "(P→Q)→(¬P→¬Q); counterexample P=false, Q=true."},
+  {"front": "Apa hasil latihan F: (P→Q) ↔ (¬P∨Q)?", "back": "Valid, karena kedua sisi ekuivalen."},
+  {"front": "Apa hasil latihan G: (P→Q) → ((P∧Q)∨S)?", "back": "Invalid; ambil P=false, S=false, maka anteseden true tetapi konsekuen false."}
+]
+
+quiz1 = [
+  {"question": "Metode berikut dipakai untuk menguji validitas kalimat, kecuali...", "options": ["Tabel kebenaran", "Pohon semantik", "Proof by falsification", "Substitusi"], "answer": 3, "explanation": "Substitusi adalah operasi mengganti kalimat bagian, bukan metode uji validitas."},
+  {"question": "Pada pohon semantik, cabang kiri menyatakan nilai...", "options": ["True", "False", "Tidak diketahui", "Keduanya"], "answer": 0, "explanation": "Kesepakatan pada materi: cabang kiri true, cabang kanan false."},
+  {"question": "Node yang sudah memiliki nilai kebenaran T/F disebut...", "options": ["Node akar", "Node internal", "Node daun", "Node cabang"], "answer": 2, "explanation": "Node daun adalah ujung cabang yang sudah punya nilai kebenaran."},
+  {"question": "Jika semua node daun bernilai true, kalimat bersifat...", "options": ["Valid/tautologi", "Satisfiable", "Contradictory", "Invalid"], "answer": 0, "explanation": "Semua daun true berarti kalimat valid atau tautologi."},
+  {"question": "Jika semua node daun bernilai false, kalimat bersifat...", "options": ["Valid", "Satisfiable", "Contradictory", "Tautologi"], "answer": 2, "explanation": "Semua daun false berarti kalimat contradictory."},
+  {"question": "Kalimat ¬R → (¬R ∧ Q) saat R=true bernilai...", "options": ["True", "False", "Tidak bisa ditentukan", "Bergantung Q"], "answer": 0, "explanation": "Jika R true, ¬R false, sehingga implikasi dengan anteseden false bernilai true."},
+  {"question": "Kalimat ¬R → (¬R ∧ Q) saat R=false dan Q=false bernilai...", "options": ["True", "False", "Tidak bisa ditentukan", "Bergantung R"], "answer": 1, "explanation": "Jika R false, ¬R true, sehingga kalimat menjadi Q. Karena Q false, hasilnya false."},
+  {"question": "Pada proof by falsification, jika dugaan 'salah' mustahil dipenuhi, kalimat...", "options": ["Valid", "Invalid", "Satisfiable", "Contradictory"], "answer": 0, "explanation": "Tidak adanya cara membuat kalimat salah berarti kalimat selalu true atau valid."},
+  {"question": "Kalimat (~P ∨ ~Q) → ~(P ∧ Q) adalah...", "options": ["Valid", "Invalid", "Contradictory", "Tidak dapat ditentukan"], "answer": 0, "explanation": "Bentuk ini adalah ekuivalensi De Morgan, sehingga selalu true."},
+  {"question": "Kalimat (P→Q)→(¬P→¬Q) adalah...", "options": ["Valid", "Invalid", "Tautologi", "Contradictory"], "answer": 1, "explanation": "Ambil P=false dan Q=true: anteseden true, konsekuen false, jadi kalimat false."},
+  {"question": "Kalimat (P→Q)∨(P∧¬Q) adalah...", "options": ["Valid", "Invalid", "Contradictory", "Satisfiable saja"], "answer": 0, "explanation": "Jika P true, salah satu sisi selalu true; jika P false, P→Q true. Jadi selalu true."},
+  {"question": "Pohon semantik untuk ¬R→(¬R∧Q) memiliki berapa jalur?", "options": ["1", "2", "3", "4"], "answer": 2, "explanation": "Jalurnya: 1-2, 1-3-4, dan 1-3-5, total 3 jalur."},
+  {"question": "Panjang jalur 1-3-5 pada pohon contoh adalah...", "options": ["1", "2", "3", "4"], "answer": 1, "explanation": "Ada dua garis penghubung: 1→3 dan 3→5."},
+  {"question": "Latihan G: (P→Q)→((P∧Q)∨S) bersifat...", "options": ["Valid", "Invalid", "Tautologi", "Contradictory"], "answer": 1, "explanation": "Ambil P=false, S=false. Anteseden true, konsekuen (false∨false)=false, sehingga implikasi false."}
+]
+
+tutor1 = [
+  {"q": "Apa itu pohon semantik?", "a": "Pohon semantik adalah metode pengujian validitas kalimat yang digambarkan sebagai pohon. Setiap simbol proposisional bercabang: kiri untuk true, kanan untuk false. Metode ini lebih efisien daripada mengecek semua baris tabel kebenaran.", "tags": ["pohon", "semantik", "definisi", "apa", "itu"], "slide": "4"},
+  {"q": "Kenapa pakai pohon semantik?", "a": "Karena kita bisa berhenti lebih cepat. Begitu nilai kalimat pada suatu cabang sudah T atau F, cabang itu selesai dan tidak perlu dipecah lagi. Tabel kebenaran mengecek semua kombinasi, sedangkan pohon semantik hanya cabang yang perlu.", "tags": ["kenapa", "pohon", "semantik", "kelebihan", "efisien", "tabel", "kebenaran"], "slide": "4"},
+  {"q": "Apa bedanya node akar, node internal, dan node daun?", "a": "Node akar adalah node pertama (node 1). Node daun adalah ujung cabang yang sudah punya nilai T/F. Node internal adalah node yang bukan akar dan bukan daun.", "tags": ["beda", "node", "akar", "internal", "daun", "leaf"], "slide": "5"},
+  {"q": "Bagaimana langkah membuat pohon semantik?", "a": "Buat node 1 dan node 2, lalu beri cabang kiri nilai true untuk simbol pertama. Evaluasi kalimat. Kalau belum T/F, buat cabang untuk simbol berikutnya. Ulangi sampai semua cabang punya nilai, lalu tulis interpretasinya.", "tags": ["langkah", "cara", "buat", "membuat", "pohon", "semantik"], "slide": "6-7"},
+  {"q": "Kapan pohon semantik selesai?", "a": "Pohon selesai saat semua cabang sudah memperoleh nilai kebenaran kalimat (T atau F). Setelah itu tinggal menuliskan interpretasi yang sesuai dengan tiap daun.", "tags": ["kapan", "selesai", "pohon", "semantik"], "slide": "7"},
+  {"q": "Bagaimana menentukan valid, satisfiable, dan contradictory?", "a": "Lihat label daun. Valid/tautologi jika semua daun true. Satisfiable jika minimal satu daun true. Contradictory jika semua daun false.", "tags": ["valid", "satisfiable", "contradictory", "tautologi", "kontradiksi", "sifat", "kalimat"], "slide": "12"},
+  {"q": "Apa itu proof by falsification?", "a": "Proof by falsification adalah metode membuktikan validitas dengan menduga kalimat itu salah. Kalau dugaan salah tidak mungkin dipenuhi, kalimat valid. Kalau dugaan salah bisa dipenuhi, kalimat invalid.", "tags": ["proof", "falsification", "falsifikasi", "pembuktian", "menyalahkan", "definisi"], "slide": "14"},
+  {"q": "Bagaimana cara proof by falsification?", "a": "Anggap kalimat salah. Turunkan nilai-nilai proposisi yang membuatnya salah. Kalau prosesnya menghasilkan kontradiksi, berarti kalimat valid. Kalau kamu menemukan satu interpretasi yang benar-benar membuat kalimat false, berarti invalid.", "tags": ["cara", "langkah", "proof", "falsification", "falsifikasi"], "slide": "14"},
+  {"q": "Apa arti T dan F di daun pohon?", "a": "T berarti kalimat bernilai true pada interpretasi cabang itu. F berarti kalimat bernilai false. Label daun inilah yang dipakai untuk menentukan sifat kalimat.", "tags": ["arti", "t", "f", "true", "false", "daun", "nilai"], "slide": "12"},
+  {"q": "Bagaimana menghitung jumlah jalur dan panjang jalur?", "a": "Jumlah jalur = banyaknya jalur berbeda dari akar ke daun. Panjang jalur = banyaknya garis penghubung pada jalur itu. Contoh pada materi: jalur 1-2 panjangnya 1, jalur 1-3-4 dan 1-3-5 panjangnya 2. Total ada 3 jalur.", "tags": ["jumlah", "jalur", "panjang", "hitung"], "slide": "5"},
+  {"q": "Apa itu interpretasi?", "a": "Interpretasi adalah pemberian nilai true/false pada simbol proposisional, misalnya P=true dan Q=false. Setiap jalur pohon mewakili satu interpretasi.", "tags": ["interpretasi", "nilai", "kebenaran"], "slide": "7"},
+  {"q": "Bagaimana kalau nilai kalimat belum diketahui?", "a": "Kalau evaluasi masih menghasilkan tanda tanya, buat cabang baru untuk simbol proposisional berikutnya. Ulangi sampai nilai kalimat bisa ditentukan T atau F.", "tags": ["belum", "diketahui", "t/f", "lanjut", "cabang"], "slide": "7"},
+  {"q": "Apa itu tautologi?", "a": "Tautologi adalah kalimat yang selalu bernilai true untuk semua interpretasi. Pada pohon semantik, semua daunnya bernilai true.", "tags": ["tautologi", "valid"], "slide": "12"},
+  {"q": "Apa itu kontradiksi?", "a": "Kontradiksi adalah kalimat yang selalu bernilai false untuk semua interpretasi. Pada pohon semantik, semua daunnya bernilai false.", "tags": ["kontradiksi", "contradictory"], "slide": "12"},
+  {"q": "Apa itu satisfiable?", "a": "Satisfiable berarti ada minimal satu interpretasi yang membuat kalimat bernilai true. Pada pohon semantik, minimal ada satu daun T.", "tags": ["satisfiable", "terpenuhi"], "slide": "12"},
+  {"q": "Contoh pohon semantik?", "a": "Contoh 1: ¬R → (¬R ∧ Q) menghasilkan daun T, T, F. Contoh 2: (P→Q)→(¬P→¬Q) menghasilkan T, T, F, T. Lihat slide 8-11 untuk pohon lengkapnya.", "tags": ["contoh", "pohon", "semantik", "contoh 1", "contoh 2"], "slide": "8-11"},
+  {"q": "Contoh proof by falsification?", "a": "Contoh valid: (~P ∨ ~Q) → ~(P ∧ Q). Contoh invalid: (P→Q)→(¬P→¬Q), dengan counterexample P=false dan Q=true. Contoh valid lain: (P→Q) ∨ (P∧¬Q).", "tags": ["contoh", "proof", "falsification", "falsifikasi"], "slide": "15-17"},
+  {"q": "Bagaimana mengerjakan latihan F?", "a": "F = (P→Q) ↔ (¬P∨Q). Kalimat ini valid karena ruas kiri dan kanan ekuivalen: implikasi P→Q sama dengan ¬P∨Q. Semua interpretasi membuat F true.", "tags": ["latihan", "f", "ekuivalensi", "iff"], "slide": "18"},
+  {"q": "Bagaimana mengerjakan latihan G?", "a": "G = (P→Q) → ((P∧Q)∨S). Ini invalid. Ambil P=false dan S=false. Maka P→Q true, sedangkan (P∧Q)∨S = false∨false = false. Jadi implikasinya true→false = false.", "tags": ["latihan", "g", "s", "invalid"], "slide": "18"},
+  {"q": "Apakah kalimat valid berarti semua interpretasi true?", "a": "Ya. Valid atau tautologi berarti kalimat bernilai true pada semua interpretasi. Pada pohon semantik, semua daun harus T.", "tags": ["valid", "interpretasi", "true", "semua"], "slide": "12"},
+  {"q": "Kapan kalimat disebut invalid?", "a": "Kalimat disebut invalid kalau ada minimal satu interpretasi yang membuatnya bernilai false. Pada pohon semantik, cukup ada satu daun F.", "tags": ["invalid", "tidak", "valid", "daun", "false"], "slide": "12"},
+  {"q": "Apa tips ujian materi ini?", "a": "Hafalkan definisi node dan sifat kalimat, lalu latihan membuat pohon. Saat proof by falsification, tuliskan dengan jelas nilai proposisi yang kamu pilih dan tunjukkan apakah dugaan salah bisa dipenuhi atau tidak. Jangan lupa tanda kurung.", "tags": ["tips", "ujian", "belajar", "ringkas"], "slide": "2-18"}
+]
+
+sections2 = [
+  {"title": "Definisi substitusi", "slides": "4", "body": "Substitusi adalah penggantian satu kalimat bagian yang muncul dalam suatu kalimat dengan kalimat lain. Hasilnya kalimat baru yang bentuk maupun nilainya bisa berbeda."},
+  {"title": "Substitusi tunggal", "slides": "3-18", "body": "Substitusi tunggal mengganti satu kalimat bagian. Terdiri dari substitusi total dan substitusi parsial."},
+  {"title": "Substitusi total", "slides": "5-10", "body": "Substitusi total mengganti semua kemunculan kalimat G dengan H secara bersamaan. Operatornya segitiga hitam ◀. Notasi F ◀ G ← H."},
+  {"title": "Substitusi parsial", "slides": "11-18", "body": "Substitusi parsial mengganti beberapa kemunculan G secara bertahap. Operatornya segitiga putih ◁. Hasilnya tidak tunggal: nol, satu, dua, sampai semua kemunculan."},
+  {"title": "Substitusi multi", "slides": "19-36", "body": "Substitusi multi mengganti lebih dari satu kalimat bagian. Bisa multi total (semua kemunculan sekaligus) atau multi parsial (bertahap). Notasi F ◀ G1←H1, G2←H2, ..., Gn←Hn."},
+  {"title": "Aturan prioritas", "slides": "23,27", "body": "Jika Gi adalah kalimat bagian dari Gj, ganti Gj lebih dulu karena Gj lebih besar. Kalau Gi diganti dulu, kemunculan di dalam Gj bisa hilang."},
+  {"title": "Banyak hasil substitusi parsial", "slides": "30,35", "body": "Banyak hasil maksimal adalah perkalian 2^n_i untuk setiap kalimat yang diganti, dengan n_i banyak kemunculan. Contoh m=2, n1=1, n2=1 menghasilkan 4 hasil."},
+  {"title": "Substitusi berulang", "slides": "37-39", "body": "Substitusi berulang dilakukan beberapa kali berurutan. Hasil aturan R1 menjadi input aturan R2. R1 harus selesai sebelum R2 diterapkan."},
+  {"title": "Contoh substitusi total", "slides": "8-10", "body": "F = if (P and Q) then Q, G = Q, H = R and S. Semua Q diganti, hasilnya if (P and (R and S)) then (R and S)."},
+  {"title": "Contoh substitusi parsial", "slides": "15-18", "body": "Dengan F dan aturan yang sama, Q muncul dua kali sehingga ada 4 hasil: tanpa penggantian, ganti kemunculan pertama, ganti kemunculan kedua, dan ganti keduanya."},
+  {"title": "Contoh multi total", "slides": "25-27", "body": "F = ((P and Q) or S) then (Q or R), G1=Q->R and S, G2=P and Q->R. Prioritaskan G2, lalu G1. Hasilnya (R or S) then ((R and S) or R)."},
+  {"title": "Contoh multi parsial", "slides": "32-36", "body": "Dengan aturan yang sama dan m=2, n1=1, n2=1, ada 4 hasil: tanpa penggantian, hanya G1, hanya G2, dan keduanya."},
+  {"title": "Kesalahan umum", "slides": "4-39", "body": "Lupa mengganti semua kemunculan pada total, mengira parsial hanya satu hasil, salah prioritas multi, lupa tanda kurung, dan tertukar operator ◀ dengan ◁."}
+]
+
+cards2 = [
+  {"front": "Apa itu substitusi?", "back": "Mengganti satu atau lebih kalimat bagian di dalam suatu kalimat dengan kalimat lain."},
+  {"front": "Apa arti F, G, dan H pada notasi substitusi?", "back": "F = kalimat yang dikenai substitusi, G = kalimat yang diganti, H = kalimat pengganti."},
+  {"front": "Apa itu substitusi tunggal?", "back": "Substitusi yang hanya mengganti satu kalimat bagian."},
+  {"front": "Apa itu substitusi total?", "back": "Mengganti semua kemunculan G dengan H secara bersamaan."},
+  {"front": "Apa operator substitusi total?", "back": "◀ (segitiga hitam)."},
+  {"front": "Bagaimana notasi substitusi total?", "back": "F ◀ G ← H."},
+  {"front": "Apa itu substitusi parsial?", "back": "Mengganti sebagian kemunculan G secara bertahap."},
+  {"front": "Apa operator substitusi parsial?", "back": "◁ (segitiga putih)."},
+  {"front": "Bagaimana hasil substitusi parsial?", "back": "Tidak tunggal: bisa 0, 1, 2, ..., sampai semua kemunculan."},
+  {"front": "Apa itu substitusi multi?", "back": "Substitusi yang mengganti lebih dari satu kalimat bagian."},
+  {"front": "Apa itu substitusi multi total?", "back": "Mengganti semua kemunculan beberapa kalimat G secara bersamaan."},
+  {"front": "Apa itu substitusi multi parsial?", "back": "Mengganti sebagian kemunculan beberapa kalimat G secara bertahap."},
+  {"front": "Bagaimana aturan prioritas substitusi multi?", "back": "Jika Gi adalah bagian dari Gj, ganti Gj lebih dulu, baru Gi."},
+  {"front": "Apa rumus banyak hasil substitusi parsial?", "back": "2^{n1} × 2^{n2} × ... × 2^{nm}, dengan n_i banyak kemunculan dan m banyak kalimat yang diganti."},
+  {"front": "Kenapa memakai pangkat 2?", "back": "Karena setiap kemunculan punya dua pilihan: diganti atau tidak diganti."},
+  {"front": "Contoh substitusi total untuk F = if (P and Q) then Q dengan Q→R and S?", "back": "if (P and (R and S)) then (R and S)."},
+  {"front": "Jika Q muncul dua kali, berapa hasil substitusi parsial maksimal?", "back": "2^2 = 4 hasil."},
+  {"front": "Apa hasil multi total dari F = ((P and Q) or S) then (Q or R) dengan G1=Q, G2=P and Q?", "back": "(R or S) then ((R and S) or R)."},
+  {"front": "Apa itu substitusi berulang?", "back": "Substitusi yang dilakukan beberapa kali berurutan; hasil R1 menjadi input R2."},
+  {"front": "Apa kesalahan umum pada substitusi?", "back": "Lupa semua kemunculan pada total, mengira parsial cuma satu hasil, salah prioritas, lupa kurung, dan tertukar ◀ dengan ◁."}
+]
+
+quiz2 = [
+  {"question": "Substitusi total mengganti...", "options": ["Satu kemunculan saja", "Semua kemunculan G", "Hanya kemunculan pertama", "Hanya kemunculan terakhir"], "answer": 1, "explanation": "Total berarti semua kemunculan G diganti H secara bersamaan."},
+  {"question": "Operator untuk substitusi parsial adalah...", "options": ["◀", "◁", "→", "↔"], "answer": 1, "explanation": "◁ adalah segitiga putih, operator substitusi parsial. ◀ dipakai untuk total."},
+  {"question": "Hasil substitusi parsial bersifat...", "options": ["Selalu satu", "Tidak tunggal", "Selalu sama dengan aslinya", "Selalu kontradiksi"], "answer": 1, "explanation": "Karena bisa mengganti nol, satu, beberapa, atau semua kemunculan."},
+  {"question": "Penggantian nol kemunculan pada substitusi parsial menghasilkan...", "options": ["Kalimat asli", "Kalimat kosong", "Selalu false", "Kalimat baru tanpa G"], "answer": 0, "explanation": "Tidak ada yang diganti, jadi hasilnya kalimat semula."},
+  {"question": "Jika G muncul 3 kali, banyak hasil substitusi parsial maksimal adalah...", "options": ["3", "6", "8", "9"], "answer": 2, "explanation": "Setiap kemunculan punya 2 pilihan, jadi 2^3 = 8."},
+  {"question": "Jika m=2, n1=2, dan n2=1, banyak hasil parsial maksimal adalah...", "options": ["4", "6", "8", "12"], "answer": 2, "explanation": "2^2 × 2^1 = 4 × 2 = 8."},
+  {"question": "Jika Gi adalah kalimat bagian dari Gj, yang harus diganti lebih dulu adalah...", "options": ["Gi", "Gj", "Keduanya bersamaan", "Yang lebih pendek"], "answer": 1, "explanation": "Ganti Gj dulu karena lebih besar; kalau Gi dulu, kemunculan di dalam Gj bisa hilang."},
+  {"question": "Notasi F ◀ G ← H berarti...", "options": ["Substitusi parsial", "Substitusi total", "Implikasi", "Ekuivalensi"], "answer": 1, "explanation": "Segitiga hitam ◀ menandakan substitusi total."},
+  {"question": "Pada substitusi berulang, hasil R1 berfungsi sebagai...", "options": ["Hasil akhir", "Input untuk R2", "Kalimat yang diganti", "Operator"], "answer": 1, "explanation": "R1 diselesaikan dulu, lalu hasilnya menjadi input R2."},
+  {"question": "Perbedaan utama total dan parsial adalah...", "options": ["Total mengganti semua kemunculan, parsial sebagian", "Total hanya satu kemunculan, parsial semua", "Total memakai ◁, parsial ◀", "Tidak ada perbedaan"], "answer": 0, "explanation": "Total = semua sekaligus; parsial = sebagian secara bertahap."},
+  {"question": "Hasil substitusi total F = if (P and Q) then Q dengan Q→R and S adalah...", "options": ["if (P and Q) then (R and S)", "if (P and (R and S)) then (R and S)", "if (P and (R and S)) then Q", "if (R and S) then Q"], "answer": 1, "explanation": "Semua Q diganti R and S, baik di anteseden maupun konsekuen."},
+  {"question": "Hasil multi total F = ((P and Q) or S) then (Q or R) dengan G1=Q→R and S dan G2=P and Q→R adalah...", "options": ["(R or S) then (Q or R)", "(P and Q) or S then (R and S or R)", "(R or S) then ((R and S) or R)", "(R and S) then (Q or R)"], "answer": 2, "explanation": "G2 diganti dulu menjadi R, lalu Q yang tersisa di konsekuen diganti R and S."},
+  {"question": "Yang bukan jenis substitusi pada materi adalah...", "options": ["Substitusi total", "Substitusi parsial", "Substitusi acak", "Substitusi multi"], "answer": 2, "explanation": "Materi membahas tunggal (total/parsial), multi (total/parsial), dan berulang. Tidak ada substitusi acak."},
+  {"question": "Kenapa tanda kurung penting dalam substitusi?", "options": ["Agar kalimat lebih panjang", "Agar batas kalimat bagian jelas", "Agar operator berubah", "Tidak penting"], "answer": 1, "explanation": "Kurung menentukan batas subformula yang diganti, sehingga hasil tidak salah."}
+]
+
+tutor2 = [
+  {"q": "Apa itu substitusi?", "a": "Substitusi adalah penggantian satu atau lebih kalimat bagian di dalam suatu kalimat dengan kalimat lain. Hasilnya kalimat baru yang bentuk dan nilai kebenarannya bisa sama atau berbeda.", "tags": ["substitusi", "definisi", "apa"], "slide": "4"},
+  {"q": "Apa itu F, G, dan H?", "a": "F adalah kalimat yang dikenai substitusi. G adalah kalimat yang diganti. H adalah kalimat pengganti. Notasi totalnya F ◀ G ← H.", "tags": ["f", "g", "h", "notasi", "kalimat"], "slide": "5"},
+  {"q": "Apa beda substitusi total dan parsial?", "a": "Total mengganti semua kemunculan G sekaligus, operatornya ◀. Parsial mengganti sebagian kemunculan secara bertahap, operatornya ◁, dan hasilnya bisa lebih dari satu.", "tags": ["beda", "total", "parsial", "perbedaan"], "slide": "5,11"},
+  {"q": "Apa arti operator ◀ dan ◁?", "a": "◀ (segitiga hitam) adalah operator substitusi total. ◁ (segitiga putih) adalah operator substitusi parsial.", "tags": ["operator", "segitiga", "hitam", "putih", "total", "parsial"], "slide": "5,11"},
+  {"q": "Bagaimana notasi substitusi total?", "a": "F ◀ G ← H. Artinya semua kemunculan G di F diganti H secara bersamaan.", "tags": ["notasi", "total", "rumus"], "slide": "5"},
+  {"q": "Bagaimana langkah substitusi total?", "a": "Identifikasi F, G, dan H. Hitung semua kemunculan G. Ganti semuanya dengan H secara bersamaan. Tulis hasilnya dan perhatikan tanda kurung.", "tags": ["langkah", "cara", "total"], "slide": "7"},
+  {"q": "Bagaimana langkah substitusi parsial?", "a": "Identifikasi F, G, dan H. Tandai semua kemunculan G. Ganti secara bertahap: nol kemunculan, satu kemunculan pertama, satu kemunculan kedua, dan seterusnya sampai semua kemunculan.", "tags": ["langkah", "cara", "parsial"], "slide": "14"},
+  {"q": "Kenapa hasil substitusi parsial lebih dari satu?", "a": "Karena setiap kemunculan G boleh diganti atau tidak. Jadi ada hasil dengan nol penggantian, satu penggantian, dua penggantian, dan seterusnya sampai semua kemunculan diganti.", "tags": ["kenapa", "hasil", "parsial", "banyak", "tidak", "tunggal"], "slide": "13"},
+  {"q": "Apa itu substitusi multi?", "a": "Substitusi multi mengganti lebih dari satu kalimat bagian. Bisa multi total (semua kemunculan sekaligus) atau multi parsial (bertahap).", "tags": ["multi", "banyak", "kalimat", "bagian"], "slide": "21"},
+  {"q": "Apa beda multi total dan multi parsial?", "a": "Multi total mengganti semua kemunculan beberapa G sekaligus dengan operator ◀. Multi parsial mengganti sebagian kemunculan beberapa G secara bertahap dengan operator ◁.", "tags": ["multi", "total", "parsial", "beda"], "slide": "22,28"},
+  {"q": "Bagaimana aturan prioritas substitusi multi?", "a": "Kalau Gi adalah kalimat bagian dari Gj, ganti Gj dulu karena Gj lebih besar. Kalau Gi diganti lebih dulu, kemunculan Gi di dalam Gj bisa hilang dan hasilnya salah.", "tags": ["prioritas", "multi", "bagian", "gj", "gi"], "slide": "23,27"},
+  {"q": "Bagaimana menghitung banyak hasil substitusi parsial?", "a": "Gunakan 2^{n1} × 2^{n2} × ... × 2^{nm}, dengan n_i banyak kemunculan G_i dan m banyak kalimat yang diganti. Contoh m=2, n1=1, n2=1 menghasilkan 4 hasil.", "tags": ["hitung", "banyak", "hasil", "parsial", "rumus", "2^n"], "slide": "30,35"},
+  {"q": "Apa itu substitusi berulang?", "a": "Substitusi berulang dilakukan beberapa kali secara berurutan. Hasil aturan R1 menjadi input untuk R2. R1 harus selesai dulu sebelum R2 diterapkan.", "tags": ["berulang", "repeated", "r1", "r2", "urutan"], "slide": "37-39"},
+  {"q": "Contoh substitusi total?", "a": "F = if (P and Q) then Q, G = Q, H = R and S. Semua Q diganti, hasilnya if (P and (R and S)) then (R and S).", "tags": ["contoh", "total", "q", "r", "s"], "slide": "8-10"},
+  {"q": "Contoh substitusi parsial?", "a": "Dengan F yang sama dan Q muncul dua kali, ada 4 hasil: kalimat asli; ganti Q pertama; ganti Q kedua; dan ganti keduanya.", "tags": ["contoh", "parsial", "q", "hasil"], "slide": "15-18"},
+  {"q": "Contoh substitusi multi total?", "a": "F = ((P and Q) or S) then (Q or R), G1=Q→R and S, G2=P and Q→R. Prioritaskan G2, lalu G1. Hasilnya (R or S) then ((R and S) or R).", "tags": ["contoh", "multi", "total", "p", "q", "r", "s"], "slide": "25-27"},
+  {"q": "Contoh substitusi multi parsial?", "a": "Dengan aturan yang sama, m=2, n1=1, n2=1, ada 4 hasil: tanpa penggantian, hanya G1, hanya G2, dan keduanya. Lihat slide 36 untuk daftar lengkapnya.", "tags": ["contoh", "multi", "parsial", "4", "hasil"], "slide": "32-36"},
+  {"q": "Apakah hasil substitusi selalu sama nilainya?", "a": "Tidak. Hasil substitusi bisa sama atau berbeda nilai kebenarannya dari kalimat semula, tergantung kalimat pengganti dan posisi yang diganti.", "tags": ["hasil", "nilai", "sama", "berbeda"], "slide": "4"},
+  {"q": "Kenapa tanda kurung penting?", "a": "Kurung menentukan batas kalimat bagian yang diganti. Tanpa kurung yang tepat, kamu bisa mengganti bagian yang salah atau mengubah struktur kalimat.", "tags": ["kurung", "tanda", "penting", "kesalahan"], "slide": "7"},
+  {"q": "Apa itu kalimat bagian?", "a": "Kalimat bagian atau subformula adalah bagian dari kalimat yang masih bisa berdiri sebagai kalimat logika, misalnya Q di dalam P and Q.", "tags": ["kalimat", "bagian", "subformula"], "slide": "4"},
+  {"q": "Apa kesalahan umum saat mengerjakan substitusi?", "a": "Lupa mengganti semua kemunculan pada total, mengira parsial hanya satu hasil, salah prioritas pada multi, lupa tanda kurung, dan tertukar operator ◀ dengan ◁.", "tags": ["kesalahan", "umum", "salah", "tips"], "slide": "4-39"},
+  {"q": "Apa tips ujian substitusi?", "a": "Tulis F, G, dan H secara eksplisit. Hitung kemunculan G. Untuk parsial, daftarkan semua hasil. Untuk multi, cek prioritas lebih dulu. Selalu periksa kurung.", "tags": ["tips", "ujian", "belajar"], "slide": "4-39"}
+]
+
+materials = [
+  {
+    "id": "semantic-tree",
+    "order": 1,
+    "title": "Semantic Tree & Proof by Falsification",
+    "short": "Pohon semantik, sifat kalimat, dan pembuktian dengan falsifikasi.",
+    "course": "Logika Informatika",
+    "source": "7. SEMANTIC TREE-PROOF by FALSIFICATION.pptx",
+    "slides": 18,
+    "slideDir": "slides/semantic-tree",
+    "accent": "#0f766e",
+    "tags": ["Pohon semantik", "Validitas", "Falsifikasi"],
+    "summary": summary1,
+    "sections": sections1,
+    "cards": cards1,
+    "quiz": quiz1,
+    "tutor": tutor1,
+    "quick": ["Apa itu pohon semantik?", "Bagaimana langkah membuat pohon semantik?", "Apa bedanya valid, satisfiable, dan contradictory?", "Contoh proof by falsification?"]
+  },
+  {
+    "id": "substitusi",
+    "order": 2,
+    "title": "Substitusi",
+    "short": "Substitusi tunggal, parsial, multi, dan berulang dalam logika.",
+    "course": "Logika Informatika",
+    "source": "8. SUBSTITUSI.pptx",
+    "slides": 41,
+    "slideDir": "slides/substitusi",
+    "accent": "#7c3aed",
+    "tags": ["Substitusi total", "Parsial", "Multi"],
+    "summary": summary2,
+    "sections": sections2,
+    "cards": cards2,
+    "quiz": quiz2,
+    "tutor": tutor2,
+    "quick": ["Apa beda substitusi total dan parsial?", "Bagaimana aturan prioritas multi?", "Bagaimana menghitung banyak hasil parsial?", "Contoh substitusi total?"]
+  }
+]
+
+out = os.path.join(os.path.dirname(__file__), 'public', 'materials.json')
+with open(out, 'w', encoding='utf-8') as f:
+    json.dump({"materials": materials}, f, ensure_ascii=False, indent=2)
+print('wrote', out, os.path.getsize(out), 'bytes')

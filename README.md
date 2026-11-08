@@ -1,82 +1,70 @@
-# Belajarin Kos
+# Belajar Logika
 
-Web belajar berbasis AI buat anak kos: upload materi, jadi **ringkasan**, **flashcard**, **kuis**, dan **tutor chat**.
-Tanpa langganan. Kamu pakai API murah sendiri, atau free tier kalau ada.
+Ruang belajar pribadi untuk **dua materi Logika Informatika**:
 
-Provider yang didukung:
-- **OpenAI-compatible** (CosmosHub, Mobius, Groq, OpenRouter, atau penjual token lain): cukup isi base URL, API key, dan nama model.
-- **Gemini** (API native Google).
+1. **Semantic Tree & Proof by Falsification** — 18 slide
+2. **Substitusi** — 41 slide
 
-Bisa ganti provider/model langsung dari dropdown di web. Kalau tidak mau beli provider, pakai **Gemini free tier** dari Google AI Studio, atau provider OpenAI-compatible yang punya free tier seperti Groq/OpenRouter. Ollama di laptop juga bisa dipakai lewat base URL `http://localhost:11434/v1`.
+Semua isi diambil dari dua file slide kuliah di folder ini. Tidak ada API key, tidak ada biaya, dan tidak perlu koneksi ke layanan AI.
 
-## Jalankan
+## Fitur
 
-Butuh Node.js 18 atau lebih baru.
+- **Ringkasan** tiap materi, disusun ulang dalam bahasa yang lebih mudah dibaca.
+- **Flashcard** dengan mode balik kartu, acak, dan fokus ke kartu yang belum dikuasai.
+- **Kuis pilihan ganda** dengan pembahasan tiap soal dan nilai terbaik.
+- **Tutor lokal** yang menjawab berdasarkan isi slide. Pencocokan kata kunci, bukan AI generatif, jadi jawabannya konsisten dan bisa dilacak ke slide sumber.
+- **Penampil slide asli** (59 halaman) dengan navigasi keyboard.
+- **Progres belajar** disimpan di `localStorage` browser.
+- Tampilan responsif untuk desktop dan HP.
+
+## Menjalankan
 
 ```bash
 npm install
-cp .env.example .env     # lalu isi base URL, API key, dan nama model
 npm start
 ```
 
-Buka http://localhost:3000
+Buka <http://localhost:3000>.
 
-## Deploy ke Render (gratis)
+Untuk pengembangan:
 
-File `render.yaml` sudah disiapkan untuk Render Blueprint.
-
-1. Push project ini ke repo GitHub (private juga boleh).
-2. Di [Render Dashboard](https://dashboard.render.com), pilih **New → Blueprint**.
-3. Hubungkan repo tadi, lalu **Apply**.
-4. Saat diminta, isi:
-   - `GEMINI_API_KEY` — API key gratis dari [Google AI Studio](https://aistudio.google.com/apikey).
-   - `APP_PASSWORD` — opsional, tapi isi kalau link mau dibagikan ke teman.
-5. Setelah deploy selesai, buka URL `https://<nama-service>.onrender.com`.
-
-Catatan Render free:
-
-- Service tidur setelah 15 menit tanpa traffic. Request pertama setelah tidur bisa lambat sekitar 1 menit.
-- Memori 512 MB dan upload tetap maksimal 20 MB. File yang sangat besar bisa gagal diproses.
-- Riwayat materi tetap disimpan di browser masing-masing, bukan di server.
-- Untuk memakai provider lain, ubah `PROVIDERS` dan tambahkan variabel provider di dashboard Render. Jangan commit file `.env`.
-
-## Konfigurasi `.env`
-
-Daftar provider lewat `PROVIDERS=cosmos,mobius,gemini`. Tiap provider punya blok variabel berawalan nama id-nya (huruf besar):
-
-| Variabel | Arti |
-| --- | --- |
-| `<ID>_TYPE` | `openai` (default) atau `gemini` |
-| `<ID>_LABEL` | Nama yang tampil di dropdown |
-| `<ID>_BASE_URL` | Untuk `openai`: alamat sebelum `/chat/completions`, biasanya berakhiran `/v1` |
-| `<ID>_API_KEY` | API key |
-| `<ID>_MODELS` | Daftar nama model, pisah koma |
-
-Mau tambah provider baru? Tambah id-nya di `PROVIDERS` dan buat blok variabelnya. Tidak perlu ubah kode.
-
-Pengaturan lain: `MAX_MATERIAL_CHARS` (batas panjang materi ke model), `RATE_LIMIT_PER_MIN` (per IP), `APP_PASSWORD` (kalau diisi, web minta password; berguna kalau dibuka ke teman).
-
-## Yang sudah jalan
-
-- Upload PDF, DOCX, PPTX, XLSX, TXT, atau paste teks.
-- Ringkasan terstruktur, flashcard (balik kartu, tandai hafal, acak), kuis pilihan ganda dengan pembahasan, chat tutor berdasarkan materi.
-- Riwayat materi tersimpan di browser (localStorage), maksimal 20.
-
-## Batasan
-
-- **Audio/video (MP3, MP4, dst) belum didukung**: butuh layanan transkripsi (Whisper atau sejenis).
-- **PDF hasil scan** (isinya gambar) tidak terbaca; perlu OCR dulu.
-- Materi dipotong sampai `MAX_MATERIAL_CHARS` karakter. Materi panjang banget sebaiknya dipecah per bab.
-- Riwayat ada di browser masing-masing, tidak disinkronkan antar perangkat.
-- Hasil AI bisa salah atau terlalu disederhanakan. Cek lagi ke materi aslinya sebelum ujian.
+```bash
+npm run dev
+```
 
 ## Struktur
 
 ```
-server.js      Express: API + file statis, rate limit, password opsional
-providers.js   Klien OpenAI-compatible dan Gemini
-extract.js     Ekstraksi teks (PDF/DOCX/PPTX/XLSX/TXT)
-prompts.js     Prompt dan validasi keluaran model
-public/        Frontend (HTML/CSS/JS tanpa framework)
-render.yaml    Blueprint deploy gratis ke Render
+server.js              Server Express statis + health check
+public/
+  index.html           Kerangka aplikasi
+  style.css            Desain dan responsive layout
+  app.js               Routing, flashcard, kuis, tutor, slide viewer
+  materials.json       Semua konten belajar (ringkasan, kartu, kuis, tutor)
+  slides/
+    semantic-tree/     18 gambar slide (01.jpg–18.jpg)
+    substitusi/        41 gambar slide (01.jpg–41.jpg)
+build_materials.py     Skrip pembuat materials.json dari konten terkurasi
+render.yaml            Blueprint Render (free plan)
 ```
+
+## Sumber materi
+
+- `7. SEMANTIC TREE-PROOF by FALSIFICATION.pptx` — Ikrima Alfi, S.T., M.Eng.
+- `8. SUBSTITUSI.pptx` — Ikrima Alfi, S.T., M.Eng.
+
+Slide asli diekspor menjadi gambar JPG agar bisa dibaca langsung di browser. File PPTX tidak disajikan ke publik.
+
+## Deploy ke Render
+
+1. Push repo ini ke GitHub.
+2. Di Render, pilih **New → Blueprint**, hubungkan repo, lalu gunakan `render.yaml`.
+3. Tidak ada environment variable yang wajib diisi.
+
+Catatan free plan Render: service tidur setelah ±15 menit tanpa trafik, jadi request pertama bisa terasa lambat (±1 menit).
+
+## Catatan
+
+- Progres tersimpan per browser. Membuka di perangkat lain akan mulai dari nol.
+- Tutor menjawab dengan mencari topik paling relevan dari kumpulan Q&A yang sudah disusun dari slide. Kalau pertanyaan tidak cocok, tutor akan menyarankan topik terkait.
+- Untuk mengubah konten, edit `build_materials.py` lalu jalankan `python build_materials.py`.

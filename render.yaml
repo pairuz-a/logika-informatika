@@ -1,31 +1,12 @@
 services:
   - type: web
-    name: belajarin-kos
+    name: belajar-logika
     runtime: node
     plan: free
     region: singapore
     buildCommand: npm install
     startCommand: npm start
-    healthCheckPath: /api/config
+    healthCheckPath: /healthz
     envVars:
       - key: NODE_ENV
         value: production
-      # Provider default: Gemini free tier. Ganti PROVIDERS kalau mau pakai
-      # Cosmos/Mobius/Groq; tambahkan variabel provider-nya di dashboard Render.
-      - key: PROVIDERS
-        value: gemini
-      - key: GEMINI_TYPE
-        value: gemini
-      - key: GEMINI_LABEL
-        value: Gemini
-      - key: GEMINI_MODELS
-        value: gemini-2.5-flash
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: MAX_MATERIAL_CHARS
-        value: "60000"
-      - key: RATE_LIMIT_PER_MIN
-        value: "20"
-      # Kosongkan kalau tidak mau pakai password. Isi kalau link dibagikan.
-      - key: APP_PASSWORD
-        sync: false
