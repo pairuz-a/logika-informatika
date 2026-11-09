@@ -5512,7 +5512,8 @@
       "day": "Jumat",
       "time": "09.00",
       "status": "soon",
-      "accent": "#7c3aed"
+      "accent": "#7c3aed",
+      "soonNote": "Kalo Gak Males Ada Ntar"
     },
     {
       "id": "bahasa-indonesia",
@@ -5522,7 +5523,8 @@
       "day": "Selasa",
       "time": "09.00",
       "status": "soon",
-      "accent": "#b91c1c"
+      "accent": "#b91c1c",
+      "soonNote": "Jawaban Kisi Kisi Pake Tulisan & Opini Masing Masing Jadi Ga Ada"
     },
     {
       "id": "metodologi-problem-solving",

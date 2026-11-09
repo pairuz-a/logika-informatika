@@ -289,15 +289,19 @@ function renderSidebar(r = route()) {
         ].join('');
   }
 
-  const t = totals(state.course?.id || null);
   const box = document.querySelector('#sidebar-progress');
   if (box) {
-    box.innerHTML = `
-      <div class="sp-card">
-        <div class="sp-top"><span>${state.course ? 'Progres materi' : 'Progres keseluruhan'}</span><strong>${t.pct}%</strong></div>
-        <div class="bar"><i style="width:${t.pct}%"></i></div>
-        <p>${t.mastered} dari ${t.cards} kartu dikuasai${t.attempts ? ` · ${t.attempts} percobaan kuis` : ''}</p>
-      </div>`;
+    if (!state.course) {
+      box.innerHTML = '';
+    } else {
+      const t = totals(state.course.id);
+      box.innerHTML = `
+        <div class="sp-card">
+          <div class="sp-top"><span>Progres materi</span><strong>${t.pct}%</strong></div>
+          <div class="bar"><i style="width:${t.pct}%"></i></div>
+          <p>${t.mastered} dari ${t.cards} kartu dikuasai${t.attempts ? ` · ${t.attempts} percobaan kuis` : ''}</p>
+        </div>`;
+    }
   }
 }
 
@@ -358,7 +362,7 @@ function scheduleRow(c) {
       <small>${esc(c.short)}</small>
     </span>
     <span class="sr-meta">
-      ${ready ? `${count} materi${pct ? ` · ${pct}% selesai` : ''}` : 'Belum ada materi'}
+      ${ready ? `${count} materi${pct ? ` · ${pct}% selesai` : ''}` : esc(c.soonNote || 'Belum ada materi')}
       ${isToday ? '<em>Hari ini</em>' : ''}
     </span>
     <span class="sr-arrow" aria-hidden="true">${ready ? '→' : ''}</span>`;
