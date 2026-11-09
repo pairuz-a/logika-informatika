@@ -582,7 +582,8 @@
         "Bagaimana langkah membuat pohon semantik?",
         "Apa bedanya valid, satisfiable, dan contradictory?",
         "Contoh proof by falsification?"
-      ]
+      ],
+      "courseId": "logika-informatika"
     },
     {
       "id": "substitusi",
@@ -1162,7 +1163,1002 @@
         "Bagaimana aturan prioritas multi?",
         "Bagaimana menghitung banyak hasil parsial?",
         "Contoh substitusi total?"
+      ],
+      "courseId": "logika-informatika"
+    },
+    {
+      "id": "pti-power-platform",
+      "order": 1,
+      "courseId": "pengantar-teknologi-informasi",
+      "title": "Power Platform: Automate & Apps",
+      "short": "Minggu 1 — bedanya Microsoft Power Automate dan Power Apps, plus contoh otomatisasinya.",
+      "course": "Pengantar Teknologi Informasi",
+      "source": "Tugas Minggu 1 — Pengantar Teknologi Informasi",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#1d4ed8",
+      "tags": [
+        "Power Automate",
+        "Power Apps",
+        "Low-code"
+      ],
+      "summary": "## Gambaran besar\nMinggu pertama PTI memperkenalkan dua layanan **low-code** Microsoft yang sering dipakai berpasangan:\n\n1. **Microsoft Power Automate** — fokus pada **alur kerja (workflow)** dan **integrasi** antar aplikasi. Tugas yang berulang dibuat otomatis dengan trigger → aksi.\n2. **Microsoft Power Apps** — fokus pada **pembuatan formulir dan aplikasi** tanpa menulis banyak kode, lalu aplikasinya bisa dihubungkan ke data dan alur otomatis.\n\nKeduanya **tujuan dan perannya berbeda**, tetapi **dirancang untuk dipakai bersama**: Power Apps menjadi \"wajah\" aplikasi (form/input), Power Automate menjadi \"mesin\" yang memproses data di belakangnya.\n\n## 1. Power Automate\nAlat untuk mengotomatiskan tugas dan menyambungkan layanan. Polanya: **trigger** (kejadian pemicu) → **action** (langkah yang dijalankan).\n\nContoh pengotomatisan:\n- **Menyampaikan lampiran email secara otomatis** — email masuk dengan lampiran langsung disimpan ke folder/OneDrive dan diteruskan ke orang yang tepat.\n- **Approval workflow cuti** — pengajuan cuti otomatis diteruskan ke atasan, statusnya diperbarui, dan pemohon mendapat notifikasi.\n\n## 2. Power Apps\nAlat untuk membangun aplikasi bisnis dengan drag-and-drop, form, dan konektor data.\n\nContoh pengotomatisan:\n- **Sistem manajemen inventaris** — pencatatan keluar-masuk barang secara digital, stok langsung berkurang/bertambah.\n- **Manajemen proses cuti / klaim biaya** — formulir digital yang langsung terhubung ke sistem persetujuan.\n\n## 3. Perbedaan inti\n| Aspek | Power Automate | Power Apps |\n|---|---|---|\n| Fokus | Alur kerja & integrasi | Formulir & aplikasi |\n| Bentuk hasil | Flow otomatis | Aplikasi/form yang dipakai user |\n| Pemicu utama | Event (email masuk, jadwal, tombol) | Interaksi user di aplikasi |\n| Analogi | Mesin di belakang layar | Antarmuka yang dilihat user |\n\n## 4. Cara menjawab soal\nKalau soal menanya **\"bedanya\"**, jawab dua hal: **fokus** (workflow vs form/aplikasi) dan **hasil** (flow otomatis vs aplikasi). Lalu tambahkan bahwa keduanya **saling melengkapi**, bukan pengganti satu sama lain.",
+      "sections": [
+        {
+          "title": "Apa itu Power Automate?",
+          "slides": "Minggu 1",
+          "body": "Layanan untuk mengotomatiskan alur kerja dan mengintegrasikan aplikasi. Polanya trigger → action. Cocok untuk tugas berulang seperti meneruskan lampiran email atau approval cuti."
+        },
+        {
+          "title": "Apa itu Power Apps?",
+          "slides": "Minggu 1",
+          "body": "Layanan untuk membuat formulir dan aplikasi bisnis dengan pendekatan low-code. Contohnya sistem inventaris dan formulir pengajuan cuti/klaim biaya."
+        },
+        {
+          "title": "Perbedaan keduanya",
+          "slides": "Minggu 1",
+          "body": "Power Automate berfokus pada alur kerja dan integrasi, sedangkan Power Apps berfokus pada pembuatan formulir dan aplikasi. Keduanya dirancang untuk digunakan bersama."
+        },
+        {
+          "title": "Contoh pengotomatisan Power Automate",
+          "slides": "Minggu 1",
+          "body": "Menyampaikan lampiran email secara otomatis, dan mengelola permintaan serta persetujuan (approval workflow) cuti."
+        },
+        {
+          "title": "Contoh pengotomatisan Power Apps",
+          "slides": "Minggu 1",
+          "body": "Sistem manajemen inventaris (pencatatan keluar-masuk barang digital) dan formulir digital pengajuan cuti atau klaim biaya yang terhubung ke sistem persetujuan."
+        },
+        {
+          "title": "Cara menjawab soal ujian",
+          "slides": "Tips",
+          "body": "Sebutkan fokus + bentuk hasil + hubungan saling melengkapi. Jangan hanya mendefinisikan satu aplikasi; soal \"perbedaan\" butuh kontras dua arah."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa fokus utama Microsoft Power Automate?",
+          "back": "Alur kerja (workflow) dan integrasi antar aplikasi — mengotomatiskan tugas berulang."
+        },
+        {
+          "front": "Apa fokus utama Microsoft Power Apps?",
+          "back": "Pembuatan formulir dan aplikasi bisnis dengan pendekatan low-code."
+        },
+        {
+          "front": "Sebutkan 2 contoh pengotomatisan dengan Power Automate.",
+          "back": "(1) Menyampaikan lampiran email secara otomatis. (2) Approval workflow / pengelolaan permintaan dan persetujuan cuti."
+        },
+        {
+          "front": "Sebutkan 2 contoh pengotomatisan dengan Power Apps.",
+          "back": "(1) Sistem manajemen inventaris digital. (2) Formulir digital pengajuan cuti atau klaim biaya yang terhubung ke sistem persetujuan."
+        },
+        {
+          "front": "Apakah Power Automate dan Power Apps saling menggantikan?",
+          "back": "Tidak. Tujuan dan perannya berbeda, tetapi dirancang untuk digunakan bersama: Apps sebagai antarmuka, Automate sebagai mesin alur kerja."
+        },
+        {
+          "front": "Apa pola dasar sebuah flow di Power Automate?",
+          "back": "Trigger (pemicu kejadian) → action (langkah yang dijalankan)."
+        },
+        {
+          "front": "Berikan analogi sederhana untuk membedakan keduanya.",
+          "back": "Power Apps = antarmuka/form yang dilihat user; Power Automate = mesin di belakang layar yang memproses dan menyambungkan data."
+        },
+        {
+          "front": "Mengapa Power Platform disebut low-code?",
+          "back": "Karena aplikasi dan otomatisasi dibangun dengan drag-and-drop, form, dan konektor siap pakai sehingga hanya butuh sedikit atau tanpa kode."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Microsoft Power Automate paling tepat dijelaskan sebagai...",
+          "options": [
+            "Aplikasi pembuat form",
+            "Layanan alur kerja dan integrasi",
+            "Bahasa pemrograman",
+            "Sistem operasi"
+          ],
+          "answer": 1,
+          "explanation": "Power Automate berfokus pada otomatisasi alur kerja dan integrasi antar layanan."
+        },
+        {
+          "question": "Berikut yang merupakan contoh penggunaan Power Apps adalah...",
+          "options": [
+            "Meneruskan lampiran email otomatis",
+            "Formulir digital pengajuan cuti",
+            "Menjadwalkan backup server",
+            "Mengirim email massal"
+          ],
+          "answer": 1,
+          "explanation": "Power Apps dipakai untuk membuat formulir/aplikasi seperti pengajuan cuti atau inventaris."
+        },
+        {
+          "question": "Contoh otomatisasi yang khas Power Automate adalah...",
+          "options": [
+            "Membuat form inventaris",
+            "Approval workflow cuti",
+            "Mendesain logo aplikasi",
+            "Menghitung nilai rata-rata di Excel"
+          ],
+          "answer": 1,
+          "explanation": "Approval workflow adalah alur kerja otomatis, ciri khas Power Automate."
+        },
+        {
+          "question": "Hubungan Power Apps dan Power Automate adalah...",
+          "options": [
+            "Saling menggantikan",
+            "Tidak berhubungan",
+            "Dirancang untuk dipakai bersama",
+            "Power Apps adalah versi lama Power Automate"
+          ],
+          "answer": 2,
+          "explanation": "Keduanya punya tujuan berbeda namun dirancang untuk digunakan bersama."
+        },
+        {
+          "question": "Sistem manajemen inventaris digital paling tepat dibuat dengan...",
+          "options": [
+            "Power Apps",
+            "Power Automate",
+            "Notepad",
+            "Task Manager"
+          ],
+          "answer": 0,
+          "explanation": "Inventaris adalah aplikasi/form dengan input data, cocok untuk Power Apps."
+        },
+        {
+          "question": "Komponen pemicu dalam sebuah flow disebut...",
+          "options": [
+            "Action",
+            "Trigger",
+            "Connector",
+            "Template"
+          ],
+          "answer": 1,
+          "explanation": "Trigger adalah kejadian yang memulai flow; action adalah langkah yang dijalankan."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa bedanya Power Automate dan Power Apps?",
+          "a": "Power Automate berfokus pada alur kerja dan integrasi, sedangkan Power Apps berfokus pada pembuatan formulir dan aplikasi. Masing-masing punya tujuan berbeda dan dirancang untuk digunakan bersama.",
+          "tags": [
+            "perbedaan",
+            "dasar"
+          ],
+          "slide": "Minggu 1"
+        },
+        {
+          "q": "Contoh otomatisasi Power Automate?",
+          "a": "Menyampaikan lampiran email secara otomatis, dan mengelola permintaan serta persetujuan (approval workflow) cuti.",
+          "tags": [
+            "contoh",
+            "automate"
+          ],
+          "slide": "Minggu 1"
+        },
+        {
+          "q": "Contoh otomatisasi Power Apps?",
+          "a": "Sistem manajemen inventaris untuk pencatatan keluar-masuk barang digital, dan formulir digital pengajuan cuti/klaim biaya yang terhubung ke sistem persetujuan.",
+          "tags": [
+            "contoh",
+            "apps"
+          ],
+          "slide": "Minggu 1"
+        },
+        {
+          "q": "Kenapa disebut low-code?",
+          "a": "Karena pembuatan aplikasi dan alur kerja memakai drag-and-drop, form, dan konektor siap pakai sehingga hanya butuh sedikit atau tanpa menulis kode.",
+          "tags": [
+            "low-code"
+          ],
+          "slide": "Minggu 1"
+        }
+      ],
+      "quick": [
+        "Apa bedanya Power Automate dan Power Apps?",
+        "Contoh otomatisasi Power Automate?",
+        "Contoh otomatisasi Power Apps?",
+        "Kenapa disebut low-code?"
       ]
+    },
+    {
+      "id": "pti-macro-vba",
+      "order": 2,
+      "courseId": "pengantar-teknologi-informasi",
+      "title": "Macro Recorder & Pengenalan Visual Basic",
+      "short": "Minggu 2–3 — merekam macro, membaca kode VBA, objek/properti/method, dan debugging error #NAME?.",
+      "course": "Pengantar Teknologi Informasi",
+      "source": "Tugas Minggu 2 (Modul 3) & Minggu 3 — Pengantar Teknologi Informasi",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#0369a1",
+      "tags": [
+        "Record Macro",
+        "VBA Editor",
+        "Debugging"
+      ],
+      "summary": "## Gambaran besar\nMinggu 2 dan 3 masuk ke **Excel VBA**: mulai dari merekam macro tanpa menulis kode, lalu membaca dan merapikan kodenya, sampai memperbaiki error.\n\n## 1. Record Macro\nLangkah umum:\n1. Tab **Developer → Record Macro**, beri nama (mis. `SortAndFilterOverdue`), simpan di **This Workbook**, klik OK.\n2. Lakukan aksi di Excel seperti biasa (mis. Data → Sort, aktifkan Filter, Number Filters → Greater Than → 0).\n3. **Developer → Stop Recording**.\n\nHasil rekaman bisa dilihat di **VBA Editor** (Alt + F11). Kode rekaman biasanya **panjang dan bertele-tele** karena semua properti ikut direkam, misalnya lebar kolom, warna, font, dan posisi sel.\n\n## 2. Merapikan kode rekaman\nKode rekaman bisa disederhanakan, misalnya:\n```vba\nRange(\"A1\").Select\nColumns(\"A\").ColumnWidth = \"40\"\nSelection.FormulaR1C1 = \"The Excel Team\"\nSelection.Interior.Color = 2974720\nSelection.Font.Bold = True\nSelection.Font.Size = 20\nRange(\"B1\").Select\nActiveCell.FormulaR1C1 = \"=TODAY()\"\n```\nIntinya: **hapus properti yang tidak perlu**, sisakan aksi yang benar-benar diinginkan.\n\n## 3. Objek, Properti, Method\n- **Object** = benda yang dikendalikan: Workbook, Worksheet, Range, Cell. (kata benda)\n- **Property** = sifat objek: `.Name`, `.Value`, `.Font.Bold`. (kata sifat)\n- **Method** = aksi yang bisa dilakukan objek: `.Add`, `.Select`, `.Save`. (kata kerja)\n\nContoh: `ActiveSheet.Name` → ActiveSheet = object, Name = property. `Worksheets.Add` → Add = method.\n\n## 4. Jendela penting di VBA Editor\n- **Properties Window** (F4) — melihat/mengubah properti objek terpilih tanpa menulis kode (Name, Visible, Caption).\n- **Immediate Window** (Ctrl + G) — menjalankan perintah langsung, mis. ketik `?Date` lalu Enter; melihat `Debug.Print`; memeriksa nilai variabel saat debugging.\n\n## 5. Debugging error #NAME?\nPenyebab umum: **typo nama fungsi**. Contoh `=TOAY()` seharusnya `=TODAY()`, sehingga sel menampilkan **#NAME?**.\n\nLangkah:\n1. Alt + F11, buka modul.\n2. Jalankan baris demi baris dengan **F8**.\n3. Periksa isi sel lewat Immediate Window: `?Range(\"B1\").Formula`.\n4. Perbaiki rumus menjadi `=TODAY()`, lalu beri format tanggal: `ActiveCell.NumberFormat = \"dd/mmm/yy\"`.\n\n## 6. Rename, Insert, Select sheet\n```vba\nSub RenameInsertSelect()\n    Dim ws As Worksheet\n    ActiveSheet.Name = \"Test\"        ' rename\n    Set ws = Worksheets.Add          ' insert\n    ws.Name = \"Test 2\"\n    ws.Select                        ' select\nEnd Sub\n```\nNama sheet harus **unik**; kalau \"Test\" sudah ada, macro error. `Select` sebenarnya tidak wajib karena sheet baru otomatis aktif.\n\n## 7. Jebakan ujian\n- Jangan tertukar **property** dan **method**.\n- Kode rekaman bukan kode terbaik — harus dirapikan.\n- `#NAME?` = nama fungsi/range tidak dikenali, biasanya typo.\n- `FormulaR1C1` harus berisi string rumus yang valid, termasuk tanda kutip.",
+      "sections": [
+        {
+          "title": "Langkah Record Macro",
+          "slides": "Minggu 2",
+          "body": "Developer → Record Macro → beri nama → simpan di This Workbook → lakukan aksi → Developer → Stop Recording. Hasil rekaman dibuka di VBA Editor (Alt + F11)."
+        },
+        {
+          "title": "Kenapa kode rekaman panjang?",
+          "slides": "Minggu 2",
+          "body": "Recorder mencatat semua properti yang tersentuh: lebar kolom, warna interior, font, posisi sel. Kode perlu dirapikan agar mudah dibaca dan dirawat."
+        },
+        {
+          "title": "Object, Property, Method",
+          "slides": "Minggu 3",
+          "body": "Object = benda (Workbook, Worksheet, Range). Property = sifat (Name, Value, Font.Bold). Method = aksi (Add, Select, Save). Analogi: mobil, warna mobil, menyalakan mobil."
+        },
+        {
+          "title": "Properties & Immediate Window",
+          "slides": "Minggu 3",
+          "body": "Properties Window (F4) mengubah properti objek tanpa kode. Immediate Window (Ctrl+G) menjalankan perintah langsung, mis. ?Date, dan menampilkan Debug.Print saat debugging."
+        },
+        {
+          "title": "Debugging #NAME?",
+          "slides": "Minggu 3",
+          "body": "#NAME? muncul saat Excel tidak mengenali nama fungsi, biasanya typo seperti =TOAY() yang seharusnya =TODAY(). Jalankan dengan F8, cek ?Range(\"B1\").Formula, perbaiki, lalu format tanggal."
+        },
+        {
+          "title": "Rename, Insert, Select",
+          "slides": "Minggu 3",
+          "body": "ActiveSheet.Name = \"Test\" untuk rename; Set ws = Worksheets.Add lalu ws.Name = \"Test 2\" untuk insert; ws.Select untuk memilih. Nama sheet harus unik."
+        },
+        {
+          "title": "Tips menjawab soal",
+          "slides": "Tips",
+          "body": "Sebutkan urutan langkah dan alasan tiap properti/method. Untuk debugging, tulis gejala → dugaan penyebab → langkah cek → perbaikan."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Di mana perintah Record Macro?",
+          "back": "Tab Developer → Record Macro. Beri nama, simpan di This Workbook, klik OK, lalu Stop Recording setelah selesai."
+        },
+        {
+          "front": "Kenapa kode hasil rekaman sering panjang?",
+          "back": "Karena recorder mencatat semua properti yang tersentuh (lebar kolom, warna, font, posisi sel), bukan hanya aksi intinya."
+        },
+        {
+          "front": "Apa itu Object dalam VBA? Beri contoh.",
+          "back": "Benda yang dikendalikan di Excel: Workbook, Worksheet, Range, Cell."
+        },
+        {
+          "front": "Apa itu Property? Beri contoh.",
+          "back": "Sifat/ciri objek yang bisa dibaca atau diubah: .Name, .Value, .Font.Bold."
+        },
+        {
+          "front": "Apa itu Method? Beri contoh.",
+          "back": "Aksi yang bisa dilakukan objek: Worksheets.Add, Range(\"A1\").Select, ActiveWorkbook.Save."
+        },
+        {
+          "front": "Apa fungsi Properties Window dan shortcut-nya?",
+          "back": "Melihat/mengubah properti objek terpilih tanpa menulis kode. Shortcut F4."
+        },
+        {
+          "front": "Apa fungsi Immediate Window dan shortcut-nya?",
+          "back": "Menjalankan perintah VBA langsung dan melihat hasilnya, mis. ?Date; juga menampilkan Debug.Print. Shortcut Ctrl+G."
+        },
+        {
+          "front": "Kenapa sel menampilkan #NAME?",
+          "back": "Karena Excel tidak mengenali nama fungsi/range yang dipakai, biasanya typo seperti =TOAY() yang seharusnya =TODAY()."
+        },
+        {
+          "front": "Bagaimana langkah debugging error #NAME?",
+          "back": "Alt+F11 → buka modul → jalankan dengan F8 baris demi baris → cek ?Range(\"B1\").Formula di Immediate Window → perbaiki rumus → beri format."
+        },
+        {
+          "front": "Tulis kode rename, insert, dan select sheet.",
+          "back": "ActiveSheet.Name = \"Test\" (rename); Set ws = Worksheets.Add lalu ws.Name = \"Test 2\" (insert); ws.Select (select)."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Shortcut untuk membuka VBA Editor adalah...",
+          "options": [
+            "Alt + F11",
+            "Ctrl + G",
+            "F4",
+            "Ctrl + Shift + V"
+          ],
+          "answer": 0,
+          "explanation": "Alt + F11 membuka VBA Editor. Ctrl+G = Immediate Window, F4 = Properties Window."
+        },
+        {
+          "question": "ActiveSheet.Name termasuk...",
+          "options": [
+            "Method",
+            "Property",
+            "Object",
+            "Event"
+          ],
+          "answer": 1,
+          "explanation": "Name adalah properti dari objek ActiveSheet."
+        },
+        {
+          "question": "Worksheets.Add termasuk...",
+          "options": [
+            "Property",
+            "Method",
+            "Object",
+            "Variable"
+          ],
+          "answer": 1,
+          "explanation": "Add adalah method (aksi) milik objek Worksheets."
+        },
+        {
+          "question": "Sel menampilkan #NAME? karena...",
+          "options": [
+            "File rusak",
+            "Nama fungsi/range tidak dikenali",
+            "Sheet terkunci",
+            "Kolom terlalu sempit"
+          ],
+          "answer": 1,
+          "explanation": "#NAME? muncul saat Excel tidak mengenali nama, umumnya typo seperti =TOAY()."
+        },
+        {
+          "question": "Jendela untuk menjalankan ?Date secara langsung adalah...",
+          "options": [
+            "Properties Window",
+            "Immediate Window",
+            "Project Explorer",
+            "Watch Window"
+          ],
+          "answer": 1,
+          "explanation": "Immediate Window (Ctrl+G) menjalankan perintah VBA secara langsung."
+        },
+        {
+          "question": "Menyimpan macro di This Workbook berarti...",
+          "options": [
+            "Macro hanya untuk workbook itu",
+            "Macro untuk semua workbook",
+            "Macro tidak bisa diedit",
+            "Macro otomatis terhapus"
+          ],
+          "answer": 0,
+          "explanation": "This Workbook menyimpan macro di file workbook tersebut."
+        },
+        {
+          "question": "Agar aman saat menghapus/mengganti filter lewat VBA, cek dulu...",
+          "options": [
+            "ActiveSheet.FilterMode",
+            "ActiveCell.Value",
+            "Selection.Font",
+            "Workbook.Name"
+          ],
+          "answer": 0,
+          "explanation": "ShowAllData akan error jika tidak ada filter aktif, jadi cek FilterMode lebih dulu."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Bagaimana cara merekam macro?",
+          "a": "Tab Developer → Record Macro → beri nama dan simpan di This Workbook → lakukan aksi di Excel → Developer → Stop Recording. Kode hasil rekaman bisa dilihat di VBA Editor dengan Alt+F11.",
+          "tags": [
+            "record",
+            "macro"
+          ],
+          "slide": "Minggu 2"
+        },
+        {
+          "q": "Apa bedanya object, property, dan method?",
+          "a": "Object adalah benda yang dikendalikan (Workbook, Worksheet, Range). Property adalah sifat objek (Name, Value, Font.Bold). Method adalah aksi objek (Add, Select, Save). Analoginya: mobil, warna mobil, menyalakan mobil.",
+          "tags": [
+            "konsep",
+            "vba"
+          ],
+          "slide": "Minggu 3"
+        },
+        {
+          "q": "Kenapa muncul error #NAME?",
+          "a": "Karena Excel tidak mengenali nama fungsi atau range, biasanya karena typo seperti =TOAY() yang seharusnya =TODAY(). Perbaiki rumusnya dan beri format tanggal.",
+          "tags": [
+            "error",
+            "debugging"
+          ],
+          "slide": "Minggu 3"
+        },
+        {
+          "q": "Bagaimana cara debugging macro?",
+          "a": "Buka VBA Editor (Alt+F11), jalankan baris demi baris dengan F8, periksa nilai lewat Immediate Window (Ctrl+G) misalnya ?Range(\"B1\").Formula, lalu perbaiki kode dan jalankan ulang.",
+          "tags": [
+            "debugging"
+          ],
+          "slide": "Minggu 3"
+        },
+        {
+          "q": "Bagaimana rename, insert, dan select sheet lewat VBA?",
+          "a": "Rename: ActiveSheet.Name = \"Test\". Insert: Set ws = Worksheets.Add lalu ws.Name = \"Test 2\". Select: ws.Select. Nama sheet harus unik, dan Select sebenarnya tidak wajib karena sheet baru otomatis aktif.",
+          "tags": [
+            "sheet",
+            "vba"
+          ],
+          "slide": "Minggu 3"
+        }
+      ],
+      "quick": [
+        "Bagaimana cara merekam macro?",
+        "Apa bedanya object, property, dan method?",
+        "Kenapa muncul error #NAME?",
+        "Bagaimana cara debugging macro?"
+      ]
+    },
+    {
+      "id": "pti-vba-functions",
+      "order": 3,
+      "courseId": "pengantar-teknologi-informasi",
+      "title": "VBA Functions",
+      "short": "Minggu 4 — fungsi pesan, teks, informasi, konversi, tanggal, matematika, array, dan file.",
+      "course": "Pengantar Teknologi Informasi",
+      "source": "Tugas Minggu 4 (2 file) — Pengantar Teknologi Informasi",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#7c3aed",
+      "tags": [
+        "InputBox",
+        "MsgBox",
+        "String",
+        "Tanggal"
+      ],
+      "summary": "## Gambaran besar\nMinggu 4 membahas **library fungsi VBA** yang sering dipakai. Soal biasanya meminta **nama fungsi + kegunaan + contoh pemakaian**.\n\n## 1. Fungsi pesan (Message)\n| Fungsi | Kegunaan |\n|---|---|\n| **InputBox** | Menampilkan kotak dialog untuk meminta input user, mengembalikan **String**. |\n| **MsgBox** | Menampilkan pesan di kotak dialog, menunggu user memilih tombol, mengembalikan **Integer** kode tombol. |\n\n## 2. Fungsi teks (Text)\n| Fungsi | Kegunaan |\n|---|---|\n| **Format** | Memformat ekspresi sesuai instruksi format. |\n| **InStr** | Posisi kemunculan pertama suatu string di string lain. |\n| **Left** | Sejumlah karakter dari kiri. |\n| **Right** | Sejumlah karakter dari kanan. |\n| **Mid** | Sejumlah karakter mulai posisi tertentu. |\n| **Len** | Jumlah karakter (atau byte) sebuah string. |\n| **Trim** | Menghapus spasi depan & belakang (LTrim kiri, RTrim kanan). |\n\n## 3. Fungsi informasi (Information)\n| Fungsi | Kegunaan |\n|---|---|\n| **IsArray** | True jika variabel berupa array. |\n| **IsEmpty** | True jika variabel belum diinisialisasi / bernilai Empty. |\n| **IsError** | True jika ekspresi bernilai error. |\n| **IsNumeric** | True jika ekspresi bisa dievaluasi menjadi angka. |\n\n## 4. Fungsi konversi (Conversion)\n| Fungsi | Kegunaan |\n|---|---|\n| **Asc** | Kode karakter dari huruf pertama string. |\n| **Chr** | Karakter dari kode tertentu. |\n| **FormatCurrency** | Format nilai mata uang sesuai sistem. |\n| **FormatDateTime** | Format tanggal/waktu. |\n| **FormatNumber** | Format angka. |\n| **FormatPercent** | Format persentase (dikali 100 + tanda %). |\n\n## 5. Tanggal & waktu (Date & Time)\n**Date** (tanggal sistem), **Now** (tanggal + waktu sekarang), **Time** (waktu sistem), **Day**, **Month**, **Year**, **Hour**, **Minute**, **Second**, **MonthName** (nama bulan).\n\n## 6. Matematika, array, file\n- Math & Trig: **Abs** (nilai absolut), **Round** (pembulatan ke jumlah desimal).\n- Array: **Array** (membuat array dari daftar nilai), **LBound** (indeks terkecil), **UBound** (indeks terbesar).\n- File Management: **CurDir** (jalur/folder saat ini), **Dir** (nama file/folder yang cocok dengan pola).\n\n## 7. Cara menghafal cepat\nKelompokkan per **kategori** (pesan, teks, informasi, konversi, tanggal, matematika, array, file). Saat ujian, kalau lupa satu fungsi, ingat kategorinya dulu — biasanya nama fungsinya mengikuti kategori tersebut.",
+      "sections": [
+        {
+          "title": "Fungsi pesan",
+          "slides": "Minggu 4",
+          "body": "InputBox meminta input dan mengembalikan String. MsgBox menampilkan pesan dan mengembalikan Integer kode tombol yang dipilih."
+        },
+        {
+          "title": "Fungsi teks",
+          "slides": "Minggu 4",
+          "body": "Format, InStr, Left, Right, Mid, Len, Trim (LTrim/RTrim). Dipakai untuk memotong, mencari posisi, menghitung panjang, dan membersihkan spasi."
+        },
+        {
+          "title": "Fungsi informasi",
+          "slides": "Minggu 4",
+          "body": "IsArray, IsEmpty, IsError, IsNumeric — semuanya mengembalikan Boolean untuk memeriksa jenis/keadaan nilai."
+        },
+        {
+          "title": "Fungsi konversi",
+          "slides": "Minggu 4",
+          "body": "Asc dan Chr untuk kode karakter. FormatCurrency, FormatDateTime, FormatNumber, FormatPercent untuk menampilkan nilai sesuai format."
+        },
+        {
+          "title": "Tanggal & waktu",
+          "slides": "Minggu 4",
+          "body": "Date, Now, Time untuk waktu sistem; Day, Month, Year, Hour, Minute, Second untuk komponen; MonthName untuk nama bulan."
+        },
+        {
+          "title": "Matematika, array, file",
+          "slides": "Minggu 4",
+          "body": "Abs dan Round (math); Array, LBound, UBound (array); CurDir dan Dir (file management)."
+        },
+        {
+          "title": "Strategi soal",
+          "slides": "Tips",
+          "body": "Hafalkan per kategori dan pasangan fungsi yang mirip: Left/Right/Mid, LTrim/RTrim/Trim, LBound/UBound, Date/Now/Time. Soal sering meminta membedakan pasangan ini."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa bedanya InputBox dan MsgBox?",
+          "back": "InputBox meminta input dari user dan mengembalikan String. MsgBox menampilkan pesan dan mengembalikan Integer kode tombol yang dipilih."
+        },
+        {
+          "front": "Apa fungsi Len?",
+          "back": "Mengembalikan jumlah karakter dalam string (atau jumlah byte yang diperlukan untuk menyimpan variabel)."
+        },
+        {
+          "front": "Apa bedanya Left, Right, dan Mid?",
+          "back": "Left mengambil karakter dari kiri, Right dari kanan, Mid mengambil sejumlah karakter mulai dari posisi tertentu."
+        },
+        {
+          "front": "Apa fungsi InStr?",
+          "back": "Mengembalikan posisi kemunculan pertama suatu string di dalam string lain."
+        },
+        {
+          "front": "Apa bedanya Trim, LTrim, dan RTrim?",
+          "back": "Trim menghapus spasi depan dan belakang; LTrim hanya kiri; RTrim hanya kanan."
+        },
+        {
+          "front": "Sebutkan 4 fungsi informasi dan kegunaannya.",
+          "back": "IsArray (cek array), IsEmpty (cek belum diinisialisasi), IsError (cek nilai error), IsNumeric (cek bisa jadi angka)."
+        },
+        {
+          "front": "Apa fungsi Asc dan Chr?",
+          "back": "Asc mengembalikan kode karakter dari huruf pertama; Chr mengembalikan karakter dari kode tertentu."
+        },
+        {
+          "front": "Sebutkan fungsi format untuk uang, tanggal, angka, dan persen.",
+          "back": "FormatCurrency (mata uang), FormatDateTime (tanggal/waktu), FormatNumber (angka), FormatPercent (persentase)."
+        },
+        {
+          "front": "Apa bedanya Date, Now, dan Time?",
+          "back": "Date = tanggal sistem; Now = tanggal + waktu sekarang; Time = waktu sistem saja."
+        },
+        {
+          "front": "Apa fungsi LBound dan UBound?",
+          "back": "LBound mengembalikan indeks terkecil array; UBound indeks terbesar."
+        },
+        {
+          "front": "Apa fungsi CurDir dan Dir?",
+          "back": "CurDir mengembalikan jalur/folder saat ini; Dir mengembalikan nama file/folder yang cocok dengan pola tertentu."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Fungsi yang mengembalikan posisi kemunculan pertama suatu string adalah...",
+          "options": [
+            "Len",
+            "InStr",
+            "Mid",
+            "Trim"
+          ],
+          "answer": 1,
+          "explanation": "InStr mencari posisi kemunculan pertama string di dalam string lain."
+        },
+        {
+          "question": "Fungsi untuk mengambil 3 karakter dari kanan adalah...",
+          "options": [
+            "Left",
+            "Mid",
+            "Right",
+            "Trim"
+          ],
+          "answer": 2,
+          "explanation": "Right mengambil sejumlah karakter dari sisi kanan string."
+        },
+        {
+          "question": "Fungsi yang mengubah kode karakter menjadi huruf adalah...",
+          "options": [
+            "Asc",
+            "Chr",
+            "Format",
+            "Val"
+          ],
+          "answer": 1,
+          "explanation": "Chr mengembalikan karakter dari kode tertentu; Asc sebaliknya."
+        },
+        {
+          "question": "Fungsi untuk mengecek apakah nilai bisa dianggap angka adalah...",
+          "options": [
+            "IsEmpty",
+            "IsArray",
+            "IsNumeric",
+            "IsError"
+          ],
+          "answer": 2,
+          "explanation": "IsNumeric mengembalikan True jika ekspresi dapat dievaluasi menjadi angka."
+        },
+        {
+          "question": "Fungsi yang mengembalikan tanggal dan waktu sekarang adalah...",
+          "options": [
+            "Date",
+            "Time",
+            "Now",
+            "Today"
+          ],
+          "answer": 2,
+          "explanation": "Now mengembalikan tanggal dan waktu saat ini. Date hanya tanggal, Time hanya waktu."
+        },
+        {
+          "question": "FormatPercent akan...",
+          "options": [
+            "Menambah tanda % tanpa mengubah nilai",
+            "Mengalikan nilai dengan 100 lalu memberi tanda %",
+            "Membulatkan ke bilangan bulat",
+            "Mengubah angka menjadi teks biasa"
+          ],
+          "answer": 1,
+          "explanation": "FormatPercent memformat sebagai persentase: nilai dikali 100 dan diberi tanda %."
+        },
+        {
+          "question": "Fungsi untuk mengetahui indeks terbesar array adalah...",
+          "options": [
+            "LBound",
+            "UBound",
+            "Array",
+            "Len"
+          ],
+          "answer": 1,
+          "explanation": "UBound mengembalikan subskrip terbesar yang tersedia pada dimensi array."
+        },
+        {
+          "question": "MsgBox mengembalikan nilai bertipe...",
+          "options": [
+            "String",
+            "Boolean",
+            "Integer",
+            "Date"
+          ],
+          "answer": 2,
+          "explanation": "MsgBox mengembalikan Integer yang menunjukkan tombol mana yang dipilih user."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa bedanya InputBox dan MsgBox?",
+          "a": "InputBox menampilkan kotak dialog untuk meminta user memasukkan teks, lalu mengembalikan String. MsgBox menampilkan pesan dan menunggu user memilih tombol, lalu mengembalikan Integer kode tombol.",
+          "tags": [
+            "pesan",
+            "input"
+          ],
+          "slide": "Minggu 4"
+        },
+        {
+          "q": "Jelaskan fungsi teks yang sering dipakai.",
+          "a": "Format (memformat ekspresi), InStr (posisi kemunculan string), Left/Right/Mid (potong string), Len (jumlah karakter), Trim/LTrim/RTrim (hapus spasi).",
+          "tags": [
+            "teks",
+            "string"
+          ],
+          "slide": "Minggu 4"
+        },
+        {
+          "q": "Apa saja fungsi informasi?",
+          "a": "IsArray (cek array), IsEmpty (cek belum diinisialisasi), IsError (cek nilai error), IsNumeric (cek bisa jadi angka). Semuanya mengembalikan Boolean.",
+          "tags": [
+            "informasi"
+          ],
+          "slide": "Minggu 4"
+        },
+        {
+          "q": "Sebutkan fungsi tanggal dan waktu.",
+          "a": "Date, Now, Time untuk waktu sistem; Day, Month, Year, Hour, Minute, Second untuk komponen; MonthName untuk nama bulan.",
+          "tags": [
+            "tanggal"
+          ],
+          "slide": "Minggu 4"
+        },
+        {
+          "q": "Apa fungsi array dan file management?",
+          "a": "Array membuat array dari daftar nilai; LBound/UBound memberi indeks terkecil/terbesar. CurDir memberi jalur saat ini; Dir mencari nama file/folder sesuai pola.",
+          "tags": [
+            "array",
+            "file"
+          ],
+          "slide": "Minggu 4"
+        }
+      ],
+      "quick": [
+        "Apa bedanya InputBox dan MsgBox?",
+        "Apa bedanya Left, Right, dan Mid?",
+        "Sebutkan 4 fungsi informasi.",
+        "Apa bedanya Date, Now, dan Time?"
+      ]
+    },
+    {
+      "id": "pti-worksheet-vba",
+      "order": 4,
+      "courseId": "pengantar-teknologi-informasi",
+      "title": "VBA untuk Worksheet I & II",
+      "short": "Minggu 5–6 — select/copy/paste/clear, sorting, filtering, visible cells, dan referensi worksheet.",
+      "course": "Pengantar Teknologi Informasi",
+      "source": "Tugas Minggu 5 & 6 — Pengantar Teknologi Informasi",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#b45309",
+      "tags": [
+        "Sorting",
+        "AutoFilter",
+        "Visible Cells",
+        "Worksheet"
+      ],
+      "summary": "## Gambaran besar\nMinggu 5–6 memakai VBA untuk mengolah **worksheet**: memilih dan menyalin data, mengurutkan, memfilter, menyalin hanya sel yang terlihat, dan memanggil worksheet lain.\n\n## 1. Selecting, copying, pasting, clearing\n```vba\nRange(\"B2\").Select                 ' pilih satu sel\nRange(\"B2:B10\").Select             ' pilih range\nRange(\"A1\").CurrentRegion.Select   ' pilih seluruh blok data\n```\n- **CurrentRegion** = blok data yang menyatu dengan sel aktif (dibatasi baris/kolom kosong).\n- **Copy / Paste**: `Selection.Copy`, `Destination.PasteSpecial`.\n- **Clear**: `Range(\"A1\").CurrentRegion.Clear` menghapus isi dan format; `ClearContents` hanya isi.\n\nStudi kasus PT Data Mandiri: seleksi penjualan Februari → copy ke sheet lain → tempel dengan format rapi → hapus data Januari.\n\n## 2. Sorting\n```vba\nRange(\"A1\").CurrentRegion.Sort _\n    Key1:=Range(\"G1\"), Order1:=xlDescending, Header:=xlYes\n```\n- **Key1** = kolom kunci pengurutan.\n- **Order1** = `xlAscending` / `xlDescending`.\n- **Header:=xlYes** = baris pertama judul, tidak ikut diurutkan.\n- Tambah **Key2** dengan `Add` level untuk urutan kedua.\n\n## 3. Filtering\n```vba\nIf ActiveSheet.FilterMode = True Then ActiveSheet.ShowAllData\nRange(\"A1\").CurrentRegion.AutoFilter Field:=1, Criteria1:=\"Dairy\"\n```\n- **FilterMode** dicek dulu; **ShowAllData** menghapus filter lama (error jika tidak ada filter).\n- **Field** = nomor kolom (mulai 1).\n- **Criteria1** = nilai/kriteria; operator pembanding ditulis dalam tanda kutip: `\">200\"`.\n- **Banyak nilai**: `Criteria1:=Array(\"Dairy\",\"Fruit\"), Operator:=xlFilterValues`.\n- Filter di beberapa kolom = logika **DAN** (semua syarat harus terpenuhi).\n\n## 4. Visible Cells\n```vba\nRange(\"A1\").CurrentRegion.SpecialCells(xlCellTypeVisible).Copy\nSheets(\"Data Filtered\").Range(\"A1\").PasteSpecial\nApplication.CutCopyMode = False\n```\n- **SpecialCells(xlCellTypeVisible)** hanya menyalin sel yang tampil; baris tersembunyi oleh filter tidak ikut.\n- **Application.CutCopyMode = False** menghilangkan garis putus-putus setelah paste.\n\n## 5. Referencing Worksheets\n| Cara | Contoh | Catatan |\n|---|---|---|\n| Nama teks | `Sheets(\"MAR\").Select` | Error jika nama tab diganti. |\n| Code name | `Sheet3.Select` | Tidak berubah walau tab diganti; tanpa tanda kutip. |\n| Beberapa sheet | `Sheets(Array(\"MAR\",\"APR\")).Select` | Mode grup; perubahan berlaku ke semua sheet terpilih. |\n| Eksplisit | `ThisWorkbook.Worksheets(\"DataNilai\")` | Aman, tidak bergantung sheet aktif. |\n\n## 6. Pola soal ujian\nUrutan aman: **hapus filter lama → filter/kunci data → salin yang terlihat → tempel → bersihkan mode copy → autofit**. Tulis selalu alasan mengapa memakai `SpecialCells` dan `FilterMode`.",
+      "sections": [
+        {
+          "title": "Select, copy, paste, clear",
+          "slides": "Minggu 5",
+          "body": "Range(\"B2\").Select memilih sel, Range(\"B2:B10\") range, CurrentRegion seluruh blok data. Copy lalu PasteSpecial; Clear menghapus isi+format, ClearContents hanya isi."
+        },
+        {
+          "title": "Studi kasus PT Data Mandiri",
+          "slides": "Minggu 5",
+          "body": "Seleksi penjualan Februari, copy-paste ke sheet lain, tempel dengan format rapi, lalu hapus data Januari."
+        },
+        {
+          "title": "Sorting",
+          "slides": "Minggu 6",
+          "body": "CurrentRegion.Sort dengan Key1 (kolom kunci), Order1 (xlAscending/xlDescending), dan Header:=xlYes agar judul tidak ikut terurut."
+        },
+        {
+          "title": "Filtering",
+          "slides": "Minggu 6",
+          "body": "Cek FilterMode lalu ShowAllData untuk menghapus filter lama. AutoFilter Field:=n, Criteria1:=... ; multi nilai memakai Array + xlFilterValues; operator ditulis dalam tanda kutip."
+        },
+        {
+          "title": "Visible cells",
+          "slides": "Minggu 6",
+          "body": "SpecialCells(xlCellTypeVisible) menyalin hanya sel yang tampil. PasteSpecial ke sheet tujuan, lalu Application.CutCopyMode = False."
+        },
+        {
+          "title": "Referencing worksheets",
+          "slides": "Minggu 6",
+          "body": "Sheets(\"MAR\") bergantung nama tab; Sheet3 (code name) lebih aman; Sheets(Array(...)) memilih beberapa sheet (mode grup); ThisWorkbook.Worksheets(\"...\") eksplisit."
+        },
+        {
+          "title": "Pola jawaban",
+          "slides": "Tips",
+          "body": "Selalu tulis: hapus filter lama → filter/sort → copy visible → paste → CutCopyMode=False → autofit. Sebutkan alasan SpecialCells dan pengecekan FilterMode."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa itu CurrentRegion?",
+          "back": "Blok data yang menyatu dengan sel aktif, dibatasi baris/kolom kosong. Dipakai untuk memilih atau mengolah seluruh tabel sekaligus."
+        },
+        {
+          "front": "Apa bedanya Clear dan ClearContents?",
+          "back": "Clear menghapus isi sekaligus format; ClearContents hanya menghapus isi, format tetap."
+        },
+        {
+          "front": "Tulis kode sorting nilai dari besar ke kecil.",
+          "back": "Range(\"A1\").CurrentRegion.Sort Key1:=Range(\"G1\"), Order1:=xlDescending, Header:=xlYes"
+        },
+        {
+          "front": "Apa fungsi Header:=xlYes pada Sort?",
+          "back": "Menandai baris pertama sebagai judul kolom sehingga tidak ikut diurutkan."
+        },
+        {
+          "front": "Kenapa harus cek FilterMode sebelum ShowAllData?",
+          "back": "Karena ShowAllData akan error jika tidak ada filter aktif. Cek ActiveSheet.FilterMode = True lebih dulu."
+        },
+        {
+          "front": "Bagaimana memfilter dua nilai sekaligus?",
+          "back": "Criteria1:=Array(\"Dairy\",\"Fruit\"), Operator:=xlFilterValues."
+        },
+        {
+          "front": "Bagaimana menulis kriteria \"lebih dari 200\"?",
+          "back": "Criteria1:=\">200\" — operator pembanding ditulis di dalam tanda kutip bersama angkanya."
+        },
+        {
+          "front": "Apa fungsi SpecialCells(xlCellTypeVisible)?",
+          "back": "Memilih/menyalin hanya sel yang tampil, sehingga baris yang disembunyikan filter tidak ikut tersalin."
+        },
+        {
+          "front": "Bagaimana menghilangkan garis putus-putus setelah copy?",
+          "back": "Application.CutCopyMode = False."
+        },
+        {
+          "front": "Apa bedanya Sheets(\"MAR\") dan Sheet3?",
+          "back": "Sheets(\"MAR\") memakai nama tab (error jika nama diganti). Sheet3 adalah code name yang tidak berubah walau tab diganti dan ditulis tanpa tanda kutip."
+        },
+        {
+          "front": "Apa efek Sheets(Array(\"MAR\",\"APR\")).Select?",
+          "back": "Memilih dua sheet sekaligus dan masuk mode grup; perubahan pada satu sheet ikut berlaku ke sheet lain sampai grup dilepas."
+        },
+        {
+          "front": "Mengapa memakai ThisWorkbook.Worksheets(\"DataNilai\")?",
+          "back": "Referensi eksplisit: macro tetap bekerja walaupun sheet yang aktif bukan DataNilai."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Properti yang menunjukkan blok data menyatu di sekitar sel aktif adalah...",
+          "options": [
+            "CurrentRegion",
+            "UsedRange",
+            "Selection",
+            "ActiveCell"
+          ],
+          "answer": 0,
+          "explanation": "CurrentRegion adalah blok data yang dibatasi baris/kolom kosong."
+        },
+        {
+          "question": "Agar baris judul tidak ikut diurutkan, gunakan...",
+          "options": [
+            "Header:=xlYes",
+            "Order1:=xlAscending",
+            "Key1:=Range(\"A1\")",
+            "MatchCase:=True"
+          ],
+          "answer": 0,
+          "explanation": "Header:=xlYes menandai baris pertama sebagai judul kolom."
+        },
+        {
+          "question": "Perintah untuk menghapus filter yang sedang aktif adalah...",
+          "options": [
+            "ActiveSheet.Clear",
+            "ActiveSheet.ShowAllData",
+            "Selection.Delete",
+            "Range(\"A1\").Clear"
+          ],
+          "answer": 1,
+          "explanation": "ShowAllData menampilkan kembali semua data dengan menghapus filter, dan hanya valid jika FilterMode aktif."
+        },
+        {
+          "question": "Untuk memfilter kolom ke-3 dengan nilai \"IT\", tulis...",
+          "options": [
+            "AutoFilter Field:=3, Criteria1:=\"IT\"",
+            "AutoFilter Column:=3, Value:=\"IT\"",
+            "Filter Field:=IT, Criteria1:=3",
+            "Sort Key1:=3, Order1:=\"IT\""
+          ],
+          "answer": 0,
+          "explanation": "Field adalah nomor kolom dan Criteria1 berisi nilai yang dicari."
+        },
+        {
+          "question": "Menyalin hanya baris yang terlihat setelah filter memakai...",
+          "options": [
+            "SpecialCells(xlCellTypeVisible)",
+            "CurrentRegion.Copy",
+            "Selection.Copy",
+            "UsedRange.Copy"
+          ],
+          "answer": 0,
+          "explanation": "SpecialCells(xlCellTypeVisible) memilih sel yang tampil saja."
+        },
+        {
+          "question": "Sheets(\"MAR\").Select akan error jika...",
+          "options": [
+            "Sheet MAR kosong",
+            "Nama tab MAR diganti",
+            "Workbook disimpan",
+            "Ada filter aktif"
+          ],
+          "answer": 1,
+          "explanation": "Referensi nama teks bergantung pada nama tab; jika diganti, sheet tidak ditemukan."
+        },
+        {
+          "question": "Memilih beberapa sheet sekaligus menghasilkan...",
+          "options": [
+            "Mode grup",
+            "Mode proteksi",
+            "Mode debug",
+            "Mode filter"
+          ],
+          "answer": 0,
+          "explanation": "Sheets(Array(...)).Select membuat sheet terpilih dalam mode grup."
+        },
+        {
+          "question": "Setelah paste, garis putus-putus dihilangkan dengan...",
+          "options": [
+            "Application.CutCopyMode = False",
+            "Selection.Clear",
+            "ActiveSheet.ShowAllData",
+            "Range(\"A1\").Select"
+          ],
+          "answer": 0,
+          "explanation": "CutCopyMode = False mengakhiri mode copy dan menghilangkan garis putus-putus."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu CurrentRegion?",
+          "a": "Blok data yang menyatu dengan sel aktif dan dibatasi baris atau kolom kosong. Biasanya dipakai untuk memilih seluruh tabel sebelum sort, filter, atau copy.",
+          "tags": [
+            "dasar",
+            "range"
+          ],
+          "slide": "Minggu 5"
+        },
+        {
+          "q": "Bagaimana cara sorting lewat VBA?",
+          "a": "Range(\"A1\").CurrentRegion.Sort Key1:=Range(\"G1\"), Order1:=xlDescending, Header:=xlYes. Key1 kolom kunci, Order1 arah urutan, Header:=xlYes agar judul tidak ikut terurut.",
+          "tags": [
+            "sorting"
+          ],
+          "slide": "Minggu 6"
+        },
+        {
+          "q": "Bagaimana cara filtering lewat VBA?",
+          "a": "Cek FilterMode lalu ShowAllData untuk menghapus filter lama, kemudian CurrentRegion.AutoFilter Field:=n, Criteria1:=nilai. Multi nilai pakai Array dan Operator:=xlFilterValues; operator pembanding ditulis dalam tanda kutip.",
+          "tags": [
+            "filtering"
+          ],
+          "slide": "Minggu 6"
+        },
+        {
+          "q": "Apa itu visible cells dan kenapa perlu SpecialCells?",
+          "a": "Setelah filter, baris yang disembunyikan masih ada. SpecialCells(xlCellTypeVisible) memilih hanya sel yang tampil agar hasil copy tidak menyertakan baris tersembunyi.",
+          "tags": [
+            "visible",
+            "copy"
+          ],
+          "slide": "Minggu 6"
+        },
+        {
+          "q": "Bagaimana referensi worksheet yang aman?",
+          "a": "Gunakan ThisWorkbook.Worksheets(\"Nama\") agar tidak bergantung sheet aktif, atau code name seperti Sheet3 yang tidak berubah walau nama tab diganti. Nama teks Sheets(\"MAR\") error jika tab diganti.",
+          "tags": [
+            "worksheet"
+          ],
+          "slide": "Minggu 6"
+        }
+      ],
+      "quick": [
+        "Apa itu CurrentRegion?",
+        "Bagaimana cara sorting lewat VBA?",
+        "Bagaimana cara filtering lewat VBA?",
+        "Apa itu visible cells dan kenapa perlu SpecialCells?"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "logika-informatika",
+      "name": "Logika Informatika",
+      "short": "Semantic Tree & Substitusi",
+      "date": "2026-11-09",
+      "day": "Senin",
+      "time": "09.00",
+      "status": "ready",
+      "accent": "#0f766e"
+    },
+    {
+      "id": "pengantar-teknologi-informasi",
+      "name": "Pengantar Teknologi Informasi",
+      "short": "Excel, VBA & Power Platform",
+      "date": "2026-11-10",
+      "day": "Selasa",
+      "time": "09.00",
+      "status": "ready",
+      "accent": "#1d4ed8"
+    },
+    {
+      "id": "pengembangan-kepribadian",
+      "name": "Pengembangan Kepribadian",
+      "short": "Soft skill & karakter",
+      "date": "2026-11-11",
+      "day": "Rabu",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#8a6d3b"
+    },
+    {
+      "id": "desain-front-end-ux",
+      "name": "Desain Front End & UX",
+      "short": "UI, UX & front end",
+      "date": "2026-11-12",
+      "day": "Kamis",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#be185d"
+    },
+    {
+      "id": "aljabar-linear",
+      "name": "Aljabar Linear",
+      "short": "Matriks, vektor & SPL",
+      "date": "2026-11-13",
+      "day": "Jumat",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#7c3aed"
+    },
+    {
+      "id": "bahasa-indonesia",
+      "name": "Bahasa Indonesia",
+      "short": "Ejaan, kalimat & karya tulis",
+      "date": "2026-11-17",
+      "day": "Selasa",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#b91c1c"
+    },
+    {
+      "id": "metodologi-problem-solving",
+      "name": "Metodologi Problem Solving & Design Research",
+      "short": "Riset desain & pemecahan masalah",
+      "date": "2026-11-18",
+      "day": "Rabu",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#0e7490"
+    },
+    {
+      "id": "algoritma-dasar-pemrograman",
+      "name": "Algoritma & Dasar Pemrograman",
+      "short": "Algoritma, flowchart & dasar kode",
+      "date": "2026-11-19",
+      "day": "Kamis",
+      "time": "09.00",
+      "status": "soon",
+      "accent": "#c2410c"
     }
   ]
 }
