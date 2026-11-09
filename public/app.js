@@ -1,6 +1,5 @@
 /* =========================================================
    UTS Pairuz — ruang belajar multi-matkul untuk UTS.
-   Ringkasan, flashcard, kuis, tutor lokal, dan slide asli.
    ========================================================= */
 
 const STORE = 'belajarin-logika-v1';
@@ -12,6 +11,14 @@ const SOFT = {
   'pti-macro-vba': '#e0f2fe',
   'pti-vba-functions': '#f1e9ff',
   'pti-worksheet-vba': '#fdeed9',
+  'metodologi-research-design': '#cffafe',
+  'metodologi-masalah-literatur': '#d1fae5',
+  'metodologi-ideasi-pitching': '#fef3c7',
+  'ux-heuristik-nielsen': '#fce7f3',
+  'ux-studi-kasus': '#fbcfe8',
+  'algo-dasar-flowchart': '#ffedd5',
+  'algo-variabel-kontrol': '#fed7aa',
+  'algo-array-fungsi': '#fde68a',
 };
 
 const TABS = [
@@ -110,7 +117,7 @@ function render() {
 
   document.title =
     r.name === 'home'
-      ? 'UTS Pairuz — Jadwal & Materi UTS'
+      ? 'UTS Semester 1 — Jadwal & Materi'
       : r.name === 'course'
         ? `${c.name} — UTS Pairuz`
         : `${m.title} · ${TABS.find((t) => t.id === r.tab).label} — UTS Pairuz`;
@@ -314,100 +321,26 @@ function shortNavTitle(m) {
    --------------------------------------------------------- */
 
 /* ---------------------------------------------------------
-   Home — pemilih mata kuliah (jadwal UTS)
+   Home — jadwal UTS
    --------------------------------------------------------- */
 
 function pickerView() {
   const readyCount = DATA.courses.filter((c) => c.status === 'ready').length;
-  const soonCount = DATA.courses.length - readyCount;
-  const next = DATA.courses.find((c) => c.status === 'ready') || DATA.courses[0];
 
   return `
-    <section class="hero picker-hero">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> UTS Pairuz · ${DATA.courses.length} mata kuliah</p>
-        <h1>Semua UTS.<br /><em>Satu tempat</em><br />belajar.</h1>
-        <p class="hero-lead">
-          Jadwal UTS 9–19 November 2026. Pilih mata kuliah, lalu belajar lewat ringkasan,
-          flashcard, kuis, dan tutor yang menjawab dari materi kuliahmu.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#/course/${next.id}">Mulai dari ${esc(next.name)} <span aria-hidden="true">→</span></a>
-          <button class="btn btn-ghost btn-lg" type="button" data-scroll="jadwal">Lihat jadwal</button>
-        </div>
-        <ul class="hero-points">
-          <li>${icon('check')} ${readyCount} matkul siap</li>
-          <li>${icon('check')} ${soonCount} coming soon</li>
-          <li>${icon('check')} Ringkasan + flashcard</li>
-          <li>${icon('check')} Kuis + tutor lokal</li>
-        </ul>
-      </div>
+    <header class="page-head reveal">
+      <p class="eyebrow">UTS Semester 1</p>
+      <h1>Jadwal UTS</h1>
+      <p class="page-sub">9–19 November 2026 · ${readyCount} dari ${DATA.courses.length} mata kuliah sudah ada materinya.</p>
+    </header>
 
-      <div class="hero-art reveal" style="--delay:.12s" aria-label="Jadwal UTS terdekat">
-        <div class="art-card jadwal-card">
-          <div class="art-head">
-            <span class="art-title">Jadwal terdekat</span>
-            <span class="art-badge">9–19 Nov 2026</span>
-          </div>
-          <ul class="jadwal-list">
-            ${DATA.courses
-              .slice(0, 5)
-              .map(
-                (c) => `
-                <li class="${c.status === 'ready' ? 'is-ready' : ''}">
-                  <span class="jl-day">${c.day.slice(0, 3)}</span>
-                  <span class="jl-date">${dayShort(c.date)}</span>
-                  <span class="jl-name">${esc(c.name)}</span>
-                  <span class="jl-dot" aria-hidden="true"></span>
-                </li>`
-              )
-              .join('')}
-          </ul>
-          <div class="art-foot">
-            <span><i class="legend t"></i>siap dipelajari</span>
-            <span><i class="legend f"></i>coming soon</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section" id="jadwal">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Jadwal UTS</p><h2>Pilih mata kuliah</h2></div>
-        <p>Urut sesuai tanggal ujian. Yang bertanda coming soon belum punya materi.</p>
-      </div>
-      <div class="course-grid">
-        ${DATA.courses.map(courseCard).join('')}
-      </div>
-    </section>
-
-    <section class="home-section how">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Alur belajar</p><h2>Empat langkah, satu materi</h2></div>
-        <p>Pola yang sama dipakai di semua mata kuliah, jadi kamu cepat terbiasa.</p>
-      </div>
-      <div class="steps">
-        ${[
-          ['01', 'Baca ringkasan', 'Pahami alur besar dan istilah pentingnya dulu.'],
-          ['02', 'Hafalkan kartu', 'Balik flashcard sampai tandanya “paham”.'],
-          ['03', 'Uji dengan kuis', 'Cek pemahaman, lalu baca pembahasan tiap soal.'],
-          ['04', 'Tanya tutor', 'Masih bingung? Tanya dengan bahasamu sendiri.'],
-        ]
-          .map(
-            ([n, title, body], i) => `
-            <article class="step reveal" style="--delay:${0.06 * i}s">
-              <span class="step-num">${n}</span>
-              <h3>${title}</h3>
-              <p>${body}</p>
-            </article>`
-          )
-          .join('')}
-      </div>
+    <section class="schedule" id="jadwal">
+      ${DATA.courses.map(scheduleRow).join('')}
     </section>
   `;
 }
 
-function courseCard(c, i) {
+function scheduleRow(c) {
   const ready = c.status === 'ready';
   const count = materialsOf(c.id).length;
   const pct = ready ? totals(c.id).pct : 0;
@@ -415,23 +348,19 @@ function courseCard(c, i) {
   const d = new Date(`${c.date}T00:00:00`);
   const month = d.toLocaleDateString('id-ID', { month: 'short' });
   const inner = `
-    <div class="cc-top">
-      <span class="cc-day">${c.day}</span>
-      ${isToday ? '<span class="cc-now">Hari ini</span>' : ''}
-    </div>
-    <div class="cc-date"><strong>${d.getDate()}</strong><span>${month}</span></div>
-    <h3>${esc(c.name)}</h3>
-    <p>${esc(c.short)}</p>
-    <div class="cc-foot">
-      ${
-        ready
-          ? `<span>${count} materi · ${pct}% selesai</span><span class="cc-arrow" aria-hidden="true">→</span>`
-          : '<span class="cc-soon">Coming soon</span><span class="cc-lock" aria-hidden="true">·</span>'
-      }
-    </div>`;
+    <span class="sr-date"><strong>${String(d.getDate()).padStart(2, '0')}</strong><small>${month}</small></span>
+    <span class="sr-main">
+      <strong>${esc(c.name)}</strong>
+      <small>${esc(c.short)}</small>
+    </span>
+    <span class="sr-meta">
+      ${ready ? `${count} materi${pct ? ` · ${pct}% selesai` : ''}` : 'Belum ada materi'}
+      ${isToday ? '<em>Hari ini</em>' : ''}
+    </span>
+    <span class="sr-arrow" aria-hidden="true">${ready ? '→' : ''}</span>`;
   return ready
-    ? `<a class="course-card reveal ${isToday ? 'is-today' : ''}" href="#/course/${c.id}" style="${courseStyle(c)};--delay:${0.04 * i}s">${inner}</a>`
-    : `<article class="course-card is-soon reveal" style="${courseStyle(c)};--delay:${0.04 * i}s">${inner}</article>`;
+    ? `<a class="schedule-row is-ready reveal" href="#/course/${c.id}" style="${courseStyle(c)}">${inner}</a>`
+    : `<article class="schedule-row is-soon reveal" style="${courseStyle(c)}">${inner}</article>`;
 }
 
 /* ---------------------------------------------------------
@@ -440,154 +369,33 @@ function courseCard(c, i) {
 
 function courseHomeView(c) {
   const list = materialsOf(c.id);
-  const t = totals(c.id);
   const last =
     progress.lastMaterial && list.some((m) => m.id === progress.lastMaterial)
       ? material(progress.lastMaterial)
       : null;
-  const target = last
-    ? `#/materi/${last.id}/${progress.lastTab || DEFAULT_TAB}`
-    : `#/materi/${list[0].id}`;
-  const lastLabel = last
-    ? `Lanjutkan ${TABS.find((x) => x.id === (progress.lastTab || DEFAULT_TAB)).label.toLowerCase()}`
-    : 'Mulai belajar';
   const d = new Date(`${c.date}T00:00:00`);
-  const dateLabel = `${c.day}, ${d.getDate()} ${d.toLocaleDateString('id-ID', { month: 'long' })}`;
+  const dateLabel = `${c.day}, ${d.getDate()} ${d.toLocaleDateString('id-ID', { month: 'long' })} ${d.getFullYear()}`;
 
   return `
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <a class="crumb" href="#/">← Semua mata kuliah</a>
-        <p class="eyebrow"><span class="eyebrow-dot"></span> UTS ${dateLabel} · ${list.length} materi</p>
-        <h1>${list.length > 1 ? `${list.length} materi.` : 'Satu materi.'}<br /><em>Satu alur</em><br />belajar.</h1>
-        <p class="hero-lead">${esc(c.short)}. Semuanya sudah dipecah jadi ringkasan, flashcard, kuis, dan tutor yang menjawab dari materi kuliahmu.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="${target}">${lastLabel} <span aria-hidden="true">→</span></a>
-          <button class="btn btn-ghost btn-lg" type="button" data-scroll="materi">Lihat materi</button>
-        </div>
-        <ul class="hero-points">
-          <li>${icon('check')} Ringkasan padat</li>
-          <li>${icon('check')} ${t.cards} flashcard</li>
-          <li>${icon('check')} ${t.quiz} soal kuis</li>
-          <li>${icon('check')} ${t.slides ? `${t.slides} slide asli` : `${list.length} modul materi`}</li>
-        </ul>
-      </div>
-
-      ${heroArt(c)}
-    </section>
-
-    <section class="stat-strip reveal" style="--delay:.18s">
-      <div><strong>${t.slides || list.length}</strong><span>${t.slides ? 'slide sumber' : 'modul materi'}</span></div>
-      <div><strong>${t.cards}</strong><span>flashcard</span></div>
-      <div><strong>${t.quiz}</strong><span>soal kuis</span></div>
-      <div><strong>${t.topics}</strong><span>topik tutor</span></div>
-    </section>
+    <header class="page-head reveal">
+      <a class="crumb" href="#/">← Jadwal UTS</a>
+      <h1>${esc(c.name)}</h1>
+      <p class="page-sub">${dateLabel} · ${c.time} · ${list.length} materi</p>
+      ${
+        last
+          ? `<p class="resume-line">Terakhir dibuka: <a href="#/materi/${last.id}/${progress.lastTab || DEFAULT_TAB}">${esc(last.title)}</a></p>`
+          : ''
+      }
+    </header>
 
     <section class="home-section" id="materi">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Materi</p><h2>Pilih titik mulai</h2></div>
-        <p>${list.length > 1 ? 'Materi ini saling nyambung. Ikuti urutannya, atau lompat ke yang paling kamu butuhkan.' : 'Satu materi, semua alat belajar.'}</p>
-      </div>
-      <div class="material-grid">
-        ${list.map(materialCard).join('')}
-      </div>
-    </section>
-
-    <section class="home-section how">
-      <div class="section-head reveal">
-        <div><p class="eyebrow">Alur belajar</p><h2>Empat langkah, satu materi</h2></div>
-        <p>Pola yang sama dipakai di setiap materi, jadi kamu cepat terbiasa.</p>
-      </div>
-      <div class="steps">
-        ${[
-          ['01', 'Baca ringkasan', 'Pahami alur besar dan istilah pentingnya dulu.'],
-          ['02', 'Hafalkan kartu', 'Balik flashcard sampai tandanya “paham”.'],
-          ['03', 'Uji dengan kuis', 'Cek pemahaman, lalu baca pembahasan tiap soal.'],
-          ['04', 'Tanya tutor', 'Masih bingung? Tanya dengan bahasamu sendiri.'],
-        ]
-          .map(
-            ([n, title, body], i) => `
-            <article class="step reveal" style="--delay:${0.06 * i}s">
-              <span class="step-num">${n}</span>
-              <h3>${title}</h3>
-              <p>${body}</p>
-            </article>`
-          )
-          .join('')}
-      </div>
+      ${
+        list.length
+          ? `<div class="material-grid">${list.map(materialCard).join('')}</div>`
+          : '<p class="empty-note">Materi untuk mata kuliah ini belum disusun.</p>'
+      }
     </section>
   `;
-}
-
-function heroArt(c) {
-  if (c.id !== 'logika-informatika') {
-    return `
-      <div class="hero-art reveal" style="--delay:.12s" aria-hidden="true">
-        <div class="art-card code-card">
-          <div class="art-head">
-            <span class="art-title">Contoh macro VBA</span>
-            <span class="art-badge">Filter + visible cells</span>
-          </div>
-          <pre class="code-art"><span class="c-com">' hapus filter lama</span>
-<span class="c-kw">If</span> ActiveSheet.FilterMode <span class="c-kw">Then</span> ActiveSheet.ShowAllData
-<span class="c-com">' filter divisi Dairy</span>
-Range(<span class="c-str">"A1"</span>).CurrentRegion.AutoFilter _
-  Field:<span class="c-num">1</span>, Criteria1:<span class="c-str">"Dairy"</span>
-<span class="c-com">' salin hanya yang terlihat</span>
-Range(<span class="c-str">"A1"</span>).CurrentRegion _
-  .SpecialCells(xlCellTypeVisible).Copy</pre>
-          <div class="art-foot">
-            <span><i class="legend t"></i>AutoFilter</span>
-            <span><i class="legend f"></i>Visible cells</span>
-            <span class="art-foot-note">Minggu 6</span>
-          </div>
-        </div>
-        <div class="float-card float-a"><strong>Power Platform</strong><span>Automate &amp; Apps</span></div>
-        <div class="float-card float-b"><span class="fc-arrow">◀</span> VBA Worksheet</div>
-      </div>`;
-  }
-  return `
-    <div class="hero-art reveal" style="--delay:.12s" aria-hidden="true">
-      <div class="art-card">
-        <div class="art-head">
-          <span class="art-title">Contoh pohon semantik</span>
-          <span class="art-badge">E = ¬R → (¬R ∧ Q)</span>
-        </div>
-        <svg class="tree-art" viewBox="0 0 340 250">
-          <g stroke="#cdc7b7" stroke-width="2" stroke-linecap="round">
-            <path d="M170 46 L96 118" />
-            <path d="M170 46 L248 118" />
-            <path d="M248 118 L196 200" />
-            <path d="M248 118 L300 200" />
-          </g>
-          <g font-size="11" font-weight="700" fill="#8b948e" font-family="inherit">
-            <text x="112" y="76">T</text>
-            <text x="218" y="76">F</text>
-            <text x="208" y="166">T</text>
-            <text x="286" y="166">F</text>
-          </g>
-          <g font-family="inherit" text-anchor="middle" font-weight="700">
-            <circle cx="170" cy="42" r="26" fill="#16231f" />
-            <text x="170" y="47" fill="#fffdf8" font-size="15">R</text>
-            <circle cx="94" cy="124" r="23" fill="#0f766e" />
-            <text x="94" y="129" fill="#fffdf8" font-size="14">T</text>
-            <circle cx="250" cy="124" r="23" fill="#fffdf8" stroke="#16231f" stroke-width="2" />
-            <text x="250" y="129" fill="#16231f" font-size="14">Q</text>
-            <circle cx="194" cy="206" r="23" fill="#0f766e" />
-            <text x="194" y="211" fill="#fffdf8" font-size="14">T</text>
-            <circle cx="302" cy="206" r="23" fill="#d94f4f" />
-            <text x="302" y="211" fill="#fffdf8" font-size="14">F</text>
-          </g>
-        </svg>
-        <div class="art-foot">
-          <span><i class="legend t"></i>true</span>
-          <span><i class="legend f"></i>false</span>
-          <span class="art-foot-note">3 jalur · 3 daun</span>
-        </div>
-      </div>
-      <div class="float-card float-a"><strong>Satisfiable</strong><span>ada daun T</span></div>
-      <div class="float-card float-b"><span class="fc-arrow">◀</span> Substitusi total</div>
-    </div>`;
 }
 
 function todayISO() {
@@ -702,7 +510,7 @@ function summaryView(m) {
           <button class="next-card" type="button" data-ask="${esc(m.quick[0])}" data-ask-material="${m.id}">
             <span class="next-num">03</span>
             <strong>Tanya tutor</strong>
-            <small>dari slide</small>
+            <small>${m.tutor.length} topik</small>
           </button>
         </div>
       </div>
@@ -718,13 +526,17 @@ function summaryView(m) {
                 <summary>
                   <span class="map-num">${String(i + 1).padStart(2, '0')}</span>
                   <span class="map-title">${esc(s.title)}</span>
-                  <span class="map-slide">slide ${esc(s.slides)}</span>
+                  <span class="map-slide">${m.slides ? `slide ${esc(s.slides)}` : esc(s.slides)}</span>
                 </summary>
                 <div class="map-body">
                   <p>${esc(s.body)}</p>
-                  <button class="text-link" type="button" data-open-slide="${firstSlide(s.slides)}" data-slide-material="${m.id}">
+                  ${
+                    m.slides
+                      ? `<button class="text-link" type="button" data-open-slide="${firstSlide(s.slides)}" data-slide-material="${m.id}">
                     Buka slide ${esc(s.slides)} →
-                  </button>
+                  </button>`
+                      : ''
+                  }
                 </div>
               </details>`
               )
@@ -734,7 +546,7 @@ function summaryView(m) {
 
         <section class="rail-card rail-ask reveal" style="--delay:.08s">
           <div class="rail-head"><h2>Latihan cepat</h2></div>
-          <p class="rail-copy">Tanya tutor materi ini. Jawabannya diambil dari slide, bukan karangan.</p>
+          <p class="rail-copy">Tanya tutor materi ini. Jawabannya diambil dari materi ini.</p>
           <div class="quick-list">
             ${m.quick
               .map(
@@ -768,7 +580,7 @@ function flashcardsView(m) {
     return `
       <div class="empty-state card-empty">
         <p class="eyebrow">Flashcard</p>
-        <h2>Semua kartu sudah dikuasai 🎉</h2>
+        <h2>Semua kartu sudah dikuasai</h2>
         <p>Tidak ada kartu tersisa di mode fokus. Kamu bisa mengulang semuanya kapan saja.</p>
         <button class="btn btn-primary" type="button" data-flash-action="reset">Ulangi semua kartu</button>
       </div>`;
@@ -845,7 +657,7 @@ function flashAction(action, m) {
   } else if (action === 'focus') {
     const remaining = m.cards.map((_, i) => i).filter((i) => !isMastered(m, i));
     if (!remaining.length) {
-      toast('Semua kartu sudah dikuasai 🎉');
+      toast('Semua kartu sudah dikuasai');
       return;
     }
     f.order = shuffle(remaining);
@@ -1084,10 +896,10 @@ function tutorView(m) {
     <div class="tutor-layout reveal">
       <div class="tutor-shell">
         <div class="tutor-head">
-          <div class="tutor-avatar">✦</div>
+          <div class="tutor-avatar" aria-hidden="true">T</div>
           <div class="tutor-id">
             <h2>Tutor ${esc(shortNavTitle(m))}</h2>
-            <p>Jawaban diambil dari ${m.slides ? `${m.slides} slide materi` : `${m.sections.length} bagian materi`} · bukan AI generatif</p>
+            <p>Jawaban diambil dari ${m.slides ? `${m.slides} slide materi` : `${m.sections.length} bagian materi`}.</p>
           </div>
           <span class="live-pill"><i></i> siap</span>
         </div>
@@ -1119,7 +931,7 @@ function chatFor(m) {
         text: `Halo! Aku tutor untuk materi "${m.title}". Tanya apa saja soal ${m.tags
           .slice(0, 2)
           .join(' dan ')
-          .toLowerCase()} — jawabannya kuambil dari isi slide, jadi aman untuk belajar.`,
+          .toLowerCase()} — jawabannya diambil dari materi ini.`,
         related: m.quick.slice(0, 3),
       },
     ];
@@ -1132,17 +944,18 @@ function messageHtml(msg, m) {
     return `<div class="msg msg-user"><div class="bubble">${textHtml(msg.text)}</div></div>`;
   }
   if (msg.role === 'typing') {
-    return `<div class="msg msg-tutor"><div class="msg-avatar">✦</div><div class="bubble typing"><span></span><span></span><span></span></div></div>`;
+    return `<div class="msg msg-tutor"><div class="msg-avatar">T</div><div class="bubble typing"><span></span><span></span><span></span></div></div>`;
   }
-  const slideBtn = msg.slide
-    ? `<button class="msg-slide" type="button" data-open-slide="${firstSlide(msg.slide)}" data-slide-material="${m.id}">Lihat slide ${esc(msg.slide)} →</button>`
-    : '';
+  const slideBtn =
+    m.slides && msg.slide
+      ? `<button class="msg-slide" type="button" data-open-slide="${firstSlide(msg.slide)}" data-slide-material="${m.id}">Lihat slide ${esc(msg.slide)} →</button>`
+      : '';
   const related = msg.related?.length
     ? `<div class="msg-related"><span>Topik terkait</span>${msg.related
         .map((q) => `<button type="button" data-ask="${esc(q)}" data-ask-material="${m.id}">${esc(q)}</button>`)
         .join('')}</div>`
     : '';
-  return `<div class="msg msg-tutor"><div class="msg-avatar">✦</div><div class="bubble">${textHtml(msg.text)}${slideBtn}${related}</div></div>`;
+  return `<div class="msg msg-tutor"><div class="msg-avatar">T</div><div class="bubble">${textHtml(msg.text)}${slideBtn}${related}</div></div>`;
 }
 
 function afterTutorRender(m) {
@@ -1507,12 +1320,32 @@ function renderMarkdown(md) {
       list = null;
     }
   };
+  const splitRow = (row) => {
+    let s = row.trim();
+    if (s.startsWith('|')) s = s.slice(1);
+    if (s.endsWith('|')) s = s.slice(0, -1);
+    return s.split('|').map((cell) => cell.trim());
+  };
+  const isSeparator = (row) => /^\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)+\|?$/.test(row);
 
-  for (const raw of lines) {
-    const line = raw.trim();
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i].trim();
     if (!line) {
       flushParagraph();
       closeList();
+      continue;
+    }
+
+    if (line.startsWith('~~~')) {
+      flushParagraph();
+      closeList();
+      const code = [];
+      i += 1;
+      while (i < lines.length && !lines[i].trim().startsWith('~~~')) {
+        code.push(lines[i]);
+        i += 1;
+      }
+      out.push(`<pre class="md-code"><code>${esc(code.join('\n'))}</code></pre>`);
       continue;
     }
 
@@ -1522,6 +1355,37 @@ function renderMarkdown(md) {
       closeList();
       const level = Math.min(heading[1].length, 4);
       out.push(`<h${level}>${inline(heading[2])}</h${level}>`);
+      continue;
+    }
+
+    if (line.includes('|') && i + 1 < lines.length && isSeparator(lines[i + 1].trim())) {
+      flushParagraph();
+      closeList();
+      const header = splitRow(line);
+      const aligns = splitRow(lines[i + 1]).map((cell) => {
+        if (cell.startsWith(':') && cell.endsWith(':')) return 'center';
+        if (cell.endsWith(':')) return 'right';
+        if (cell.startsWith(':')) return 'left';
+        return '';
+      });
+      i += 2;
+      const rows = [];
+      while (i < lines.length && lines[i].trim().includes('|')) {
+        rows.push(splitRow(lines[i]));
+        i += 1;
+      }
+      i -= 1;
+      const alignAttr = (idx) => (aligns[idx] ? ` style="text-align:${aligns[idx]}"` : '');
+      out.push(
+        `<div class="md-table-wrap"><table class="md-table"><thead><tr>${header
+          .map((cell, idx) => `<th${alignAttr(idx)}>${inline(cell)}</th>`)
+          .join('')}</tr></thead><tbody>${rows
+          .map(
+            (row) =>
+              `<tr>${header.map((_, idx) => `<td${alignAttr(idx)}>${inline(row[idx] || '')}</td>`).join('')}</tr>`
+          )
+          .join('')}</tbody></table></div>`
+      );
       continue;
     }
 
