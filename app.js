@@ -1,5 +1,5 @@
 /* =========================================================
-   Belajar Logika — ruang belajar untuk 2 materi
+   UTS Pairuz — ruang belajar multi-matkul untuk UTS.
    Ringkasan, flashcard, kuis, tutor lokal, dan slide asli.
    ========================================================= */
 
@@ -8,6 +8,10 @@ const DEFAULT_TAB = 'ringkasan';
 const SOFT = {
   'semantic-tree': '#dff3ee',
   substitusi: '#eee7ff',
+  'pti-power-platform': '#e2ebff',
+  'pti-macro-vba': '#e0f2fe',
+  'pti-vba-functions': '#f1e9ff',
+  'pti-worksheet-vba': '#fdeed9',
 };
 
 const TABS = [
@@ -65,33 +69,51 @@ async function boot() {
 function route() {
   const raw = location.hash.replace(/^#\/?/, '');
   const [kind, id, tab] = raw.split('/');
+  if (kind === 'course' && id && DATA.courses.some((c) => c.id === id)) {
+    return { name: 'course', id };
+  }
   if (kind === 'materi' && id && DATA.materials.some((m) => m.id === id)) {
+    const m = material(id);
+    const tabs = tabsFor(m);
     return {
       name: 'material',
       id,
-      tab: TABS.some((t) => t.id === tab) ? tab : DEFAULT_TAB,
+      tab: tabs.some((t) => t.id === tab) ? tab : DEFAULT_TAB,
     };
   }
   return { name: 'home' };
 }
 
 const material = (id) => DATA.materials.find((m) => m.id === id);
-const routeKey = (r) => (r.name === 'home' ? 'home' : `${r.id}/${r.tab}`);
+const course = (id) => DATA.courses.find((c) => c.id === id);
+const materialsOf = (cid) => DATA.materials.filter((m) => m.courseId === cid);
+const tabsFor = (m) => (m.slides ? TABS : TABS.filter((t) => t.id !== 'slide'));
+const routeKey = (r) =>
+  r.name === 'home' ? 'home' : r.name === 'course' ? `course/${r.id}` : `${r.id}/${r.tab}`;
 const accStyle = (m) => `--accent:${m.accent};--accent-soft:${SOFT[m.id] || '#eef1ef'}`;
+const courseStyle = (c) => `--accent:${c.accent};--accent-soft:${SOFT[c.id] || '#eef1ef'}`;
 
 function render() {
   const r = route();
   const app = document.querySelector('#app');
   const m = r.name === 'material' ? material(r.id) : null;
+  const c = r.name === 'course' ? course(r.id) : null;
 
-  app.innerHTML = r.name === 'home' ? homeView() : materialView(m, r.tab);
+  app.innerHTML =
+    r.name === 'home'
+      ? pickerView()
+      : r.name === 'course'
+        ? courseHomeView(c)
+        : materialView(m, r.tab);
   document.body.classList.toggle('is-tutor', r.name === 'material' && r.tab === 'tutor');
   renderSidebar(r);
 
   document.title =
     r.name === 'home'
-      ? 'Belajar Logika — Semantic Tree & Substitusi'
-      : `${m.title} · ${TABS.find((t) => t.id === r.tab).label} — Belajar Logika`;
+      ? 'UTS Pairuz — Jadwal & Materi UTS'
+      : r.name === 'course'
+        ? `${c.name} — UTS Pairuz`
+        : `${m.title} · ${TABS.find((t) => t.id === r.tab).label} — UTS Pairuz`;
 
   if (r.name === 'material') {
     progress.lastMaterial = r.id;
@@ -171,14 +193,15 @@ function pctFor(m) {
   return Math.round((cardPart * 0.65 + best * 0.35) * 100);
 }
 
-function totals() {
+function totals(courseId = null) {
+  const list = courseId ? materialsOf(courseId) : DATA.materials;
   let cards = 0;
   let mastered = 0;
   let slides = 0;
   let quiz = 0;
   let attempts = 0;
   let pct = 0;
-  for (const m of DATA.materials) {
+  for (const m of list) {
     cards += m.cards.length;
     mastered += countMastered(m);
     slides += m.slides;
@@ -192,8 +215,8 @@ function totals() {
     slides,
     quiz,
     attempts,
-    pct: Math.round(pct / DATA.materials.length),
-    topics: DATA.materials.reduce((n, m) => n + m.tutor.length, 0),
+    pct: list.length ? Math.round(pct / list.length) : 0,
+    topics: list.reduce((n, m) => n + m.tutor.length, 0),
   };
 }
 
@@ -204,43 +227,81 @@ function totals() {
 function renderSidebar(r = route()) {
   const nav = document.querySelector('#sidebar-materials');
   const mobile = document.querySelector('#mobile-materials');
+  const heading = document.querySelector('#side-heading');
+  const state = courseContext(r);
+
+  if (heading) heading.textContent = state.course ? state.course.name : 'Jadwal UTS';
 
   if (nav) {
-    nav.innerHTML = DATA.materials
-      .map((m) => {
-        const active = r.name === 'material' && r.id === m.id;
-        return `
-          <a class="side-link side-material ${active ? 'is-active' : ''}" href="#/materi/${m.id}" style="${accStyle(m)}">
-            <span class="side-num">${String(m.order).padStart(2, '0')}</span>
-            <span class="side-main">${esc(shortNavTitle(m))}<small>${pctFor(m)}% selesai</small></span>
-            <span class="side-dot" aria-hidden="true"></span>
-          </a>`;
-      })
-      .join('');
+    if (!state.course) {
+      nav.innerHTML = DATA.courses
+        .map((c) => {
+          const active = r.name === 'course' && r.id === c.id;
+          const soon = c.status !== 'ready';
+          return `
+            <a class="side-link side-course ${active ? 'is-active' : ''} ${soon ? 'is-soon' : ''}" href="#/course/${c.id}" style="${courseStyle(c)}">
+              <span class="side-num">${dayShort(c.date)}</span>
+              <span class="side-main">${esc(c.name)}<small>${soon ? 'coming soon' : `${materialsOf(c.id).length} materi`}</small></span>
+              <span class="side-dot" aria-hidden="true"></span>
+            </a>`;
+        })
+        .join('');
+    } else {
+      nav.innerHTML = materialsOf(state.course.id)
+        .map((m) => {
+          const active = r.name === 'material' && r.id === m.id;
+          return `
+            <a class="side-link side-material ${active ? 'is-active' : ''}" href="#/materi/${m.id}" style="${accStyle(m)}">
+              <span class="side-num">${String(m.order).padStart(2, '0')}</span>
+              <span class="side-main">${esc(shortNavTitle(m))}<small>${pctFor(m)}% selesai</small></span>
+              <span class="side-dot" aria-hidden="true"></span>
+            </a>`;
+        })
+        .join('');
+    }
   }
 
   const homeLink = document.querySelector('[data-nav="home"]');
   if (homeLink) homeLink.classList.toggle('is-active', r.name === 'home');
 
   if (mobile) {
-    mobile.innerHTML = DATA.materials
-      .map((m) => {
-        const active = r.name === 'material' && r.id === m.id;
-        return `<a class="mobile-chip ${active ? 'is-active' : ''}" href="#/materi/${m.id}" style="${accStyle(m)}">${esc(shortNavTitle(m))}</a>`;
-      })
-      .join('');
+    mobile.innerHTML = !state.course
+      ? DATA.courses
+          .map((c) => `<a class="mobile-chip ${c.status !== 'ready' ? 'is-soon' : ''}" href="#/course/${c.id}" style="${courseStyle(c)}">${esc(c.name)}</a>`)
+          .join('')
+      : [
+          `<a class="mobile-chip ${r.name === 'course' ? 'is-active' : ''}" href="#/course/${state.course.id}">${esc(state.course.name)}</a>`,
+          ...materialsOf(state.course.id).map((m) => {
+            const active = r.name === 'material' && r.id === m.id;
+            return `<a class="mobile-chip ${active ? 'is-active' : ''}" href="#/materi/${m.id}" style="${accStyle(m)}">${esc(shortNavTitle(m))}</a>`;
+          }),
+        ].join('');
   }
 
-  const t = totals();
+  const t = totals(state.course?.id || null);
   const box = document.querySelector('#sidebar-progress');
   if (box) {
     box.innerHTML = `
       <div class="sp-card">
-        <div class="sp-top"><span>Progres keseluruhan</span><strong>${t.pct}%</strong></div>
+        <div class="sp-top"><span>${state.course ? 'Progres materi' : 'Progres keseluruhan'}</span><strong>${t.pct}%</strong></div>
         <div class="bar"><i style="width:${t.pct}%"></i></div>
         <p>${t.mastered} dari ${t.cards} kartu dikuasai${t.attempts ? ` · ${t.attempts} percobaan kuis` : ''}</p>
       </div>`;
   }
+}
+
+function courseContext(r) {
+  if (r.name === 'course') return { course: course(r.id) };
+  if (r.name === 'material') {
+    const m = material(r.id);
+    return { course: m ? course(m.courseId) : null };
+  }
+  return { course: null };
+}
+
+function dayShort(iso) {
+  const d = new Date(`${iso}T00:00:00`);
+  return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
 }
 
 function shortNavTitle(m) {
@@ -252,97 +313,78 @@ function shortNavTitle(m) {
    Home
    --------------------------------------------------------- */
 
-function homeView() {
-  const t = totals();
-  const last = progress.lastMaterial ? material(progress.lastMaterial) : null;
-  const target = last ? `#/materi/${last.id}/${progress.lastTab || DEFAULT_TAB}` : '#/materi/semantic-tree';
-  const lastLabel = last ? `Lanjutkan ${TABS.find((x) => x.id === (progress.lastTab || DEFAULT_TAB)).label.toLowerCase()}` : 'Mulai belajar';
+/* ---------------------------------------------------------
+   Home — pemilih mata kuliah (jadwal UTS)
+   --------------------------------------------------------- */
+
+function pickerView() {
+  const readyCount = DATA.courses.filter((c) => c.status === 'ready').length;
+  const soonCount = DATA.courses.length - readyCount;
+  const next = DATA.courses.find((c) => c.status === 'ready') || DATA.courses[0];
 
   return `
-    <section class="hero">
+    <section class="hero picker-hero">
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> Logika Informatika · 2 materi</p>
-        <h1>Dua materi.<br /><em>Satu alur</em><br />belajar.</h1>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> UTS Pairuz · ${DATA.courses.length} mata kuliah</p>
+        <h1>Semua UTS.<br /><em>Satu tempat</em><br />belajar.</h1>
         <p class="hero-lead">
-          Semantic Tree &amp; Proof by Falsification, lalu Substitusi. Semuanya sudah dipecah
-          jadi ringkasan, flashcard, kuis, dan tutor yang menjawab dari slide kuliahmu.
+          Jadwal UTS 9–19 November 2026. Pilih mata kuliah, lalu belajar lewat ringkasan,
+          flashcard, kuis, dan tutor yang menjawab dari materi kuliahmu.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="${target}">${lastLabel} <span aria-hidden="true">→</span></a>
-          <button class="btn btn-ghost btn-lg" type="button" data-scroll="materi">Lihat materi</button>
+          <a class="btn btn-primary btn-lg" href="#/course/${next.id}">Mulai dari ${esc(next.name)} <span aria-hidden="true">→</span></a>
+          <button class="btn btn-ghost btn-lg" type="button" data-scroll="jadwal">Lihat jadwal</button>
         </div>
         <ul class="hero-points">
-          <li>${icon('check')} Ringkasan padat</li>
-          <li>${icon('check')} ${t.cards} flashcard</li>
-          <li>${icon('check')} ${t.quiz} soal kuis</li>
-          <li>${icon('check')} ${t.slides} slide asli</li>
+          <li>${icon('check')} ${readyCount} matkul siap</li>
+          <li>${icon('check')} ${soonCount} coming soon</li>
+          <li>${icon('check')} Ringkasan + flashcard</li>
+          <li>${icon('check')} Kuis + tutor lokal</li>
         </ul>
       </div>
 
-      <div class="hero-art reveal" style="--delay:.12s" aria-hidden="true">
-        <div class="art-card">
+      <div class="hero-art reveal" style="--delay:.12s" aria-label="Jadwal UTS terdekat">
+        <div class="art-card jadwal-card">
           <div class="art-head">
-            <span class="art-title">Contoh pohon semantik</span>
-            <span class="art-badge">E = ¬R → (¬R ∧ Q)</span>
+            <span class="art-title">Jadwal terdekat</span>
+            <span class="art-badge">9–19 Nov 2026</span>
           </div>
-          <svg class="tree-art" viewBox="0 0 340 250">
-            <g stroke="#cdc7b7" stroke-width="2" stroke-linecap="round">
-              <path d="M170 46 L96 118" />
-              <path d="M170 46 L248 118" />
-              <path d="M248 118 L196 200" />
-              <path d="M248 118 L300 200" />
-            </g>
-            <g font-size="11" font-weight="700" fill="#8b948e" font-family="inherit">
-              <text x="112" y="76">T</text>
-              <text x="218" y="76">F</text>
-              <text x="208" y="166">T</text>
-              <text x="286" y="166">F</text>
-            </g>
-            <g font-family="inherit" text-anchor="middle" font-weight="700">
-              <circle cx="170" cy="42" r="26" fill="#16231f" />
-              <text x="170" y="47" fill="#fffdf8" font-size="15">R</text>
-              <circle cx="94" cy="124" r="23" fill="#0f766e" />
-              <text x="94" y="129" fill="#fffdf8" font-size="14">T</text>
-              <circle cx="250" cy="124" r="23" fill="#fffdf8" stroke="#16231f" stroke-width="2" />
-              <text x="250" y="129" fill="#16231f" font-size="14">Q</text>
-              <circle cx="194" cy="206" r="23" fill="#0f766e" />
-              <text x="194" y="211" fill="#fffdf8" font-size="14">T</text>
-              <circle cx="302" cy="206" r="23" fill="#d94f4f" />
-              <text x="302" y="211" fill="#fffdf8" font-size="14">F</text>
-            </g>
-          </svg>
+          <ul class="jadwal-list">
+            ${DATA.courses
+              .slice(0, 5)
+              .map(
+                (c) => `
+                <li class="${c.status === 'ready' ? 'is-ready' : ''}">
+                  <span class="jl-day">${c.day.slice(0, 3)}</span>
+                  <span class="jl-date">${dayShort(c.date)}</span>
+                  <span class="jl-name">${esc(c.name)}</span>
+                  <span class="jl-dot" aria-hidden="true"></span>
+                </li>`
+              )
+              .join('')}
+          </ul>
           <div class="art-foot">
-            <span><i class="legend t"></i>true</span>
-            <span><i class="legend f"></i>false</span>
-            <span class="art-foot-note">3 jalur · 3 daun</span>
+            <span><i class="legend t"></i>siap dipelajari</span>
+            <span><i class="legend f"></i>coming soon</span>
           </div>
         </div>
-        <div class="float-card float-a"><strong>Satisfiable</strong><span>ada daun T</span></div>
-        <div class="float-card float-b"><span class="fc-arrow">◀</span> Substitusi total</div>
       </div>
     </section>
 
-    <section class="stat-strip reveal" style="--delay:.18s">
-      <div><strong>${t.slides}</strong><span>slide sumber</span></div>
-      <div><strong>${t.cards}</strong><span>flashcard</span></div>
-      <div><strong>${t.quiz}</strong><span>soal kuis</span></div>
-      <div><strong>${t.topics}</strong><span>topik tutor</span></div>
-    </section>
-
-    <section class="home-section" id="materi">
+    <section class="home-section" id="jadwal">
       <div class="section-head reveal">
-        <div><p class="eyebrow">Materi</p><h2>Pilih titik mulai</h2></div>
-        <p>Dua materi ini saling nyambung. Mulai dari pohon semantik, lanjut ke substitusi.</p>
+        <div><p class="eyebrow">Jadwal UTS</p><h2>Pilih mata kuliah</h2></div>
+        <p>Urut sesuai tanggal ujian. Yang bertanda coming soon belum punya materi.</p>
       </div>
-      <div class="material-grid">
-        ${DATA.materials.map(materialCard).join('')}
+      <div class="course-grid">
+        ${DATA.courses.map(courseCard).join('')}
       </div>
     </section>
 
     <section class="home-section how">
       <div class="section-head reveal">
         <div><p class="eyebrow">Alur belajar</p><h2>Empat langkah, satu materi</h2></div>
-        <p>Pola yang sama dipakai di kedua materi, jadi kamu cepat terbiasa.</p>
+        <p>Pola yang sama dipakai di semua mata kuliah, jadi kamu cepat terbiasa.</p>
       </div>
       <div class="steps">
         ${[
@@ -365,6 +407,194 @@ function homeView() {
   `;
 }
 
+function courseCard(c, i) {
+  const ready = c.status === 'ready';
+  const count = materialsOf(c.id).length;
+  const pct = ready ? totals(c.id).pct : 0;
+  const isToday = c.date === todayISO();
+  const d = new Date(`${c.date}T00:00:00`);
+  const month = d.toLocaleDateString('id-ID', { month: 'short' });
+  const inner = `
+    <div class="cc-top">
+      <span class="cc-day">${c.day}</span>
+      ${isToday ? '<span class="cc-now">Hari ini</span>' : ''}
+    </div>
+    <div class="cc-date"><strong>${d.getDate()}</strong><span>${month}</span></div>
+    <h3>${esc(c.name)}</h3>
+    <p>${esc(c.short)}</p>
+    <div class="cc-foot">
+      ${
+        ready
+          ? `<span>${count} materi · ${pct}% selesai</span><span class="cc-arrow" aria-hidden="true">→</span>`
+          : '<span class="cc-soon">Coming soon</span><span class="cc-lock" aria-hidden="true">·</span>'
+      }
+    </div>`;
+  return ready
+    ? `<a class="course-card reveal ${isToday ? 'is-today' : ''}" href="#/course/${c.id}" style="${courseStyle(c)};--delay:${0.04 * i}s">${inner}</a>`
+    : `<article class="course-card is-soon reveal" style="${courseStyle(c)};--delay:${0.04 * i}s">${inner}</article>`;
+}
+
+/* ---------------------------------------------------------
+   Halaman satu mata kuliah
+   --------------------------------------------------------- */
+
+function courseHomeView(c) {
+  const list = materialsOf(c.id);
+  const t = totals(c.id);
+  const last =
+    progress.lastMaterial && list.some((m) => m.id === progress.lastMaterial)
+      ? material(progress.lastMaterial)
+      : null;
+  const target = last
+    ? `#/materi/${last.id}/${progress.lastTab || DEFAULT_TAB}`
+    : `#/materi/${list[0].id}`;
+  const lastLabel = last
+    ? `Lanjutkan ${TABS.find((x) => x.id === (progress.lastTab || DEFAULT_TAB)).label.toLowerCase()}`
+    : 'Mulai belajar';
+  const d = new Date(`${c.date}T00:00:00`);
+  const dateLabel = `${c.day}, ${d.getDate()} ${d.toLocaleDateString('id-ID', { month: 'long' })}`;
+
+  return `
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <a class="crumb" href="#/">← Semua mata kuliah</a>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> UTS ${dateLabel} · ${list.length} materi</p>
+        <h1>${list.length > 1 ? `${list.length} materi.` : 'Satu materi.'}<br /><em>Satu alur</em><br />belajar.</h1>
+        <p class="hero-lead">${esc(c.short)}. Semuanya sudah dipecah jadi ringkasan, flashcard, kuis, dan tutor yang menjawab dari materi kuliahmu.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="${target}">${lastLabel} <span aria-hidden="true">→</span></a>
+          <button class="btn btn-ghost btn-lg" type="button" data-scroll="materi">Lihat materi</button>
+        </div>
+        <ul class="hero-points">
+          <li>${icon('check')} Ringkasan padat</li>
+          <li>${icon('check')} ${t.cards} flashcard</li>
+          <li>${icon('check')} ${t.quiz} soal kuis</li>
+          <li>${icon('check')} ${t.slides ? `${t.slides} slide asli` : `${list.length} modul materi`}</li>
+        </ul>
+      </div>
+
+      ${heroArt(c)}
+    </section>
+
+    <section class="stat-strip reveal" style="--delay:.18s">
+      <div><strong>${t.slides || list.length}</strong><span>${t.slides ? 'slide sumber' : 'modul materi'}</span></div>
+      <div><strong>${t.cards}</strong><span>flashcard</span></div>
+      <div><strong>${t.quiz}</strong><span>soal kuis</span></div>
+      <div><strong>${t.topics}</strong><span>topik tutor</span></div>
+    </section>
+
+    <section class="home-section" id="materi">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">Materi</p><h2>Pilih titik mulai</h2></div>
+        <p>${list.length > 1 ? 'Materi ini saling nyambung. Ikuti urutannya, atau lompat ke yang paling kamu butuhkan.' : 'Satu materi, semua alat belajar.'}</p>
+      </div>
+      <div class="material-grid">
+        ${list.map(materialCard).join('')}
+      </div>
+    </section>
+
+    <section class="home-section how">
+      <div class="section-head reveal">
+        <div><p class="eyebrow">Alur belajar</p><h2>Empat langkah, satu materi</h2></div>
+        <p>Pola yang sama dipakai di setiap materi, jadi kamu cepat terbiasa.</p>
+      </div>
+      <div class="steps">
+        ${[
+          ['01', 'Baca ringkasan', 'Pahami alur besar dan istilah pentingnya dulu.'],
+          ['02', 'Hafalkan kartu', 'Balik flashcard sampai tandanya “paham”.'],
+          ['03', 'Uji dengan kuis', 'Cek pemahaman, lalu baca pembahasan tiap soal.'],
+          ['04', 'Tanya tutor', 'Masih bingung? Tanya dengan bahasamu sendiri.'],
+        ]
+          .map(
+            ([n, title, body], i) => `
+            <article class="step reveal" style="--delay:${0.06 * i}s">
+              <span class="step-num">${n}</span>
+              <h3>${title}</h3>
+              <p>${body}</p>
+            </article>`
+          )
+          .join('')}
+      </div>
+    </section>
+  `;
+}
+
+function heroArt(c) {
+  if (c.id !== 'logika-informatika') {
+    return `
+      <div class="hero-art reveal" style="--delay:.12s" aria-hidden="true">
+        <div class="art-card code-card">
+          <div class="art-head">
+            <span class="art-title">Contoh macro VBA</span>
+            <span class="art-badge">Filter + visible cells</span>
+          </div>
+          <pre class="code-art"><span class="c-com">' hapus filter lama</span>
+<span class="c-kw">If</span> ActiveSheet.FilterMode <span class="c-kw">Then</span> ActiveSheet.ShowAllData
+<span class="c-com">' filter divisi Dairy</span>
+Range(<span class="c-str">"A1"</span>).CurrentRegion.AutoFilter _
+  Field:<span class="c-num">1</span>, Criteria1:<span class="c-str">"Dairy"</span>
+<span class="c-com">' salin hanya yang terlihat</span>
+Range(<span class="c-str">"A1"</span>).CurrentRegion _
+  .SpecialCells(xlCellTypeVisible).Copy</pre>
+          <div class="art-foot">
+            <span><i class="legend t"></i>AutoFilter</span>
+            <span><i class="legend f"></i>Visible cells</span>
+            <span class="art-foot-note">Minggu 6</span>
+          </div>
+        </div>
+        <div class="float-card float-a"><strong>Power Platform</strong><span>Automate &amp; Apps</span></div>
+        <div class="float-card float-b"><span class="fc-arrow">◀</span> VBA Worksheet</div>
+      </div>`;
+  }
+  return `
+    <div class="hero-art reveal" style="--delay:.12s" aria-hidden="true">
+      <div class="art-card">
+        <div class="art-head">
+          <span class="art-title">Contoh pohon semantik</span>
+          <span class="art-badge">E = ¬R → (¬R ∧ Q)</span>
+        </div>
+        <svg class="tree-art" viewBox="0 0 340 250">
+          <g stroke="#cdc7b7" stroke-width="2" stroke-linecap="round">
+            <path d="M170 46 L96 118" />
+            <path d="M170 46 L248 118" />
+            <path d="M248 118 L196 200" />
+            <path d="M248 118 L300 200" />
+          </g>
+          <g font-size="11" font-weight="700" fill="#8b948e" font-family="inherit">
+            <text x="112" y="76">T</text>
+            <text x="218" y="76">F</text>
+            <text x="208" y="166">T</text>
+            <text x="286" y="166">F</text>
+          </g>
+          <g font-family="inherit" text-anchor="middle" font-weight="700">
+            <circle cx="170" cy="42" r="26" fill="#16231f" />
+            <text x="170" y="47" fill="#fffdf8" font-size="15">R</text>
+            <circle cx="94" cy="124" r="23" fill="#0f766e" />
+            <text x="94" y="129" fill="#fffdf8" font-size="14">T</text>
+            <circle cx="250" cy="124" r="23" fill="#fffdf8" stroke="#16231f" stroke-width="2" />
+            <text x="250" y="129" fill="#16231f" font-size="14">Q</text>
+            <circle cx="194" cy="206" r="23" fill="#0f766e" />
+            <text x="194" y="211" fill="#fffdf8" font-size="14">T</text>
+            <circle cx="302" cy="206" r="23" fill="#d94f4f" />
+            <text x="302" y="211" fill="#fffdf8" font-size="14">F</text>
+          </g>
+        </svg>
+        <div class="art-foot">
+          <span><i class="legend t"></i>true</span>
+          <span><i class="legend f"></i>false</span>
+          <span class="art-foot-note">3 jalur · 3 daun</span>
+        </div>
+      </div>
+      <div class="float-card float-a"><strong>Satisfiable</strong><span>ada daun T</span></div>
+      <div class="float-card float-b"><span class="fc-arrow">◀</span> Substitusi total</div>
+    </div>`;
+}
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 function materialCard(m) {
   const pct = pctFor(m);
   const best = bestScore(m);
@@ -372,7 +602,7 @@ function materialCard(m) {
     <a class="material-card reveal" href="#/materi/${m.id}" style="${accStyle(m)}">
       <div class="mc-top">
         <span class="mc-num">${String(m.order).padStart(2, '0')}</span>
-        <span class="mc-badge">${m.slides} slide</span>
+        <span class="mc-badge">${m.slides ? `${m.slides} slide` : `${m.cards.length} kartu`}</span>
       </div>
       <h3>${esc(m.title)}</h3>
       <p>${esc(m.short)}</p>
@@ -401,7 +631,7 @@ function materialView(m, tab) {
     <div class="material-page" style="${accStyle(m)}">
       <header class="material-head">
         <div class="material-intro reveal">
-          <a class="crumb" href="#/">← Semua materi</a>
+          <a class="crumb" href="#/course/${m.courseId}">← ${esc(course(m.courseId)?.name || 'Semua materi')}</a>
           <p class="eyebrow">Materi ${String(m.order).padStart(2, '0')} · ${esc(m.course)}</p>
           <h1>${esc(m.title)}</h1>
           <p class="material-lead">${esc(m.short)}</p>
@@ -420,7 +650,7 @@ function materialView(m, tab) {
       </header>
 
       <nav class="tabs" aria-label="Bagian materi">
-        ${TABS.map((t) => {
+        ${tabsFor(m).map((t) => {
           const active = t.id === tab;
           return `<a class="tab-link ${active ? 'is-active' : ''}" href="#/materi/${m.id}/${t.id}" ${active ? 'aria-current="page"' : ''}>${t.icon}<span>${t.label}</span></a>`;
         }).join('')}
@@ -857,7 +1087,7 @@ function tutorView(m) {
           <div class="tutor-avatar">✦</div>
           <div class="tutor-id">
             <h2>Tutor ${esc(shortNavTitle(m))}</h2>
-            <p>Jawaban diambil dari ${m.slides} slide materi · bukan AI generatif</p>
+            <p>Jawaban diambil dari ${m.slides ? `${m.slides} slide materi` : `${m.sections.length} bagian materi`} · bukan AI generatif</p>
           </div>
           <span class="live-pill"><i></i> siap</span>
         </div>
@@ -1035,6 +1265,14 @@ function answerTutor(m, text) {
    --------------------------------------------------------- */
 
 function slidesView(m) {
+  if (!m.slides) {
+    return `
+      <div class="empty-state">
+        <p class="eyebrow">Tanpa slide</p>
+        <h2>Materi ini tidak punya file slide</h2>
+        <p>Isinya disusun dari laporan tugas kuliah, jadi semua bahan sudah ada di tab Ringkasan, Flashcard, dan Kuis.</p>
+      </div>`;
+  }
   return `
     <div class="slides-head reveal">
       <div>
