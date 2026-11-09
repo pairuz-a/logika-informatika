@@ -2077,6 +2077,2063 @@
         "Bagaimana cara filtering lewat VBA?",
         "Apa itu visible cells dan kenapa perlu SpecialCells?"
       ]
+    },
+    {
+      "id": "metodologi-research-design",
+      "order": 1,
+      "courseId": "metodologi-problem-solving",
+      "title": "Research Mindset & Design Thinking",
+      "short": "Dari gejala ke research problem, wicked problems, dan lima tahap design thinking.",
+      "course": "Metodologi Problem Solving & Design Research",
+      "source": "P_Materi_01.pdf & P_Materi_02.pdf",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#0e7490",
+      "tags": [
+        "Research mindset",
+        "Wicked problem",
+        "Design thinking"
+      ],
+      "summary": "## Inti pertemuan\nPenelitian bukan sekadar membuat aplikasi. Penelitian adalah proses sistematis untuk memperoleh, menguji, atau mengembangkan pengetahuan dengan metode yang bisa dipertanggungjawabkan.\n\nYang membedakan penelitian dari sekadar opini:\n- ada masalah atau pertanyaan yang jelas;\n- ada landasan pengetahuan dan evidence;\n- ada metode;\n- ada pengumpulan dan analisis data;\n- ada kesimpulan yang bisa diperiksa.\n\n## 1. Problem solving, research, dan design\n| Aktivitas | Fokus utama | Contoh |\n|---|---|---|\n| Problem solving | Masalah selesai | Memperbaiki sistem yang lambat |\n| Research | Pertanyaan dan evidence | Faktor apa yang menyebabkan performa turun? |\n| Design | Merancang solusi/artefak | Membuat prototipe antarmuka |\n\nKetiganya bukan hal yang saling menggantikan. Design research menggabungkan ketiganya: memahami masalah, menghasilkan evidence, merancang solusi, lalu menguji solusi itu.\n\n## 2. Research mindset\nResearch mindset adalah kebiasaan berpikir kritis, sistematis, terbuka pada evidence, dan bersedia menguji asumsi.\n\nTujuh ciri yang sering disebut:\n1. Curious\n2. Critical\n3. Evidence-based\n4. Systematic\n5. Open-minded\n6. Reflective\n7. Ethical\n\nPerubahan cara berpikir yang paling penting:\n- dari \"saya punya ide aplikasi\" menjadi \"masalah apa yang mendasari ide ini?\";\n- dari \"metode ini pasti paling bagus\" menjadi \"evidence apa yang menunjukkan keunggulannya?\";\n- dari \"saya cari jurnal untuk mendukung ide\" menjadi \"saya baca literatur untuk tahu apa yang sudah dan belum diketahui\".\n\n## 3. Opini vs evidence\n- **Opini**: \"Menurut saya pengguna kesulitan.\"\n- **Evidence**: \"Dari 120 responden, 68% melaporkan kesulitan pada tahap X.\"\n\nPertanyaan yang selalu diulang dalam research mindset: **bagaimana kita tahu?**\n\n## 4. Gejala, masalah, kebutuhan, solusi\n| Istilah | Arti |\n|---|---|\n| Gejala | Apa yang terlihat terjadi |\n| Masalah | Kondisi yang menghambat kebutuhan |\n| Kebutuhan | Kondisi yang dibutuhkan pengguna/sistem |\n| Solusi | Cara yang diusulkan untuk menangani masalah |\n\nKesalahan umum: langsung melompat dari gejala ke solusi tanpa memahami masalah. Contoh: \"banyak tugas terlambat\" adalah gejala, bukan otomatis berarti perlu aplikasi pengingat. Penyebabnya bisa beban tugas, manajemen waktu, atau informasi deadline yang tidak jelas.\n\n## 5. Wicked problems\nWicked problem adalah masalah kompleks yang tidak punya satu formulasi final dan tidak bisa diselesaikan dengan satu solusi sederhana.\n\nCiri yang sering muncul:\n- tidak ada formulasi masalah yang definitif;\n- banyak stakeholder dengan kepentingan berbeda;\n- solusi tidak sekadar benar atau salah;\n- setiap solusi menimbulkan konsekuensi baru;\n- cara membingkai masalah memengaruhi solusi yang dipilih.\n\nContoh: \"sistem akademik sulit digunakan\" bisa berarti hal berbeda bagi mahasiswa, dosen, pengelola, dan pimpinan. Karena itu, definisi masalah harus menyebut siapa yang terdampak dan berdasarkan evidence apa.\n\n## 6. Design thinking\nDesign thinking adalah pendekatan pemecahan masalah yang human-centered, eksploratif, dan iteratif.\n\nLima tahap:\n1. **Empathize** — memahami pengguna dan konteks.\n2. **Define** — merumuskan fokus masalah.\n3. **Ideate** — menghasilkan banyak alternatif.\n4. **Prototype** — membuat representasi solusi.\n5. **Test** — menguji dan memperoleh feedback.\n\nProses nyata tidak selalu linear. Hasil testing bisa membuat kita kembali ke Define atau Ideate.\n\n### Empathy map\n- **Say** — apa yang dikatakan pengguna.\n- **Think** — apa yang dipikirkan.\n- **Do** — apa yang dilakukan.\n- **Feel** — apa yang dirasakan.\n\n### Point of View (POV)\nFormat: **[pengguna] membutuhkan [kebutuhan] karena [insight/evidence]**.\n\nContoh: mahasiswa pada jam sibuk membutuhkan informasi parkir yang bisa dipercaya karena ketidakpastian membuat waktu pencarian bertambah.\n\n## 7. Kesalahan yang sering terjadi\n- langsung memilih teknologi;\n- menetapkan solusi sebelum masalah dipahami;\n- menganggap semua pengguna sama;\n- memakai opini sebagai evidence;\n- membuat prototipe terlalu besar di awal;\n- menguji hanya ke teman tanpa alasan metodologis;\n- menganggap feedback otomatis bukti efektivitas.\n\n## Cara menjawab soal\nKalau diminta membedakan problem solving, research, dan design, sebutkan **fokus** dan **hasil** masing-masing, lalu jelaskan bahwa design research menggabungkannya. Kalau diminta contoh research mindset, jangan berhenti di definisi — beri contoh opini yang diubah menjadi evidence.",
+      "sections": [
+        {
+          "title": "Hakikat penelitian",
+          "slides": "Pertemuan 1",
+          "body": "Penelitian adalah proses sistematis untuk memperoleh, menguji, atau mengembangkan pengetahuan dengan metode yang bisa dipertanggungjawabkan. Unsurnya: masalah, evidence, metode, analisis, dan kesimpulan."
+        },
+        {
+          "title": "Problem solving vs research vs design",
+          "slides": "Pertemuan 1",
+          "body": "Problem solving berorientasi pada masalah selesai. Research berorientasi pada pertanyaan dan evidence. Design berorientasi pada perancangan solusi atau artefak. Design research menggabungkan ketiganya."
+        },
+        {
+          "title": "Research mindset",
+          "slides": "Pertemuan 1",
+          "body": "Ciri research mindset: curious, critical, evidence-based, systematic, open-minded, reflective, ethical. Kebiasaannya adalah bertanya bagaimana kita tahu, bukan langsung percaya pada opini."
+        },
+        {
+          "title": "Gejala vs masalah",
+          "slides": "Pertemuan 1",
+          "body": "Gejala adalah yang terlihat, masalah adalah kondisi yang menghambat kebutuhan, solusi adalah cara menanganinya. Jangan langsung dari gejala ke solusi tanpa evidence."
+        },
+        {
+          "title": "Wicked problems",
+          "slides": "Pertemuan 2",
+          "body": "Masalah kompleks dengan banyak stakeholder, batas tidak jelas, dan solusi yang menimbulkan konsekuensi baru. Definisi masalah bisa berbeda tergantung siapa yang melihat."
+        },
+        {
+          "title": "Lima tahap design thinking",
+          "slides": "Pertemuan 2",
+          "body": "Empathize, Define, Ideate, Prototype, Test. Prosesnya iteratif: hasil test bisa memaksa revisi problem statement atau ide."
+        },
+        {
+          "title": "Empathy map dan POV",
+          "slides": "Pertemuan 2",
+          "body": "Empathy map memetakan Say, Think, Do, Feel. POV dirumuskan sebagai pengguna + kebutuhan + insight. POV harus bisa ditelusuri ke temuan, bukan asumsi."
+        },
+        {
+          "title": "Kesalahan umum",
+          "slides": "Pertemuan 2",
+          "body": "Langsung memilih teknologi, menetapkan solusi sebelum masalah jelas, menganggap semua pengguna sama, memakai opini sebagai evidence, dan prototipe terlalu besar di awal."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa definisi penelitian?",
+          "back": "Proses sistematis untuk memperoleh, menguji, atau mengembangkan pengetahuan dengan metode yang dapat dipertanggungjawabkan."
+        },
+        {
+          "front": "Apa fokus problem solving, research, dan design?",
+          "back": "Problem solving: masalah selesai. Research: pertanyaan dan evidence. Design: merancang solusi atau artefak. Ketiganya bisa digabung dalam design research."
+        },
+        {
+          "front": "Sebutkan tujuh ciri research mindset.",
+          "back": "Curious, critical, evidence-based, systematic, open-minded, reflective, ethical."
+        },
+        {
+          "front": "Apa perbedaan opini dan evidence?",
+          "back": "Opini adalah pendapat pribadi. Evidence adalah bukti yang bisa diperiksa, misalnya data 120 responden dengan 68% melaporkan masalah."
+        },
+        {
+          "front": "Apa bedanya gejala dan masalah?",
+          "back": "Gejala adalah yang terlihat terjadi. Masalah adalah kondisi yang menghambat atau menyebabkan kebutuhan tidak terpenuhi."
+        },
+        {
+          "front": "Mengapa tidak boleh langsung dari gejala ke solusi?",
+          "back": "Karena penyebab masalah belum tentu diketahui. Tanpa evidence, solusi bisa salah sasaran."
+        },
+        {
+          "front": "Apa itu wicked problem?",
+          "back": "Masalah kompleks yang tidak punya formulasi definitif, melibatkan banyak stakeholder, dan solusinya menimbulkan konsekuensi baru."
+        },
+        {
+          "front": "Sebutkan tiga ciri wicked problem.",
+          "back": "Tidak ada formulasi masalah yang final, banyak stakeholder dengan kepentingan berbeda, dan solusi tidak sekadar benar atau salah."
+        },
+        {
+          "front": "Sebutkan lima tahap design thinking.",
+          "back": "Empathize, Define, Ideate, Prototype, Test."
+        },
+        {
+          "front": "Apa isi empathy map?",
+          "back": "Say (yang dikatakan), Think (yang dipikirkan), Do (yang dilakukan), Feel (yang dirasakan)."
+        },
+        {
+          "front": "Tuliskan template Point of View.",
+          "back": "[Pengguna] membutuhkan [kebutuhan] karena [insight/evidence]."
+        },
+        {
+          "front": "Sebutkan tiga kesalahan umum dalam design thinking.",
+          "back": "Langsung memilih teknologi, menetapkan solusi sebelum masalah dipahami, dan memakai opini sebagai evidence."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Penelitian paling tepat diartikan sebagai...",
+          "options": [
+            "Membuat aplikasi yang menarik",
+            "Proses sistematis untuk memperoleh dan menguji pengetahuan",
+            "Mengumpulkan sebanyak mungkin referensi",
+            "Menyalin hasil penelitian orang lain"
+          ],
+          "answer": 1,
+          "explanation": "Penelitian adalah proses sistematis dengan metode yang bisa dipertanggungjawabkan, bukan sekadar membuat aplikasi."
+        },
+        {
+          "question": "Yang membedakan research dari problem solving adalah...",
+          "options": [
+            "Research selalu memakai teknologi",
+            "Research berorientasi pada pertanyaan dan evidence",
+            "Problem solving tidak butuh data",
+            "Research tidak perlu metode"
+          ],
+          "answer": 1,
+          "explanation": "Problem solving berorientasi pada masalah selesai, sedangkan research berorientasi pada pertanyaan dan evidence."
+        },
+        {
+          "question": "Contoh evidence, bukan opini, adalah...",
+          "options": [
+            "Menurut saya pengguna bingung",
+            "Saya yakin aplikasi ini bagus",
+            "Dari 120 responden, 68% melaporkan kesulitan",
+            "Teman saya juga setuju"
+          ],
+          "answer": 2,
+          "explanation": "Evidence harus berupa data atau bukti yang bisa diperiksa, bukan pendapat pribadi."
+        },
+        {
+          "question": "Ciri research mindset yang berarti siap merevisi hipotesis adalah...",
+          "options": [
+            "Curious",
+            "Open-minded",
+            "Ethical",
+            "Systematic"
+          ],
+          "answer": 1,
+          "explanation": "Open-minded berarti terbuka pada bukti baru dan bersedia merevisi hipotesis atau pendapat."
+        },
+        {
+          "question": "Wicked problem memiliki ciri...",
+          "options": [
+            "Selalu punya satu solusi pasti",
+            "Banyak stakeholder dan formulasi masalah tidak definitif",
+            "Tidak melibatkan manusia",
+            "Selalu bisa diselesaikan dengan teknologi"
+          ],
+          "answer": 1,
+          "explanation": "Wicked problem kompleks, multi-perspektif, dan tidak punya satu formulasi atau solusi final yang sederhana."
+        },
+        {
+          "question": "Urutan lima tahap design thinking adalah...",
+          "options": [
+            "Define, Empathize, Test, Ideate, Prototype",
+            "Empathize, Define, Ideate, Prototype, Test",
+            "Ideate, Prototype, Empathize, Define, Test",
+            "Test, Define, Ideate, Empathize, Prototype"
+          ],
+          "answer": 1,
+          "explanation": "Urutan umumnya Empathize, Define, Ideate, Prototype, Test, dan prosesnya iteratif."
+        },
+        {
+          "question": "Empathy map yang berisi apa yang dikatakan pengguna disebut...",
+          "options": [
+            "Think",
+            "Say",
+            "Do",
+            "Feel"
+          ],
+          "answer": 1,
+          "explanation": "Say berisi apa yang dikatakan pengguna; Think apa yang dipikirkan, Do apa yang dilakukan, Feel apa yang dirasakan."
+        },
+        {
+          "question": "POV yang baik harus...",
+          "options": [
+            "Langsung menyebut solusi teknologi",
+            "Bisa ditelusuri ke temuan Empathize",
+            "Memuat semua stakeholder",
+            "Menggunakan istilah teknis sebanyak mungkin"
+          ],
+          "answer": 1,
+          "explanation": "POV dirumuskan dari pengguna, kebutuhan, dan insight yang berasal dari temuan, bukan asumsi."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa bedanya problem solving, research, dan design?",
+          "a": "Problem solving berfokus menyelesaikan masalah. Research berfokus pada pertanyaan, evidence, dan pengetahuan. Design berfokus merancang solusi atau artefak. Design research menggabungkan ketiganya.",
+          "tags": [
+            "dasar"
+          ],
+          "slide": "Pertemuan 1"
+        },
+        {
+          "q": "Apa itu research mindset?",
+          "a": "Kebiasaan berpikir kritis, sistematis, terbuka pada evidence, dan bersedia menguji asumsi. Cirinya curious, critical, evidence-based, systematic, open-minded, reflective, dan ethical.",
+          "tags": [
+            "mindset"
+          ],
+          "slide": "Pertemuan 1"
+        },
+        {
+          "q": "Apa itu wicked problem?",
+          "a": "Masalah kompleks yang tidak punya formulasi definitif, melibatkan banyak stakeholder dengan kepentingan berbeda, dan solusinya menimbulkan konsekuensi baru.",
+          "tags": [
+            "wicked"
+          ],
+          "slide": "Pertemuan 2"
+        },
+        {
+          "q": "Jelaskan lima tahap design thinking.",
+          "a": "Empathize untuk memahami pengguna, Define untuk merumuskan masalah, Ideate untuk menghasilkan alternatif, Prototype untuk membuat representasi solusi, dan Test untuk memperoleh evidence. Prosesnya iteratif.",
+          "tags": [
+            "design thinking"
+          ],
+          "slide": "Pertemuan 2"
+        },
+        {
+          "q": "Apa itu POV?",
+          "a": "Point of View adalah rumusan [pengguna] membutuhkan [kebutuhan] karena [insight/evidence]. POV harus bisa ditelusuri kembali ke temuan Empathize, bukan asumsi.",
+          "tags": [
+            "POV"
+          ],
+          "slide": "Pertemuan 2"
+        }
+      ],
+      "quick": [
+        "Apa bedanya problem solving, research, dan design?",
+        "Apa itu research mindset?",
+        "Apa itu wicked problem?",
+        "Jelaskan lima tahap design thinking."
+      ]
+    },
+    {
+      "id": "metodologi-masalah-literatur",
+      "order": 2,
+      "courseId": "metodologi-problem-solving",
+      "title": "Formulasi Masalah & Kajian Literatur",
+      "short": "Problem statement, research question, research gap, dan sintesis literatur.",
+      "course": "Metodologi Problem Solving & Design Research",
+      "source": "P_Materi_03.pdf & P_Materi_04.pdf",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#0f766e",
+      "tags": [
+        "Problem statement",
+        "Research question",
+        "Research gap"
+      ],
+      "summary": "## Inti pertemuan\nMasalah yang baik menentukan pertanyaan; pertanyaan yang baik mengarahkan desain penelitian. Pertemuan ini menghubungkan problem statement, research question (RQ), dan kajian literatur.\n\n## 1. Topik bukan masalah\n| Istilah | Arti |\n|---|---|\n| Topik | Bidang yang ingin dipelajari |\n| Masalah | Kondisi atau gap yang perlu dipahami/diperbaiki |\n| Solusi | Kemungkinan tindakan atau artefak |\n| Penelitian | Proses sistematis menghasilkan evidence |\n\n\"Artificial Intelligence\" adalah topik, bukan research problem. \"Saya ingin membuat chatbot\" juga bukan research problem — chatbot adalah kandidat solusi.\n\n## 2. Problem statement\nProblem statement adalah pernyataan ringkas tentang kondisi bermasalah yang menjadi fokus penelitian.\n\nFormat yang sering dipakai:\n**Dalam konteks X, terjadi kondisi Y yang berdampak pada Z, sementara aspek A belum dipahami atau ditangani secara memadai.**\n\nYang perlu ada:\n- konteks;\n- kondisi bermasalah;\n- pihak atau objek yang terdampak;\n- gap yang relevan.\n\nYang harus dihindari: memasukkan solusi final terlalu dini.\n\nContoh kurang fokus: \"Penggunaan AI di pendidikan masih menjadi masalah.\"\n\nContoh lebih fokus: \"Pada pembelajaran pemrograman, AI generatif membantu sebagian mahasiswa memperoleh kode dengan cepat, tetapi pola penggunaan dan tingkat pemahaman kode belum dipahami secara memadai pada konteks yang diteliti.\"\n\n## 3. Masalah praktis vs research problem\n- **Masalah praktis**: \"Waktu respons layanan akademik terlalu lama.\"\n- **Research problem**: \"Belum diketahui faktor-faktor yang berkontribusi terhadap variasi waktu respons layanan akademik pada konteks tertentu.\"\n\nMasalah praktis bisa menjadi titik awal, tetapi penelitian perlu mengubahnya menjadi persoalan yang bisa diselidiki.\n\n## 4. Research gap\nResearch gap adalah aspek yang belum cukup dijelaskan, diuji, dibandingkan, atau diterapkan dalam pengetahuan yang tersedia.\n\nJenis gap:\n- **Knowledge gap** — pengetahuan atau hubungan belum dipahami.\n- **Empirical gap** — evidence empiris kurang atau tidak konsisten.\n- **Methodological gap** — metode belum diuji atau perlu dibandingkan.\n- **Contextual gap** — temuan belum diuji pada konteks tertentu.\n- **Theoretical gap** — teori belum cukup menjelaskan fenomena.\n- **Practical gap** — kebutuhan praktik belum terjawab.\n\nGap bukan sekadar \"belum ada penelitian\". Gap harus didukung literatur dan dijelaskan mengapa penelitian baru diperlukan.\n\n## 5. Research question\nResearch question adalah pertanyaan spesifik yang ingin dijawab melalui penelitian. RQ bukan judul penelitian dan bukan tujuan administratif.\n\nJenis RQ:\n| Jenis | Contoh |\n|---|---|\n| Descriptive | Bagaimana pola penggunaan AI generatif oleh mahasiswa? |\n| Exploratory | Faktor apa yang dipertimbangkan mahasiswa saat memakai AI? |\n| Explanatory | Mengapa fenomena itu terjadi? |\n| Comparative | Apa perbedaan kinerja model X dan Y? |\n| Evaluative | Seberapa efektif prototipe X membantu tugas Y? |\n| Design-oriented | Karakteristik apa yang dibutuhkan untuk merancang artefak? |\n\nCiri RQ yang baik:\n- jelas dan tidak ambigu;\n- fokus dan punya batasan;\n- bisa dijawab dengan evidence;\n- selaras dengan problem statement;\n- realistis dengan sumber daya;\n- tidak mengandung kesimpulan sejak awal.\n\n## 6. Kajian literatur\nLiterature review bukan daftar referensi. Daftar referensi menunjukkan sumber yang dipakai; literature review menjelaskan hubungan antarsumber: kesamaan, perbedaan, ketidakpastian, dan hal yang belum terjawab.\n\nPerbedaan summary dan synthesis:\n- **Summary**: \"Penelitian A menemukan X. Penelitian B menemukan Y.\"\n- **Synthesis**: \"Secara umum X ditemukan, tetapi Y berbeda ketika konteks berubah; sebagian besar studi belum menguji Z.\"\n\nKajian yang baik menghasilkan sintesis, bukan ringkasan artikel satu per satu.\n\n## 7. Evidence-based\nKlaim dan keputusan harus didukung bukti yang bisa diperiksa. Evidence bisa berupa eksperimen, observasi, wawancara, survei, benchmark, log sistem, atau evaluasi pengguna.\n\nKriteria memilih sumber:\n- relevance;\n- credibility;\n- recency;\n- methodological quality;\n- usability.\n\nStrategi pencarian:\n1. Mulai dari RQ dan kata kunci.\n2. Temukan seed papers.\n3. Backward searching: periksa referensi artikel.\n4. Forward searching: cari artikel yang mengutip.\n5. Screening bertahap: judul, abstrak, full text.\n6. Dokumentasikan strategi pencarian.\n\nGunakan literature matrix untuk membandingkan penulis/tahun, tujuan, konteks/data, metode, temuan, limitasi, dan relevansi terhadap RQ.\n\n## 8. Kesalahan umum\n- mengumpulkan banyak artikel tanpa sintesis;\n- memakai blog atau berita sebagai evidence utama;\n- mengunci judul sebelum memahami literatur;\n- memakai satu artikel untuk klaim terlalu luas;\n- hanya membaca abstrak tanpa metode;\n- menganggap \"belum ada penelitian\" sebagai satu-satunya gap;\n- mengutip sumber sekunder padahal sumber primer tersedia.\n\n## Cara menjawab soal\nKalau diminta membuat RQ, mulai dari problem statement lalu turunkan pertanyaan yang bisa dijawab. Sebutkan jenis RQ dan evidence yang diperlukan. Kalau diminta menilai RQ, periksa kejelasan, fokus, keterukuran, dan keselarasan dengan masalah.",
+      "sections": [
+        {
+          "title": "Topik vs masalah",
+          "slides": "Pertemuan 3",
+          "body": "Topik adalah bidang, masalah adalah kondisi atau gap yang perlu dipahami. Solusi bukan problem statement. AI dan chatbot adalah topik/kandidat solusi, bukan otomatis research problem."
+        },
+        {
+          "title": "Problem statement",
+          "slides": "Pertemuan 3",
+          "body": "Rumusan ringkas berisi konteks, kondisi bermasalah, pihak terdampak, dan gap. Formatnya: dalam konteks X terjadi Y yang berdampak pada Z, sementara A belum dipahami."
+        },
+        {
+          "title": "Masalah praktis vs research problem",
+          "slides": "Pertemuan 3",
+          "body": "Masalah praktis berfokus pada perbaikan langsung. Research problem mengubahnya menjadi persoalan yang bisa diselidiki, misalnya faktor apa yang menyebabkan variasi hasil."
+        },
+        {
+          "title": "Jenis research question",
+          "slides": "Pertemuan 3",
+          "body": "Descriptive, exploratory, explanatory, comparative, evaluative, dan design-oriented. Pilih jenis yang sesuai dengan tujuan dan evidence yang tersedia."
+        },
+        {
+          "title": "Kajian literatur",
+          "slides": "Pertemuan 4",
+          "body": "Literature review menjelaskan hubungan antarsumber dan menghasilkan sintesis. Bukan daftar ringkasan artikel. Tujuannya menemukan pola, perbedaan, dan gap."
+        },
+        {
+          "title": "Research gap",
+          "slides": "Pertemuan 4",
+          "body": "Gap bisa berupa knowledge, empirical, methodological, contextual, theoretical, atau practical gap. Gap harus didukung literatur, bukan hanya klaim belum ada penelitian."
+        },
+        {
+          "title": "Mencari dan menyaring sumber",
+          "slides": "Pertemuan 4",
+          "body": "Gunakan kata kunci, seed paper, backward dan forward searching, lalu screening judul, abstrak, dan full text. Catat query dan kriteria inklusi/eksklusi."
+        },
+        {
+          "title": "Sintesis dan literature matrix",
+          "slides": "Pertemuan 4",
+          "body": "Literature matrix membandingkan tujuan, konteks, metode, temuan, limitasi, dan relevansi. Sintesis menjawab apa makna kumpulan artikel bagi penelitian kita."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa bedanya topik dan research problem?",
+          "back": "Topik adalah bidang yang dipelajari. Research problem adalah kondisi atau gap yang memerlukan penyelidikan sistematis."
+        },
+        {
+          "front": "Mengapa \"saya ingin membuat chatbot\" bukan research problem?",
+          "back": "Karena chatbot adalah kandidat solusi. Research problem harus menjelaskan masalah, pihak terdampak, evidence, dan apa yang belum diketahui."
+        },
+        {
+          "front": "Sebutkan komponen problem statement yang baik.",
+          "back": "Konteks, kondisi bermasalah, pihak/objek terdampak, dan gap yang relevan. Solusi final tidak dimasukkan terlalu dini."
+        },
+        {
+          "front": "Apa bedanya masalah praktis dan research problem?",
+          "back": "Masalah praktis berfokus pada perbaikan langsung. Research problem merumuskannya menjadi persoalan yang bisa diselidiki dengan evidence."
+        },
+        {
+          "front": "Sebutkan empat jenis research gap.",
+          "back": "Knowledge gap, empirical gap, methodological gap, contextual gap. Masih ada theoretical gap dan practical gap."
+        },
+        {
+          "front": "Apa itu research question?",
+          "back": "Pertanyaan spesifik yang ingin dijawab melalui penelitian. Bukan judul, bukan tujuan administratif, dan harus mengarahkan data serta metode."
+        },
+        {
+          "front": "Sebutkan tiga jenis research question.",
+          "back": "Descriptive (apa yang terjadi), exploratory (faktor/pola apa), evaluative (seberapa efektif). Ada juga explanatory, comparative, dan design-oriented."
+        },
+        {
+          "front": "Sebutkan ciri RQ yang baik.",
+          "back": "Jelas, fokus, bisa dijawab dengan evidence, selaras dengan problem statement, realistis, dan tidak mengandung kesimpulan sejak awal."
+        },
+        {
+          "front": "Apa bedanya literature review dan daftar referensi?",
+          "back": "Daftar referensi menunjukkan sumber. Literature review menjelaskan hubungan antarsumber: kesamaan, perbedaan, ketidakpastian, dan gap."
+        },
+        {
+          "front": "Apa bedanya summary dan synthesis?",
+          "back": "Summary merangkum isi tiap artikel. Synthesis menjelaskan makna kumpulan artikel: pola, perbedaan konteks, dan hal yang belum dijawab."
+        },
+        {
+          "front": "Sebutkan lima kriteria memilih sumber.",
+          "back": "Relevance, credibility, recency, methodological quality, dan usability."
+        },
+        {
+          "front": "Apa fungsi literature matrix?",
+          "back": "Membandingkan artikel berdasarkan tujuan, konteks/data, metode, temuan, limitasi, dan relevansi terhadap RQ agar pola dan gap terlihat."
+        },
+        {
+          "front": "Mengapa \"belum ada penelitian\" bukan gap yang kuat?",
+          "back": "Karena gap harus menunjukkan alasan ilmiah: ada inkonsistensi, konteks berbeda, metode belum diuji, atau kebutuhan praktik yang belum terjawab."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Yang termasuk research problem adalah...",
+          "options": [
+            "Topik artificial intelligence",
+            "Rencana membuat chatbot",
+            "Belum diketahui faktor yang memengaruhi adopsi fitur X",
+            "Judul penelitian yang menarik"
+          ],
+          "answer": 2,
+          "explanation": "Research problem menunjukkan gap yang perlu diselidiki, bukan topik atau solusi."
+        },
+        {
+          "question": "Problem statement yang baik memuat...",
+          "options": [
+            "Solusi final dan teknologi yang dipilih",
+            "Konteks, kondisi bermasalah, pihak terdampak, dan gap",
+            "Daftar referensi lengkap",
+            "Rencana anggaran penelitian"
+          ],
+          "answer": 1,
+          "explanation": "Problem statement memuat konteks, kondisi, dampak, dan gap; solusi final tidak dimasukkan terlalu dini."
+        },
+        {
+          "question": "Research question \"Seberapa efektif prototipe X membantu pengguna menyelesaikan tugas Y?\" termasuk jenis...",
+          "options": [
+            "Descriptive",
+            "Comparative",
+            "Evaluative",
+            "Exploratory"
+          ],
+          "answer": 2,
+          "explanation": "Pertanyaan evaluatif mengukur efektivitas, usability, akurasi, atau kelayakan suatu pendekatan."
+        },
+        {
+          "question": "Ciri research question yang baik adalah...",
+          "options": [
+            "Mengandung kesimpulan sejak awal",
+            "Sangat luas agar mencakup semua hal",
+            "Bisa dijawab dengan evidence dan fokus",
+            "Sama dengan judul penelitian"
+          ],
+          "answer": 2,
+          "explanation": "RQ harus jelas, fokus, bisa dijawab dengan evidence, dan selaras dengan problem statement."
+        },
+        {
+          "question": "Literature review yang baik menghasilkan...",
+          "options": [
+            "Daftar semua artikel",
+            "Sintesis hubungan antarsumber",
+            "Ringkasan satu artikel per paragraf",
+            "Kumpulan kutipan tanpa analisis"
+          ],
+          "answer": 1,
+          "explanation": "Literature review menjelaskan kesamaan, perbedaan, ketidakpastian, dan gap dari kumpulan sumber."
+        },
+        {
+          "question": "Gap yang muncul karena temuan belum diuji pada konteks tertentu disebut...",
+          "options": [
+            "Knowledge gap",
+            "Contextual gap",
+            "Methodological gap",
+            "Theoretical gap"
+          ],
+          "answer": 1,
+          "explanation": "Contextual gap terjadi ketika temuan belum diuji pada konteks atau populasi tertentu."
+        },
+        {
+          "question": "Strategi mencari artikel yang mengutip seed paper disebut...",
+          "options": [
+            "Backward searching",
+            "Forward searching",
+            "Snowball sampling",
+            "Random sampling"
+          ],
+          "answer": 1,
+          "explanation": "Forward searching mencari artikel yang mengutip artikel kunci; backward searching memeriksa daftar referensinya."
+        },
+        {
+          "question": "Kolom yang tepat untuk literature matrix adalah...",
+          "options": [
+            "Warna favorit penulis",
+            "Tujuan, konteks, metode, temuan, limitasi, relevansi RQ",
+            "Jumlah halaman dan harga buku",
+            "Nama penerbit saja"
+          ],
+          "answer": 1,
+          "explanation": "Literature matrix membandingkan artikel berdasarkan tujuan, konteks/data, metode, temuan, limitasi, dan relevansi."
+        },
+        {
+          "question": "Klaim yang proporsional dengan evidence adalah...",
+          "options": [
+            "Metode X pasti paling baik",
+            "Studi A menemukan X pada konteks tertentu, tetapi belum tentu berlaku umum",
+            "Semua pengguna pasti setuju",
+            "Tidak perlu bukti karena sudah yakin"
+          ],
+          "answer": 1,
+          "explanation": "Klaim harus menyebut konteks dan batas evidence, bukan generalisasi berlebihan."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu problem statement?",
+          "a": "Pernyataan ringkas tentang kondisi bermasalah yang menjadi fokus penelitian. Isinya konteks, kondisi, pihak terdampak, dan gap. Solusi final tidak dimasukkan terlalu dini.",
+          "tags": [
+            "masalah"
+          ],
+          "slide": "Pertemuan 3"
+        },
+        {
+          "q": "Apa bedanya masalah praktis dan research problem?",
+          "a": "Masalah praktis berfokus pada perbaikan langsung. Research problem mengubahnya menjadi persoalan yang bisa diselidiki, misalnya faktor apa yang menyebabkan variasi hasil pada konteks tertentu.",
+          "tags": [
+            "masalah"
+          ],
+          "slide": "Pertemuan 3"
+        },
+        {
+          "q": "Apa saja jenis research question?",
+          "a": "Descriptive, exploratory, explanatory, comparative, evaluative, dan design-oriented. Pilih yang sesuai tujuan dan evidence yang tersedia.",
+          "tags": [
+            "RQ"
+          ],
+          "slide": "Pertemuan 3"
+        },
+        {
+          "q": "Apa itu research gap?",
+          "a": "Aspek yang belum cukup dijelaskan, diuji, dibandingkan, atau diterapkan. Jenisnya knowledge, empirical, methodological, contextual, theoretical, dan practical gap. Gap harus didukung literatur.",
+          "tags": [
+            "gap"
+          ],
+          "slide": "Pertemuan 4"
+        },
+        {
+          "q": "Apa bedanya summary dan synthesis?",
+          "a": "Summary merangkum isi tiap artikel. Synthesis menjelaskan makna kumpulan artikel: pola yang muncul, perbedaan konteks, dan hal yang belum dijawab.",
+          "tags": [
+            "literatur"
+          ],
+          "slide": "Pertemuan 4"
+        }
+      ],
+      "quick": [
+        "Apa itu problem statement?",
+        "Apa bedanya masalah praktis dan research problem?",
+        "Apa saja jenis research question?",
+        "Apa itu research gap?"
+      ]
+    },
+    {
+      "id": "metodologi-ideasi-pitching",
+      "order": 3,
+      "courseId": "metodologi-problem-solving",
+      "title": "Ideate, Seleksi Solusi & Pitching",
+      "short": "HMW, teknik ideasi, matriks keputusan berbobot, dan struktur pitch.",
+      "course": "Metodologi Problem Solving & Design Research",
+      "source": "P_Materi_05.pdf – P_Materi_07.pdf",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#b45309",
+      "tags": [
+        "Ideate",
+        "Matriks keputusan",
+        "Pitching"
+      ],
+      "summary": "## Inti pertemuan\nSetelah masalah dan evidence jelas, langkah berikutnya adalah menghasilkan banyak alternatif, memilih yang paling layak dengan kriteria transparan, lalu menyampaikannya dalam pitch yang meyakinkan.\n\n## 1. Ideate\nIdeate adalah tahap menghasilkan berbagai alternatif cara menjawab kebutuhan atau masalah. Fokus awalnya adalah keluasan kemungkinan, bukan langsung memilih satu solusi.\n\nPrinsip penting:\n- solusi pertama sering bukan solusi terbaik;\n- banyak alternatif membantu menantang asumsi;\n- pisahkan proses menghasilkan ide dari proses menilai ide.\n\n### How Might We (HMW)\nProblem statement menjelaskan masalah; HMW mengubahnya menjadi pertanyaan peluang.\n\nHMW yang terlalu sempit: \"Bagaimana membuat tombol biru?\"\nHMW yang terlalu luas: \"Bagaimana meningkatkan pendidikan?\"\nHMW yang terarah: \"Bagaimana membantu mahasiswa pemula menemukan dan memperbaiki kesalahan logika saat latihan pemrograman?\"\n\n## 2. Aturan brainstorming\n- tunda penilaian;\n- utamakan kuantitas pada putaran awal;\n- dorong ide tidak biasa;\n- bangun dan kombinasikan ide orang lain;\n- tetap fokus pada HMW;\n- kritik dan seleksi dilakukan terpisah.\n\n## 3. Teknik ideasi\n| Teknik | Cara kerja | Cocok untuk |\n|---|---|---|\n| Brainstorming | Ide disampaikan lisan dan dicatat | Cepat, membangun energi |\n| Brainwriting 6-3-5 | 6 peserta, 3 ide, 5 menit, lalu tukar | Partisipasi merata |\n| Crazy 8s | 8 bagian kertas, 8 menit, 1 ide per bagian | Eksplorasi visual cepat |\n| SCAMPER | Substitute, Combine, Adapt, Modify, Put to other use, Eliminate, Reverse | Mengembangkan solusi yang ada |\n| Mind mapping | Cabang dari masalah utama | Melihat hubungan konsep |\n| Analogical thinking | Ambil prinsip dari bidang lain | Mencari sudut pandang baru |\n| Reverse brainstorming | Tanya cara memperburuk masalah | Mengungkap asumsi |\n| Worst possible idea | Hasilkan ide buruk lalu balik | Membuka kriteria desain |\n| Role storming | Berideasi dari peran berbeda | Menghindari solusi sepihak |\n| Combine and build | Gabungkan dua ide | Menghasilkan ide hibrida |\n\n## 4. Divergent dan convergent\n- **Divergent**: memperluas kemungkinan, menunda penilaian.\n- **Convergent**: memperjelas, membandingkan, menyempitkan pilihan.\n\nAlur umum: generate → cluster → clarify → select → prototype. Jangan mencampur waktu menghasilkan dan menilai terlalu dini.\n\n## 5. Seleksi alternatif\nIde menarik belum tentu menyelesaikan masalah utama. Seleksi diperlukan karena waktu, biaya, data, dan akses selalu terbatas.\n\nLangkah sistematis:\n1. Tetapkan tujuan keputusan dan batasan.\n2. Rumuskan kriteria yang relevan dan tidak tumpang tindih.\n3. Tentukan bobot berdasarkan prioritas.\n4. Beri skor dengan skala konsisten.\n5. Hitung skor total dan periksa sensitivitas.\n6. Tinjau risiko, etika, dan dampak.\n7. Dokumentasikan pilihan dan rencana validasi.\n\nKriteria yang sering dipakai: manfaat, pengalaman pengguna, kelayakan biaya/sumber daya, waktu implementasi, risiko, dan inklusi.\n\n### Matriks keputusan berbobot\nRumus: **skor total = jumlah (bobot kriteria × skor alternatif)**.\n\nContoh dengan bobot 30%, 25%, 20%, 15%, 10%:\n- Alternatif A: (0,30×4) + (0,25×5) + (0,20×5) + (0,15×5) + (0,10×4) = 4,65\n- Alternatif B: (0,30×4) + (0,25×4) + (0,20×4) + (0,15×4) + (0,10×4) = 4,00\n- Alternatif C: (0,30×5) + (0,25×3) + (0,20×2) + (0,15×3) + (0,10×3) = 3,45\n\nSkor tertinggi bukan satu-satunya dasar. Alternatif dengan risiko privasi tinggi bisa ditolak meskipun skornya tinggi. Periksa juga sensitivitas: apakah peringkat berubah jika bobot digeser secara wajar?\n\n### Bias yang sering muncul\n- Confirmation bias: hanya mencari bukti yang mendukung ide favorit.\n- Anchoring: terlalu terpengaruh skor atau pendapat pertama.\n- Halo effect: menganggap solusi bagus karena teknologinya populer.\n- Availability bias: memilih berdasarkan pengalaman terbaru.\n- Sunk cost fallacy: mempertahankan ide karena sudah banyak biaya dikeluarkan.\n\n## 6. Justifikasi\nJustifikasi lebih dari sekadar skor tertinggi. Kerangka argumennya:\n- **Klaim** — alternatif apa yang dipilih dan untuk tujuan apa.\n- **Bukti** — data, literatur, masukan pengguna, atau uji awal.\n- **Alasan** — bagaimana bukti mendukung pilihan.\n- **Trade-off** — manfaat yang diperoleh dan yang dikorbankan.\n- **Batasan** — asumsi belum teruji, risiko, ketidakpastian.\n- **Validasi** — langkah dan indikator untuk menguji pilihan.\n\nJustifikasi lemah: \"Kami memilih aplikasi antrean karena lebih modern.\"\nJustifikasi kuat: \"Kami memprioritaskan perbaikan informasi jadwal karena pengguna kesulitan menemukan informasi; alternatif ini mudah diuji dan tidak mewajibkan semua pasien memakai aplikasi baru.\"\n\n## 7. Pitching konsep\nPitching adalah presentasi singkat untuk menjelaskan masalah, peluang penelitian, dan konsep yang layak diuji. Pitch bukan promosi ide atau presentasi teknis penuh detail.\n\nStruktur pitch:\n1. Hook dan konteks masalah.\n2. Bukti masalah dan pengguna terdampak.\n3. Problem statement dan research question.\n4. Temuan literatur dan research gap.\n5. Konsep terpilih dan justifikasi.\n6. Rencana validasi, indikator, dan risiko.\n7. Penutup: kontribusi dan permintaan umpan balik.\n\nMulai dengan cerita masalah yang konkret, bukan definisi umum yang panjang. Gunakan data atau kutipan yang memiliki sumber. Hindari dramatisasi dan generalisasi berlebihan.\n\n## 8. Kesalahan umum\n- mengkritik ide sebelum jumlah dan variasi cukup;\n- terpaku pada satu teknologi sejak awal;\n- ide terlalu umum untuk diuji;\n- menganggap ide paling populer pasti terbaik;\n- menaikkan bobot agar alternatif favorit menang;\n- menyajikan skor sebagai kebenaran mutlak;\n- pitch tanpa bukti dan tanpa rencana validasi.\n\n## Cara menjawab soal\nUntuk soal seleksi, tulis kriteria, bobot, skor, lalu justifikasi. Jangan hanya menulis skor tertinggi. Untuk soal pitching, susun alur masalah → bukti → gap → konsep → justifikasi → validasi.",
+      "sections": [
+        {
+          "title": "Ideate dan HMW",
+          "slides": "Pertemuan 5",
+          "body": "Ideate menghasilkan banyak alternatif. HMW mengubah masalah menjadi pertanyaan peluang yang cukup fokus tetapi terbuka. HMW yang baik berpusat pada kebutuhan dan tidak mengunci solusi."
+        },
+        {
+          "title": "Aturan brainstorming",
+          "slides": "Pertemuan 5",
+          "body": "Tunda penilaian, utamakan kuantitas, dorong ide tidak biasa, bangun ide orang lain, tetap fokus pada HMW, dan lakukan seleksi di tahap terpisah."
+        },
+        {
+          "title": "Teknik ideasi",
+          "slides": "Pertemuan 5",
+          "body": "Brainstorming, brainwriting 6-3-5, Crazy 8s, SCAMPER, mind mapping, analogical thinking, reverse brainstorming, worst possible idea, role storming, dan combine and build."
+        },
+        {
+          "title": "Divergent dan convergent",
+          "slides": "Pertemuan 5",
+          "body": "Divergent memperluas kemungkinan tanpa menilai. Convergent membandingkan dan menyempitkan. Alurnya generate, cluster, clarify, select, prototype."
+        },
+        {
+          "title": "Kriteria dan bobot",
+          "slides": "Pertemuan 6",
+          "body": "Kriteria harus relevan, dapat dinilai, tidak tumpang tindih, dan ditetapkan sebelum skor diketahui. Bobot menunjukkan kepentingan relatif dan totalnya biasanya 100%."
+        },
+        {
+          "title": "Matriks keputusan",
+          "slides": "Pertemuan 6",
+          "body": "Skor total = jumlah bobot × skor alternatif. Skor membantu membuat pertimbangan eksplisit, tetapi bukan kebenaran mutlak. Periksa risiko kritis dan sensitivitas."
+        },
+        {
+          "title": "Justifikasi dan bias",
+          "slides": "Pertemuan 6",
+          "body": "Justifikasi memuat klaim, bukti, alasan, trade-off, batasan, dan validasi. Waspadai confirmation bias, anchoring, halo effect, availability bias, dan sunk cost fallacy."
+        },
+        {
+          "title": "Struktur pitching",
+          "slides": "Pertemuan 7",
+          "body": "Hook dan konteks, bukti masalah, problem statement dan RQ, literatur dan gap, konsep serta justifikasi, rencana validasi dan risiko, lalu penutup."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa tujuan tahap ideate?",
+          "back": "Menghasilkan berbagai alternatif untuk menjawab kebutuhan atau masalah. Fokus awalnya keluasan, bukan langsung memilih satu solusi."
+        },
+        {
+          "front": "Apa itu How Might We?",
+          "back": "Pertanyaan peluang yang mengubah problem statement menjadi arah ideasi. Harus cukup fokus tetapi terbuka, dan tidak mengunci solusi."
+        },
+        {
+          "front": "Sebutkan tiga aturan brainstorming.",
+          "back": "Tunda penilaian, utamakan kuantitas pada putaran awal, dan bangun/kombinasikan ide orang lain. Seleksi dilakukan terpisah."
+        },
+        {
+          "front": "Apa itu brainwriting 6-3-5?",
+          "back": "Enam peserta menulis tiga ide dalam lima menit, lalu lembar berpindah. Tujuannya partisipasi merata dan mengurangi dominasi pembicara."
+        },
+        {
+          "front": "Apa itu Crazy 8s?",
+          "back": "Kertas dibagi delapan bagian; dalam delapan menit peserta membuat satu sketsa ide per bagian. Cocok untuk eksplorasi visual cepat."
+        },
+        {
+          "front": "Sebutkan komponen SCAMPER.",
+          "back": "Substitute, Combine, Adapt, Modify/Magnify/Minify, Put to another use, Eliminate, Reverse/Rearrange."
+        },
+        {
+          "front": "Apa bedanya divergent dan convergent thinking?",
+          "back": "Divergent memperluas kemungkinan dan menunda penilaian. Convergent membandingkan, memperjelas, dan menyempitkan pilihan."
+        },
+        {
+          "front": "Apa rumus matriks keputusan berbobot?",
+          "back": "Skor total alternatif = jumlah (bobot kriteria × skor alternatif pada kriteria tersebut)."
+        },
+        {
+          "front": "Mengapa skor tertinggi belum tentu menang?",
+          "back": "Karena bisa ada risiko kritis atau syarat wajib, misalnya privasi dan aksesibilitas, yang membuat alternatif gugur meskipun skornya tinggi."
+        },
+        {
+          "front": "Apa itu uji sensitivitas keputusan?",
+          "back": "Mengubah bobot atau skor yang diperdebatkan secara wajar lalu menghitung ulang untuk melihat apakah peringkat berubah."
+        },
+        {
+          "front": "Sebutkan kerangka justifikasi pilihan.",
+          "back": "Klaim, bukti, alasan, trade-off, batasan, dan rencana validasi."
+        },
+        {
+          "front": "Sebutkan struktur pitch.",
+          "back": "Hook dan konteks, bukti masalah, problem statement dan RQ, literatur dan gap, konsep dan justifikasi, rencana validasi dan risiko, penutup."
+        },
+        {
+          "front": "Sebutkan tiga bias dalam seleksi solusi.",
+          "back": "Confirmation bias, anchoring, dan halo effect. Ada juga availability bias dan sunk cost fallacy."
+        },
+        {
+          "front": "Apa perbedaan justifikasi lemah dan kuat?",
+          "back": "Lemah hanya menyebut teknologi atau tren. Kuat menghubungkan pilihan dengan masalah, kebutuhan, bukti, trade-off, risiko, dan validasi."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Tujuan utama tahap ideate adalah...",
+          "options": [
+            "Langsung memilih satu solusi",
+            "Menghasilkan banyak alternatif sebelum menilai",
+            "Menghitung anggaran",
+            "Menulis laporan akhir"
+          ],
+          "answer": 1,
+          "explanation": "Ideate membuka ruang kemungkinan; seleksi dilakukan setelah alternatif cukup banyak."
+        },
+        {
+          "question": "HMW yang baik adalah...",
+          "options": [
+            "Terlalu sempit dan menyebut satu tombol",
+            "Terlalu luas seperti meningkatkan pendidikan",
+            "Cukup fokus tetapi terbuka pada banyak solusi",
+            "Langsung menyebut teknologi yang dipilih"
+          ],
+          "answer": 2,
+          "explanation": "HMW harus berpusat pada kebutuhan, cukup fokus memberi arah, tetapi cukup luas memicu banyak solusi."
+        },
+        {
+          "question": "Teknik yang menggunakan delapan bagian kertas dan delapan menit disebut...",
+          "options": [
+            "Brainwriting 6-3-5",
+            "Crazy 8s",
+            "SCAMPER",
+            "Mind mapping"
+          ],
+          "answer": 1,
+          "explanation": "Crazy 8s membuat delapan sketsa ide cepat, satu per bagian kertas."
+        },
+        {
+          "question": "Huruf E dalam SCAMPER berarti...",
+          "options": [
+            "Empathize",
+            "Eliminate",
+            "Evaluate",
+            "Explain"
+          ],
+          "answer": 1,
+          "explanation": "SCAMPER: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse."
+        },
+        {
+          "question": "Divergent thinking berfokus pada...",
+          "options": [
+            "Memperluas kemungkinan dan menunda penilaian",
+            "Langsung memilih ide terbaik",
+            "Menghitung skor akhir",
+            "Menulis pitch"
+          ],
+          "answer": 0,
+          "explanation": "Divergent memperluas kemungkinan; convergent menyempitkan dan memilih."
+        },
+        {
+          "question": "Rumus skor total matriks keputusan adalah...",
+          "options": [
+            "Jumlah skor dibagi jumlah kriteria",
+            "Jumlah (bobot × skor)",
+            "Skor tertinggi dikali bobot",
+            "Rata-rata bobot saja"
+          ],
+          "answer": 1,
+          "explanation": "Skor total = Σ (bobot kriteria × skor alternatif pada kriteria itu)."
+        },
+        {
+          "question": "Mengapa kriteria harus ditetapkan sebelum memberi skor?",
+          "options": [
+            "Agar hasilnya selalu sama",
+            "Untuk mengurangi bias dan membuat keputusan transparan",
+            "Supaya tidak perlu justifikasi",
+            "Agar semua alternatif menang"
+          ],
+          "answer": 1,
+          "explanation": "Kriteria yang ditetapkan lebih dulu mengurangi bias dan membuat alasan pilihan bisa diperiksa."
+        },
+        {
+          "question": "Bagian pitch yang menjelaskan mengapa konsep layak diuji adalah...",
+          "options": [
+            "Hook",
+            "Justifikasi dan rencana validasi",
+            "Daftar pustaka",
+            "Lampiran teknis"
+          ],
+          "answer": 1,
+          "explanation": "Justifikasi menghubungkan konsep dengan masalah, bukti, trade-off, dan rencana validasi."
+        },
+        {
+          "question": "Sunk cost fallacy adalah...",
+          "options": [
+            "Memilih karena teknologi populer",
+            "Mempertahankan ide karena sudah banyak biaya dikeluarkan",
+            "Terpengaruh pendapat pertama",
+            "Hanya mencari bukti yang mendukung"
+          ],
+          "answer": 1,
+          "explanation": "Sunk cost fallacy mempertahankan pilihan karena investasi yang sudah keluar, bukan karena bukti masih mendukung."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu HMW?",
+          "a": "How Might We adalah pertanyaan peluang yang mengubah problem statement menjadi arah ideasi. HMW yang baik cukup fokus tetapi terbuka, berpusat pada kebutuhan, dan tidak mengunci solusi.",
+          "tags": [
+            "ideate"
+          ],
+          "slide": "Pertemuan 5"
+        },
+        {
+          "q": "Sebutkan teknik ideasi yang sering dipakai.",
+          "a": "Brainstorming, brainwriting 6-3-5, Crazy 8s, SCAMPER, mind mapping, analogical thinking, reverse brainstorming, worst possible idea, role storming, dan combine and build.",
+          "tags": [
+            "teknik"
+          ],
+          "slide": "Pertemuan 5"
+        },
+        {
+          "q": "Bagaimana cara memilih alternatif solusi?",
+          "a": "Tetapkan tujuan dan batasan, rumuskan kriteria, tentukan bobot, beri skor dengan skala konsisten, hitung skor total, periksa sensitivitas dan risiko kritis, lalu dokumentasikan pilihan dan rencana validasi.",
+          "tags": [
+            "seleksi"
+          ],
+          "slide": "Pertemuan 6"
+        },
+        {
+          "q": "Apa isi justifikasi yang kuat?",
+          "a": "Klaim, bukti, alasan, trade-off, batasan, dan rencana validasi. Justifikasi kuat menghubungkan pilihan dengan masalah dan kebutuhan pengguna, bukan hanya menyebut teknologi.",
+          "tags": [
+            "justifikasi"
+          ],
+          "slide": "Pertemuan 6"
+        },
+        {
+          "q": "Bagaimana struktur pitch yang baik?",
+          "a": "Hook dan konteks, bukti masalah, problem statement dan RQ, literatur dan gap, konsep serta justifikasi, rencana validasi dan risiko, lalu penutup dan permintaan umpan balik.",
+          "tags": [
+            "pitching"
+          ],
+          "slide": "Pertemuan 7"
+        }
+      ],
+      "quick": [
+        "Apa itu HMW?",
+        "Sebutkan teknik ideasi yang sering dipakai.",
+        "Bagaimana cara memilih alternatif solusi?",
+        "Bagaimana struktur pitch yang baik?"
+      ]
+    },
+    {
+      "id": "ux-heuristik-nielsen",
+      "order": 1,
+      "courseId": "desain-front-end-ux",
+      "title": "Analisis Antarmuka & Heuristik Nielsen",
+      "short": "Sepuluh heuristik Nielsen dan cara memakainya untuk menilai desain.",
+      "course": "Desain Front End & UX",
+      "source": "Kisi-kisi UTS: analisis desain antarmuka (Nielsen)",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#be185d",
+      "tags": [
+        "Nielsen",
+        "Heuristic evaluation",
+        "Usability"
+      ],
+      "summary": "## Inti materi\nAnalisis desain antarmuka biasanya meminta kita menilai sebuah tampilan, menemukan masalah usability, lalu menjelaskan pelanggaran prinsip desainnya. Alat bantu yang paling sering dipakai adalah **10 heuristik Nielsen**.\n\n## 1. Apa itu heuristic evaluation?\nHeuristic evaluation adalah metode evaluasi usability di mana evaluator memeriksa antarmuka terhadap sekumpulan prinsip umum (heuristik), lalu mencatat masalah yang ditemukan.\n\nCiri penting:\n- bisa dilakukan tanpa pengguna langsung;\n- cepat dan murah;\n- menghasilkan daftar masalah, bukan angka kepuasan;\n- tetap perlu dilengkapi usability testing.\n\n## 2. Sepuluh heuristik Nielsen\n| No | Heuristik | Inti |\n|---|---|---|\n| 1 | Visibility of system status | Sistem selalu memberi tahu apa yang sedang terjadi |\n| 2 | Match between system and real world | Bahasa dan alur mengikuti dunia pengguna |\n| 3 | User control and freedom | Pengguna bisa membatalkan, kembali, atau undo |\n| 4 | Consistency and standards | Istilah, tombol, dan perilaku konsisten |\n| 5 | Error prevention | Cegah error sebelum terjadi |\n| 6 | Recognition rather than recall | Kenali pilihan, jangan memaksa mengingat |\n| 7 | Flexibility and efficiency of use | Ada jalan cepat untuk pengguna berpengalaman |\n| 8 | Aesthetic and minimalist design | Hanya tampilkan informasi yang relevan |\n| 9 | Help users recognize, diagnose, recover from errors | Pesan error jelas dan memberi solusi |\n| 10 | Help and documentation | Bantuan tersedia saat dibutuhkan |\n\n### Penjelasan singkat dan contoh\n1. **Visibility of system status** — unggah file harus menampilkan progress, proses simpan harus memberi konfirmasi.\n2. **Match between system and real world** — gunakan kata \"Keranjang\" dan \"Checkout\", bukan istilah internal database.\n3. **User control and freedom** — sediakan tombol batal, kembali, dan undo setelah menghapus.\n4. **Consistency and standards** — tombol \"Simpan\" jangan kadang hijau, kadang biru, kadang di kiri, kadang di kanan.\n5. **Error prevention** — nonaktifkan tombol kirim jika field wajib belum diisi; konfirmasi sebelum menghapus data.\n6. **Recognition rather than recall** — tampilkan pilihan terakhir, riwayat, atau daftar menu; jangan meminta pengguna mengingat kode.\n7. **Flexibility and efficiency of use** — shortcut keyboard, filter, dan template untuk pengguna rutin.\n8. **Aesthetic and minimalist design** — hindari teks, ikon, dan badge yang tidak membantu keputusan pengguna.\n9. **Help users recognize, diagnose, recover from errors** — tulis \"Email harus mengandung @\", bukan \"Error 422\".\n10. **Help and documentation** — FAQ, tooltip, atau panduan singkat di tempat yang mudah dicari.\n\n## 3. Severity rating\nSetelah menemukan masalah, nilai tingkat keparahannya. Skala umum 0–4:\n- 0 = bukan masalah;\n- 1 = kosmetik;\n- 2 = minor, menghambat sedikit;\n- 3 = major, menghambat tugas;\n- 4 = catastrophe, tugas gagal total.\n\nSeverity membantu menentukan prioritas perbaikan.\n\n## 4. Cara menulis temuan\nFormat yang rapi:\n**Lokasi → masalah → heuristik yang dilanggar → dampak → rekomendasi.**\n\nContoh:\n- Lokasi: halaman checkout, tombol \"Bayar\".\n- Masalah: tombol tidak memberi feedback setelah diklik.\n- Heuristik: Visibility of system status (1).\n- Dampak: pengguna mengklik berulang dan bisa terjadi pembayaran ganda.\n- Rekomendasi: tampilkan loading state dan nonaktifkan tombol sampai proses selesai.\n\n## 5. Kesalahan dalam analisis\n- hanya menyebut \"desainnya jelek\" tanpa bukti;\n- menyebut heuristik tanpa menjelaskan dampaknya;\n- mencampur masalah tampilan dengan masalah teknis;\n- memberi rekomendasi yang tidak terkait masalah;\n- menganggap satu pelanggaran selalu fatal.\n\n## 6. Heuristic evaluation vs usability testing\n| Aspek | Heuristic evaluation | Usability testing |\n|---|---|---|\n| Siapa yang menilai | Evaluator/ahli | Pengguna nyata |\n| Fokus | Prinsip desain | Perilaku dan kesulitan nyata |\n| Biaya | Relatif murah | Lebih mahal |\n| Hasil | Daftar masalah dan severity | Data task completion, waktu, error |\n\nKeduanya saling melengkapi.\n\n## Cara menjawab soal\nSaat diminta menganalisis desain, pilih 3–5 masalah yang paling jelas. Untuk tiap masalah, tulis: apa yang terlihat, mengapa itu masalah, heuristik nomor berapa, dan perbaikan yang disarankan. Jangan hanya menghafal nama heuristik — tunjukkan penerapannya pada tampilan.",
+      "sections": [
+        {
+          "title": "Heuristic evaluation",
+          "slides": "Heuristik 1",
+          "body": "Evaluasi usability dengan memeriksa antarmuka terhadap prinsip umum. Cepat dan murah, tetapi tetap perlu dilengkapi usability testing."
+        },
+        {
+          "title": "Visibility dan match",
+          "slides": "Heuristik 1–2",
+          "body": "Sistem harus memberi status yang jelas dan memakai bahasa pengguna. Contoh: progress upload dan istilah \"keranjang\" alih-alih istilah internal."
+        },
+        {
+          "title": "Kontrol dan konsistensi",
+          "slides": "Heuristik 3–4",
+          "body": "Pengguna perlu tombol batal, kembali, dan undo. Istilah, warna, posisi, dan perilaku tombol harus konsisten."
+        },
+        {
+          "title": "Error prevention",
+          "slides": "Heuristik 5",
+          "body": "Cegah error sebelum terjadi: validasi input, nonaktifkan tombol yang belum valid, dan minta konfirmasi untuk tindakan berisiko."
+        },
+        {
+          "title": "Recognition dan flexibility",
+          "slides": "Heuristik 6–7",
+          "body": "Tampilkan pilihan agar pengguna tidak perlu mengingat. Sediakan shortcut, filter, dan template untuk pengguna berpengalaman."
+        },
+        {
+          "title": "Minimalist design",
+          "slides": "Heuristik 8",
+          "body": "Hanya tampilkan informasi yang relevan. Elemen dekoratif atau teks berlebih mengganggu fokus dan keputusan pengguna."
+        },
+        {
+          "title": "Error recovery dan help",
+          "slides": "Heuristik 9–10",
+          "body": "Pesan error harus jelas, menyebut penyebab, dan memberi solusi. Bantuan harus mudah ditemukan saat dibutuhkan."
+        },
+        {
+          "title": "Severity dan format temuan",
+          "slides": "Penilaian",
+          "body": "Nilai keparahan 0–4. Tulis temuan dengan format lokasi, masalah, heuristik, dampak, dan rekomendasi."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa itu heuristic evaluation?",
+          "back": "Metode evaluasi usability dengan memeriksa antarmuka terhadap prinsip umum (heuristik), lalu mencatat masalah yang ditemukan."
+        },
+        {
+          "front": "Sebutkan 10 heuristik Nielsen.",
+          "back": "Visibility of system status; match with real world; user control and freedom; consistency and standards; error prevention; recognition rather than recall; flexibility and efficiency; aesthetic and minimalist design; error recovery; help and documentation."
+        },
+        {
+          "front": "Heuristik \"visibility of system status\" berarti...",
+          "back": "Sistem selalu memberi tahu apa yang sedang terjadi, misalnya progress upload, loading state, atau konfirmasi simpan."
+        },
+        {
+          "front": "Contoh pelanggaran \"match between system and real world\"?",
+          "back": "Memakai istilah internal database atau kode error yang tidak dimengerti pengguna, bukan bahasa sehari-hari."
+        },
+        {
+          "front": "Apa contoh \"user control and freedom\"?",
+          "back": "Tombol batal, kembali, undo setelah menghapus, dan jalan keluar dari proses yang panjang."
+        },
+        {
+          "front": "Apa maksud \"consistency and standards\"?",
+          "back": "Istilah, warna, posisi, dan perilaku elemen harus konsisten di seluruh aplikasi dan mengikuti kebiasaan umum."
+        },
+        {
+          "front": "Apa itu error prevention?",
+          "back": "Mencegah error sebelum terjadi, misalnya validasi input, menonaktifkan tombol yang belum valid, dan konfirmasi sebelum menghapus."
+        },
+        {
+          "front": "Apa bedanya recognition dan recall?",
+          "back": "Recognition menampilkan pilihan agar dikenali; recall memaksa pengguna mengingat informasi dari halaman lain."
+        },
+        {
+          "front": "Apa contoh \"flexibility and efficiency of use\"?",
+          "back": "Shortcut keyboard, filter, template, dan aksi cepat untuk pengguna berpengalaman tanpa mengganggu pengguna baru."
+        },
+        {
+          "front": "Apa itu aesthetic and minimalist design?",
+          "back": "Hanya menampilkan informasi yang relevan; elemen dekoratif atau teks berlebih mengurangi fokus."
+        },
+        {
+          "front": "Bagaimana pesan error yang baik?",
+          "back": "Jelas, menyebut penyebab, memakai bahasa pengguna, dan memberi langkah perbaikan. Bukan kode error mentah."
+        },
+        {
+          "front": "Apa format menulis temuan usability?",
+          "back": "Lokasi, masalah, heuristik yang dilanggar, dampak, dan rekomendasi perbaikan."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Heuristic evaluation dilakukan oleh...",
+          "options": [
+            "Pengguna awam tanpa panduan",
+            "Evaluator yang memeriksa prinsip desain",
+            "Developer backend",
+            "Mesin otomatis saja"
+          ],
+          "answer": 1,
+          "explanation": "Evaluator ahli memeriksa antarmuka terhadap heuristik; hasilnya daftar masalah, bukan data perilaku pengguna."
+        },
+        {
+          "question": "Progress bar saat mengunggah file termasuk heuristik...",
+          "options": [
+            "Visibility of system status",
+            "Error prevention",
+            "Flexibility",
+            "Help and documentation"
+          ],
+          "answer": 0,
+          "explanation": "Progress bar memberi tahu pengguna apa yang sedang terjadi."
+        },
+        {
+          "question": "Tombol \"Batal\" dan \"Undo\" termasuk...",
+          "options": [
+            "User control and freedom",
+            "Match with real world",
+            "Minimalist design",
+            "Recognition"
+          ],
+          "answer": 0,
+          "explanation": "Pengguna harus bisa membatalkan atau mengembalikan tindakan."
+        },
+        {
+          "question": "Menonaktifkan tombol kirim saat field wajib kosong adalah contoh...",
+          "options": [
+            "Error prevention",
+            "Error recovery",
+            "Visibility",
+            "Consistency"
+          ],
+          "answer": 0,
+          "explanation": "Error prevention mencegah kesalahan sebelum terjadi."
+        },
+        {
+          "question": "Menampilkan daftar pilihan terakhir agar pengguna tidak perlu mengingat kode termasuk...",
+          "options": [
+            "Recognition rather than recall",
+            "Flexibility",
+            "Aesthetic design",
+            "Help"
+          ],
+          "answer": 0,
+          "explanation": "Recognition membantu pengguna mengenali pilihan, bukan mengingatnya."
+        },
+        {
+          "question": "Pesan \"Email harus mengandung @\" termasuk heuristik...",
+          "options": [
+            "Help users recognize, diagnose, recover from errors",
+            "Match with real world",
+            "User control",
+            "Consistency"
+          ],
+          "answer": 0,
+          "explanation": "Pesan menjelaskan penyebab dan cara memperbaiki error."
+        },
+        {
+          "question": "Skala severity 4 berarti...",
+          "options": [
+            "Kosmetik",
+            "Minor",
+            "Major",
+            "Catastrophe, tugas gagal total"
+          ],
+          "answer": 3,
+          "explanation": "Skala 0–4: 0 bukan masalah, 1 kosmetik, 2 minor, 3 major, 4 catastrophe."
+        },
+        {
+          "question": "Perbedaan utama heuristic evaluation dan usability testing adalah...",
+          "options": [
+            "Heuristic memakai pengguna nyata",
+            "Usability testing menilai prinsip desain",
+            "Heuristic dinilai evaluator, usability testing memakai pengguna",
+            "Keduanya sama saja"
+          ],
+          "answer": 2,
+          "explanation": "Heuristic evaluation dinilai evaluator/ahli; usability testing melibatkan pengguna nyata."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu heuristik Nielsen?",
+          "a": "Sepuluh prinsip umum untuk menilai usability antarmuka, mulai dari visibility of system status, konsistensi, error prevention, sampai help and documentation.",
+          "tags": [
+            "nielsen"
+          ],
+          "slide": "Heuristik 1"
+        },
+        {
+          "q": "Sebutkan 10 heuristik Nielsen.",
+          "a": "Visibility of system status; match between system and real world; user control and freedom; consistency and standards; error prevention; recognition rather than recall; flexibility and efficiency of use; aesthetic and minimalist design; help users recognize, diagnose, recover from errors; help and documentation.",
+          "tags": [
+            "nielsen"
+          ],
+          "slide": "Heuristik 1"
+        },
+        {
+          "q": "Bagaimana cara menulis temuan analisis antarmuka?",
+          "a": "Tulis lokasi masalah, apa yang terjadi, heuristik yang dilanggar, dampaknya bagi pengguna, lalu rekomendasi perbaikan. Nilai juga severity-nya.",
+          "tags": [
+            "analisis"
+          ],
+          "slide": "Penilaian"
+        },
+        {
+          "q": "Apa itu severity rating?",
+          "a": "Skala keparahan masalah usability, umumnya 0–4: bukan masalah, kosmetik, minor, major, catastrophe. Dipakai untuk menentukan prioritas perbaikan.",
+          "tags": [
+            "severity"
+          ],
+          "slide": "Penilaian"
+        },
+        {
+          "q": "Apa bedanya heuristic evaluation dan usability testing?",
+          "a": "Heuristic evaluation dinilai evaluator/ahli terhadap prinsip desain. Usability testing melibatkan pengguna nyata untuk melihat perilaku dan kesulitan saat menyelesaikan tugas.",
+          "tags": [
+            "metode"
+          ],
+          "slide": "Heuristik 1"
+        }
+      ],
+      "quick": [
+        "Sebutkan 10 heuristik Nielsen.",
+        "Apa itu visibility of system status?",
+        "Bagaimana cara menulis temuan analisis antarmuka?",
+        "Apa bedanya heuristic evaluation dan usability testing?"
+      ]
+    },
+    {
+      "id": "ux-studi-kasus",
+      "order": 2,
+      "courseId": "desain-front-end-ux",
+      "title": "Studi Kasus: Identifikasi Masalah & Penyebab",
+      "short": "Menyusun narasi kasus: gejala, penyebab, dan heuristic yang dilanggar.",
+      "course": "Desain Front End & UX",
+      "source": "Kisi-kisi UTS: narasi kasus dan identifikasi masalah",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#9d174d",
+      "tags": [
+        "Studi kasus",
+        "Analisis masalah",
+        "Nielsen"
+      ],
+      "summary": "## Inti materi\nSoal studi kasus biasanya memberi satu skenario atau gambar antarmuka, lalu meminta:\n1. apa masalahnya;\n2. apa penyebabnya;\n3. masalah itu ada di poin heuristik berapa.\n\nJawaban yang baik bukan sekadar menyebut \"UI-nya membingungkan\". Kita harus menunjukkan gejala, penyebab, dampak, dan prinsip yang dilanggar.\n\n## 1. Kerangka menjawab\nGunakan urutan ini:\n1. **Konteks** — siapa pengguna, apa tugasnya, di halaman mana.\n2. **Gejala** — apa yang terlihat atau dialami pengguna.\n3. **Masalah** — hambatan yang membuat tugas sulit atau gagal.\n4. **Penyebab** — mengapa hambatan itu terjadi.\n5. **Heuristik** — prinsip Nielsen nomor berapa yang dilanggar.\n6. **Dampak** — apa akibatnya bagi pengguna atau bisnis.\n7. **Rekomendasi** — perbaikan konkret.\n\n## 2. Masalah vs penyebab\nIni bagian yang paling sering tertukar.\n\n- **Masalah**: pengguna tidak tahu apakah data sudah tersimpan.\n- **Penyebab**: tidak ada feedback setelah tombol simpan ditekan.\n- **Heuristik**: Visibility of system status (1).\n\nContoh lain:\n- Masalah: pengguna mengulang pembayaran.\n- Penyebab: tombol tetap aktif dan tidak ada loading state.\n- Heuristik: Visibility of system status (1) dan error prevention (5).\n\n- Masalah: pengguna bingung memilih ukuran produk.\n- Penyebab: ukuran hanya ditulis dalam kode angka tanpa tabel konversi.\n- Heuristik: Match between system and real world (2) dan recognition rather than recall (6).\n\n## 3. Mencari akar penyebab\nGunakan pertanyaan \"mengapa\" berulang (5 whys) sampai menemukan penyebab yang bisa diperbaiki.\n\nContoh:\n1. Mengapa pengguna gagal checkout? Karena form error.\n2. Mengapa form error? Karena format nomor telepon tidak diterima.\n3. Mengapa tidak diterima? Karena aturan format tidak dijelaskan.\n4. Mengapa tidak dijelaskan? Karena placeholder hanya menulis \"No. HP\".\n5. Akar: tidak ada contoh format dan validasi yang memandu.\n\nRekomendasi: tampilkan contoh format, validasi saat mengetik, dan pesan error yang spesifik.\n\n## 4. Memetakan gejala ke heuristik\n| Gejala | Heuristik yang mungkin |\n|---|---|\n| Tidak ada respons setelah klik | Visibility of system status (1) |\n| Istilah teknis membingungkan | Match with real world (2) |\n| Tidak bisa membatalkan aksi | User control and freedom (3) |\n| Tombol sama punya perilaku berbeda | Consistency and standards (4) |\n| Error baru muncul setelah submit | Error prevention (5) |\n| Harus menghafal kode | Recognition rather than recall (6) |\n| Tidak ada jalan pintas | Flexibility and efficiency (7) |\n| Terlalu banyak informasi | Aesthetic and minimalist design (8) |\n| Pesan error tidak membantu | Error recovery (9) |\n| Tidak ada bantuan | Help and documentation (10) |\n\nSatu masalah bisa melanggar lebih dari satu heuristik. Sebutkan yang paling utama, lalu yang mendukung.\n\n## 5. Contoh narasi kasus\n**Konteks**: mahasiswa mengisi formulir pendaftaran organisasi di situs kampus.\n\n**Gejala**: setelah menekan \"Kirim\", halaman tidak berubah dan tidak ada pesan apa pun. Mahasiswa menekan tombol beberapa kali.\n\n**Masalah**: pengguna tidak tahu apakah pendaftaran berhasil, gagal, atau masih diproses.\n\n**Penyebab**: tidak ada status loading, tidak ada konfirmasi, dan tombol tidak dinonaktifkan.\n\n**Heuristik**: Visibility of system status (1), error prevention (5).\n\n**Dampak**: pendaftaran ganda, data ganda, dan pengguna kehilangan kepercayaan.\n\n**Rekomendasi**: tampilkan loading state, nonaktifkan tombol selama proses, lalu tampilkan halaman konfirmasi dengan nomor pendaftaran.\n\n## 6. Kesalahan umum\n- menyebut masalah tanpa menunjukkan gejala;\n- menulis penyebab sebagai masalah;\n- menyebut heuristik tanpa nomor atau penjelasan;\n- memberi rekomendasi yang tidak menjawab penyebab;\n- menganalisis tampilan yang tidak ada di kasus;\n- menjawab terlalu umum: \"perlu diperbaiki\" tanpa rencana.\n\n## 7. Template jawaban ujian\n**Masalah**: ...\n**Penyebab**: ...\n**Heuristik**: poin ... (...), karena ...\n**Dampak**: ...\n**Rekomendasi**: ...\n\nKalau soal meminta \"masalah tersebut ada di point berapa\", selalu tulis nomor dan nama heuristiknya, lalu jelaskan bukti dari kasus.\n\n## Cara menjawab soal\nBaca kasus dua kali. Pisahkan mana yang merupakan gejala dan mana yang penyebab. Baru setelah itu petakan ke heuristik. Jawaban yang kuat selalu punya bukti dari kasus, bukan asumsi.",
+      "sections": [
+        {
+          "title": "Kerangka jawaban kasus",
+          "slides": "Struktur",
+          "body": "Konteks, gejala, masalah, penyebab, heuristik, dampak, rekomendasi. Urutan ini mencegah jawaban melompat ke solusi."
+        },
+        {
+          "title": "Masalah vs penyebab",
+          "slides": "Analisis",
+          "body": "Masalah adalah hambatan yang dialami pengguna. Penyebab adalah faktor yang membuat hambatan itu terjadi. Jangan menukar keduanya."
+        },
+        {
+          "title": "Mencari akar penyebab",
+          "slides": "Analisis",
+          "body": "Gunakan 5 whys. Contoh: form error karena format tidak dijelaskan; akarnya tidak ada contoh format dan validasi yang memandu."
+        },
+        {
+          "title": "Memetakan ke heuristik",
+          "slides": "Nielsen",
+          "body": "Setiap gejala dipetakan ke heuristik Nielsen yang paling relevan. Satu masalah bisa melanggar lebih dari satu poin; sebutkan yang utama."
+        },
+        {
+          "title": "Contoh kasus formulir",
+          "slides": "Contoh",
+          "body": "Tombol kirim tanpa feedback melanggar visibility of system status dan error prevention. Dampaknya pendaftaran ganda dan hilangnya kepercayaan."
+        },
+        {
+          "title": "Kesalahan umum",
+          "slides": "Tips",
+          "body": "Menyebut masalah tanpa gejala, menukar masalah dengan penyebab, menyebut heuristik tanpa nomor, dan rekomendasi yang tidak menjawab penyebab."
+        },
+        {
+          "title": "Template jawaban",
+          "slides": "Tips",
+          "body": "Tulis masalah, penyebab, heuristik (nomor dan nama), dampak, lalu rekomendasi. Selalu sertakan bukti dari kasus."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Sebutkan urutan kerangka menjawab studi kasus.",
+          "back": "Konteks, gejala, masalah, penyebab, heuristik, dampak, rekomendasi."
+        },
+        {
+          "front": "Apa bedanya masalah dan penyebab?",
+          "back": "Masalah adalah hambatan yang dialami pengguna. Penyebab adalah faktor yang membuat hambatan itu terjadi."
+        },
+        {
+          "front": "Contoh masalah: pengguna mengulang pembayaran. Apa penyebabnya?",
+          "back": "Tombol tetap aktif dan tidak ada loading state atau konfirmasi setelah pembayaran diproses."
+        },
+        {
+          "front": "Masalah \"tidak tahu data sudah tersimpan\" melanggar heuristik...",
+          "back": "Visibility of system status (1), karena sistem tidak memberi umpan balik tentang status."
+        },
+        {
+          "front": "Apa itu 5 whys?",
+          "back": "Teknik mencari akar penyebab dengan bertanya \"mengapa\" berulang sampai menemukan penyebab yang bisa diperbaiki."
+        },
+        {
+          "front": "Gejala \"harus menghafal kode\" berkaitan dengan heuristik...",
+          "back": "Recognition rather than recall (6), karena pengguna dipaksa mengingat informasi yang seharusnya bisa dikenali."
+        },
+        {
+          "front": "Gejala \"pesan error tidak membantu\" berkaitan dengan...",
+          "back": "Help users recognize, diagnose, recover from errors (9)."
+        },
+        {
+          "front": "Satu masalah bisa melanggar berapa heuristik?",
+          "back": "Bisa lebih dari satu. Sebutkan heuristik yang paling utama, lalu yang mendukung, beserta alasannya."
+        },
+        {
+          "front": "Apa kesalahan umum dalam menjawab studi kasus?",
+          "back": "Menyebut masalah tanpa gejala, menukar masalah dengan penyebab, tidak menyebut nomor heuristik, dan rekomendasi tidak terkait penyebab."
+        },
+        {
+          "front": "Tuliskan template jawaban studi kasus.",
+          "back": "Masalah, penyebab, heuristik (nomor dan nama), dampak, rekomendasi. Sertakan bukti dari kasus."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Urutan yang tepat untuk menjawab studi kasus adalah...",
+          "options": [
+            "Solusi, masalah, heuristik",
+            "Gejala, masalah, penyebab, heuristik, dampak, rekomendasi",
+            "Heuristik, solusi, kesimpulan",
+            "Dampak, solusi, masalah"
+          ],
+          "answer": 1,
+          "explanation": "Mulai dari gejala dan masalah, cari penyebab, petakan ke heuristik, jelaskan dampak, lalu beri rekomendasi."
+        },
+        {
+          "question": "Pengguna tidak tahu apakah data tersimpan. Itu termasuk...",
+          "options": [
+            "Penyebab",
+            "Masalah",
+            "Heuristik",
+            "Rekomendasi"
+          ],
+          "answer": 1,
+          "explanation": "Itu adalah masalah/hambatan yang dialami pengguna. Penyebabnya bisa tidak ada feedback setelah menyimpan."
+        },
+        {
+          "question": "Tidak ada loading state setelah tombol diklik melanggar...",
+          "options": [
+            "Visibility of system status",
+            "Match with real world",
+            "Help and documentation",
+            "Flexibility"
+          ],
+          "answer": 0,
+          "explanation": "Sistem tidak memberi tahu status proses kepada pengguna."
+        },
+        {
+          "question": "Istilah teknis yang tidak dipahami pengguna melanggar...",
+          "options": [
+            "Consistency",
+            "Match between system and real world",
+            "Error prevention",
+            "Minimalist design"
+          ],
+          "answer": 1,
+          "explanation": "Bahasa sistem harus mengikuti bahasa dan konsep dunia pengguna."
+        },
+        {
+          "question": "Tombol yang sama berperilaku berbeda di halaman lain melanggar...",
+          "options": [
+            "Consistency and standards",
+            "User control",
+            "Recognition",
+            "Help"
+          ],
+          "answer": 0,
+          "explanation": "Konsistensi berarti elemen yang sama harus berperilaku sama di seluruh aplikasi."
+        },
+        {
+          "question": "Mengapa perlu mencari akar penyebab?",
+          "options": [
+            "Agar jawaban lebih panjang",
+            "Agar rekomendasi memperbaiki penyebab, bukan hanya gejala",
+            "Agar heuristik tidak perlu disebut",
+            "Agar solusi pasti berhasil"
+          ],
+          "answer": 1,
+          "explanation": "Rekomendasi yang baik menargetkan penyebab, bukan hanya gejala yang terlihat."
+        },
+        {
+          "question": "Pesan error \"Error 422\" melanggar heuristik...",
+          "options": [
+            "Visibility",
+            "Error recovery (help users recognize, diagnose, recover)",
+            "Flexibility",
+            "Minimalist"
+          ],
+          "answer": 1,
+          "explanation": "Pesan error harus jelas, menyebut penyebab, dan memberi solusi, bukan kode teknis mentah."
+        },
+        {
+          "question": "Contoh rekomendasi yang baik adalah...",
+          "options": [
+            "\"UI perlu diperbaiki\"",
+            "\"Tampilkan loading state dan nonaktifkan tombol selama proses\"",
+            "\"Ganti semua warna\"",
+            "\"Tambahkan lebih banyak menu\""
+          ],
+          "answer": 1,
+          "explanation": "Rekomendasi harus konkret dan menjawab penyebab masalah yang ditemukan."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Bagaimana cara mengidentifikasi masalah pada studi kasus?",
+          "a": "Tentukan konteks dan tugas pengguna, lalu cari gejala yang terlihat. Bedakan gejala dari masalah: gejala adalah yang tampak, masalah adalah hambatan yang membuat tugas sulit atau gagal.",
+          "tags": [
+            "kasus"
+          ],
+          "slide": "Struktur"
+        },
+        {
+          "q": "Bagaimana mencari penyebab masalah?",
+          "a": "Gunakan pertanyaan mengapa berulang (5 whys) sampai menemukan penyebab yang bisa diperbaiki. Jangan berhenti pada gejala pertama.",
+          "tags": [
+            "penyebab"
+          ],
+          "slide": "Analisis"
+        },
+        {
+          "q": "Bagaimana memetakan masalah ke heuristik Nielsen?",
+          "a": "Cocokkan gejala dengan prinsip yang paling relevan, misalnya tidak ada feedback ke visibility of system status, istilah teknis ke match with real world, dan pesan error buruk ke error recovery.",
+          "tags": [
+            "nielsen"
+          ],
+          "slide": "Nielsen"
+        },
+        {
+          "q": "Apa template jawaban studi kasus?",
+          "a": "Tulis masalah, penyebab, heuristik nomor dan nama, dampak, lalu rekomendasi. Sertakan bukti dari kasus agar jawaban tidak berupa asumsi.",
+          "tags": [
+            "template"
+          ],
+          "slide": "Tips"
+        },
+        {
+          "q": "Apa kesalahan yang harus dihindari?",
+          "a": "Menukar masalah dengan penyebab, menyebut heuristik tanpa nomor, memberi rekomendasi yang tidak menjawab penyebab, dan menganalisis hal yang tidak ada di kasus.",
+          "tags": [
+            "tips"
+          ],
+          "slide": "Tips"
+        }
+      ],
+      "quick": [
+        "Bagaimana cara mengidentifikasi masalah pada studi kasus?",
+        "Bagaimana mencari penyebab masalah?",
+        "Bagaimana memetakan masalah ke heuristik Nielsen?",
+        "Apa template jawaban studi kasus?"
+      ]
+    },
+    {
+      "id": "algo-dasar-flowchart",
+      "order": 1,
+      "courseId": "algoritma-dasar-pemrograman",
+      "title": "Dasar Algoritma & Flowchart",
+      "short": "Ciri algoritma, pseudocode, simbol flowchart, dan tiga struktur dasar.",
+      "course": "Algoritma & Dasar Pemrograman",
+      "source": "Materi umum Algoritma & Dasar Pemrograman",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#c2410c",
+      "tags": [
+        "Algoritma",
+        "Pseudocode",
+        "Flowchart"
+      ],
+      "summary": "## Inti materi\nAlgoritma adalah urutan langkah logis dan sistematis untuk menyelesaikan masalah. Sebelum menulis kode, algoritma biasanya digambarkan dengan **pseudocode** atau **flowchart**.\n\n## 1. Ciri algoritma yang baik\n- **Finite** — punya akhir, tidak berjalan selamanya.\n- **Definite** — setiap langkah jelas, tidak ambigu.\n- **Input** — menerima data masukan (boleh nol atau lebih).\n- **Output** — menghasilkan keluaran.\n- **Effective** — setiap langkah bisa dikerjakan.\n- **Logis** — urutannya masuk akal.\n\n## 2. Tiga struktur dasar\nSemua program bisa disusun dari tiga struktur:\n1. **Sequence** — langkah berurutan.\n2. **Selection** — memilih jalur berdasarkan kondisi (if/else).\n3. **Looping** — mengulang langkah selama kondisi terpenuhi.\n\nStruktur ini disebut struktur kontrol. Menulis algoritma pada dasarnya adalah menyusun ketiganya.\n\n## 3. Pseudocode\nPseudocode adalah cara menulis algoritma dengan bahasa yang mirip kode, tetapi tidak terikat aturan bahasa pemrograman tertentu.\n\nKonvensi yang sering dipakai:\n~~~text\nSTART\n  INPUT nilai\n  IF nilai >= 70 THEN\n    OUTPUT \"Lulus\"\n  ELSE\n    OUTPUT \"Tidak lulus\"\n  ENDIF\nEND\n~~~\n\nAturan penulisan:\n- satu langkah per baris;\n- gunakan indentasi untuk menunjukkan blok;\n- gunakan kata kunci yang konsisten: INPUT, OUTPUT, IF, THEN, ELSE, ENDIF, FOR, WHILE, ENDWHILE;\n- hindari bahasa yang terlalu umum seperti \"proses data\" tanpa penjelasan.\n\n## 4. Simbol flowchart\n| Simbol | Bentuk | Fungsi |\n|---|---|---|\n| Terminator | Oval | Mulai/selesai |\n| Process | Persegi panjang | Proses atau perhitungan |\n| Input/Output | Jajar genjang | Masukkan atau tampilkan data |\n| Decision | Belah ketupat | Percabangan Ya/Tidak |\n| Connector | Lingkaran | Menghubungkan alur |\n| Arrow | Panah | Arah alur |\n\n## 5. Contoh 1: luas persegi panjang\n~~~text\nSTART\n  INPUT panjang, lebar\n  luas = panjang * lebar\n  OUTPUT luas\nEND\n~~~\n\nFlowchart-nya: terminator mulai → input panjang, lebar → proses luas = panjang × lebar → output luas → terminator selesai.\n\n## 6. Contoh 2: bilangan genap atau ganjil\n~~~text\nSTART\n  INPUT bilangan\n  IF bilangan MOD 2 = 0 THEN\n    OUTPUT \"Genap\"\n  ELSE\n    OUTPUT \"Ganjil\"\n  ENDIF\nEND\n~~~\n\nMOD adalah sisa pembagian. Bilangan habis dibagi 2 jika sisanya 0.\n\n## 7. Contoh 3: rata-rata tiga nilai\n~~~text\nSTART\n  INPUT n1, n2, n3\n  rata = (n1 + n2 + n3) / 3\n  OUTPUT rata\nEND\n~~~\n\n## 8. Contoh 4: perulangan sederhana\n~~~text\nSTART\n  total = 0\n  FOR i = 1 TO 5 DO\n    total = total + i\n  ENDFOR\n  OUTPUT total\nEND\n~~~\n\nNilai total berubah: 0 → 1 → 3 → 6 → 10 → 15. Hasil akhirnya 15.\n\n## 9. Menelusuri algoritma (tracing)\nTracing adalah menjalankan algoritma langkah demi langkah dengan tabel.\n\n| i | total sebelum | total sesudah |\n|---|---|---|\n| 1 | 0 | 1 |\n| 2 | 1 | 3 |\n| 3 | 3 | 6 |\n| 4 | 6 | 10 |\n| 5 | 10 | 15 |\n\nSoal tracing biasanya meminta nilai akhir variabel. Tulis tabel agar tidak salah hitung.\n\n## 10. Kesalahan umum\n- langkah tidak berurutan;\n- kondisi tidak jelas;\n- tidak ada titik berhenti pada perulangan;\n- simbol flowchart tertukar, misalnya decision memakai persegi panjang;\n- pseudocode terlalu umum;\n- lupa inisialisasi variabel sebelum dipakai.\n\n## Prediksi soal\nYang sering keluar:\n1. Menjelaskan ciri algoritma.\n2. Mengubah masalah sederhana menjadi pseudocode.\n3. Menggambar atau membaca flowchart.\n4. Menentukan output dari pseudocode.\n5. Menentukan nilai akhir variabel lewat tracing.\n\n## Cara menjawab soal\nUntuk soal \"tentukan output\", tulis tabel tracing. Untuk soal \"buat algoritma\", tulis pseudocode dengan input, proses, dan output yang jelas. Untuk soal flowchart, pastikan simbol decision memakai belah ketupat dan setiap cabang punya arah.",
+      "sections": [
+        {
+          "title": "Definisi dan ciri algoritma",
+          "slides": "Dasar",
+          "body": "Algoritma adalah urutan langkah logis untuk menyelesaikan masalah. Cirinya finite, definite, punya input/output, efektif, dan logis."
+        },
+        {
+          "title": "Tiga struktur dasar",
+          "slides": "Dasar",
+          "body": "Sequence (berurutan), selection (percabangan), dan looping (perulangan). Semua program bisa disusun dari ketiganya."
+        },
+        {
+          "title": "Pseudocode",
+          "slides": "Penulisan",
+          "body": "Pseudocode menuliskan algoritma dengan kata kunci seperti INPUT, OUTPUT, IF, THEN, ELSE, FOR, dan WHILE. Gunakan indentasi dan satu langkah per baris."
+        },
+        {
+          "title": "Simbol flowchart",
+          "slides": "Flowchart",
+          "body": "Oval untuk mulai/selesai, persegi panjang untuk proses, jajar genjang untuk input/output, belah ketupat untuk keputusan, dan panah untuk arah alur."
+        },
+        {
+          "title": "Contoh percabangan",
+          "slides": "Contoh",
+          "body": "Bilangan genap/ganjil memakai kondisi bilangan MOD 2 = 0. Cabang THEN untuk genap dan ELSE untuk ganjil."
+        },
+        {
+          "title": "Tracing",
+          "slides": "Contoh",
+          "body": "Tracing menjalankan algoritma langkah demi langkah dengan tabel. Contoh total = 0 lalu ditambah i dari 1 sampai 5 menghasilkan 15."
+        },
+        {
+          "title": "Kesalahan umum",
+          "slides": "Tips",
+          "body": "Langkah tidak berurutan, kondisi tidak jelas, tidak ada titik berhenti, simbol flowchart tertukar, dan variabel belum diinisialisasi."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa itu algoritma?",
+          "back": "Urutan langkah logis dan sistematis untuk menyelesaikan masalah. Harus finite, definite, punya input/output, efektif, dan logis."
+        },
+        {
+          "front": "Sebutkan lima ciri algoritma yang baik.",
+          "back": "Finite, definite, input, output, dan effective. Tambahan penting: logis dan sistematis."
+        },
+        {
+          "front": "Apa tiga struktur dasar algoritma?",
+          "back": "Sequence (berurutan), selection (percabangan), dan looping (perulangan)."
+        },
+        {
+          "front": "Apa itu pseudocode?",
+          "back": "Cara menulis algoritma dengan bahasa mirip kode tetapi tidak terikat satu bahasa pemrograman. Memakai kata kunci seperti INPUT, OUTPUT, IF, FOR."
+        },
+        {
+          "front": "Simbol flowchart untuk keputusan adalah...",
+          "back": "Belah ketupat (decision), dengan cabang Ya/Tidak."
+        },
+        {
+          "front": "Simbol jajar genjang dalam flowchart berarti...",
+          "back": "Input atau output data."
+        },
+        {
+          "front": "Apa fungsi simbol oval?",
+          "back": "Terminator: menandai mulai (start) dan selesai (end) algoritma."
+        },
+        {
+          "front": "Tulis pseudocode untuk menentukan bilangan genap/ganjil.",
+          "back": "INPUT bilangan; IF bilangan MOD 2 = 0 THEN OUTPUT \"Genap\" ELSE OUTPUT \"Ganjil\" ENDIF."
+        },
+        {
+          "front": "Apa itu MOD?",
+          "back": "Operasi sisa pembagian. Contoh 7 MOD 2 = 1, sedangkan 8 MOD 2 = 0."
+        },
+        {
+          "front": "Apa itu tracing?",
+          "back": "Menjalankan algoritma langkah demi langkah dengan tabel untuk mengetahui perubahan nilai variabel dan output akhir."
+        },
+        {
+          "front": "Berapa hasil total jika total = 0 lalu ditambah i dari 1 sampai 5?",
+          "back": "15, karena 1+2+3+4+5 = 15."
+        },
+        {
+          "front": "Sebutkan tiga kesalahan umum dalam menulis algoritma.",
+          "back": "Langkah tidak berurutan, kondisi tidak jelas, dan perulangan tanpa titik berhenti. Bisa juga variabel belum diinisialisasi."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Algoritma harus memiliki titik akhir. Ciri ini disebut...",
+          "options": [
+            "Definite",
+            "Finite",
+            "Effective",
+            "Input"
+          ],
+          "answer": 1,
+          "explanation": "Finite berarti algoritma harus berhenti setelah sejumlah langkah."
+        },
+        {
+          "question": "Struktur yang memilih jalur berdasarkan kondisi disebut...",
+          "options": [
+            "Sequence",
+            "Selection",
+            "Looping",
+            "Tracing"
+          ],
+          "answer": 1,
+          "explanation": "Selection atau percabangan memilih jalur berdasarkan kondisi, misalnya if/else."
+        },
+        {
+          "question": "Simbol belah ketupat pada flowchart menunjukkan...",
+          "options": [
+            "Proses",
+            "Input/output",
+            "Keputusan",
+            "Mulai/selesai"
+          ],
+          "answer": 2,
+          "explanation": "Belah ketupat adalah decision, tempat alur bercabang Ya/Tidak."
+        },
+        {
+          "question": "Output dari pseudocode: total = 0; FOR i = 1 TO 4 DO total = total + i; OUTPUT total adalah...",
+          "options": [
+            "4",
+            "6",
+            "10",
+            "15"
+          ],
+          "answer": 2,
+          "explanation": "1+2+3+4 = 10."
+        },
+        {
+          "question": "Bilangan 9 MOD 2 menghasilkan...",
+          "options": [
+            "0",
+            "1",
+            "2",
+            "4"
+          ],
+          "answer": 1,
+          "explanation": "9 dibagi 2 menyisakan 1."
+        },
+        {
+          "question": "Pseudocode yang baik sebaiknya...",
+          "options": [
+            "Menggunakan istilah umum tanpa detail",
+            "Satu langkah per baris dan konsisten",
+            "Selalu memakai bahasa Inggris",
+            "Tidak perlu input dan output"
+          ],
+          "answer": 1,
+          "explanation": "Pseudocode harus jelas, satu langkah per baris, dan memakai kata kunci yang konsisten."
+        },
+        {
+          "question": "Jajar genjang pada flowchart digunakan untuk...",
+          "options": [
+            "Mulai/selesai",
+            "Proses",
+            "Input/output",
+            "Keputusan"
+          ],
+          "answer": 2,
+          "explanation": "Jajar genjang menandakan operasi input atau output."
+        },
+        {
+          "question": "Tujuan tracing adalah...",
+          "options": [
+            "Mempercepat kode",
+            "Mengetahui perubahan nilai variabel dan output",
+            "Menggambar flowchart",
+            "Menghapus error"
+          ],
+          "answer": 1,
+          "explanation": "Tracing menjalankan algoritma langkah demi langkah untuk memeriksa nilai variabel dan hasil akhir."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu algoritma?",
+          "a": "Urutan langkah logis dan sistematis untuk menyelesaikan masalah. Ciri pentingnya finite, definite, punya input dan output, efektif, serta logis.",
+          "tags": [
+            "dasar"
+          ],
+          "slide": "Dasar"
+        },
+        {
+          "q": "Apa saja simbol flowchart?",
+          "a": "Oval untuk mulai/selesai, persegi panjang untuk proses, jajar genjang untuk input/output, belah ketupat untuk keputusan, lingkaran untuk connector, dan panah untuk arah alur.",
+          "tags": [
+            "flowchart"
+          ],
+          "slide": "Flowchart"
+        },
+        {
+          "q": "Apa bedanya sequence, selection, dan looping?",
+          "a": "Sequence berjalan berurutan. Selection memilih jalur berdasarkan kondisi. Looping mengulang langkah selama kondisi terpenuhi.",
+          "tags": [
+            "struktur"
+          ],
+          "slide": "Dasar"
+        },
+        {
+          "q": "Bagaimana cara menentukan output pseudocode?",
+          "a": "Lakukan tracing: buat tabel variabel, jalankan tiap baris, catat perubahan nilai, lalu tentukan nilai akhir yang dicetak.",
+          "tags": [
+            "tracing"
+          ],
+          "slide": "Contoh"
+        },
+        {
+          "q": "Apa kesalahan umum saat menulis algoritma?",
+          "a": "Langkah tidak berurutan, kondisi tidak jelas, perulangan tanpa titik berhenti, simbol flowchart tertukar, dan variabel belum diinisialisasi.",
+          "tags": [
+            "tips"
+          ],
+          "slide": "Tips"
+        }
+      ],
+      "quick": [
+        "Apa itu algoritma?",
+        "Apa saja simbol flowchart?",
+        "Apa bedanya sequence, selection, dan looping?",
+        "Bagaimana cara menentukan output pseudocode?"
+      ]
+    },
+    {
+      "id": "algo-variabel-kontrol",
+      "order": 2,
+      "courseId": "algoritma-dasar-pemrograman",
+      "title": "Variabel, Tipe Data & Struktur Kontrol",
+      "short": "Variabel, tipe data, operator, percabangan, dan perulangan.",
+      "course": "Algoritma & Dasar Pemrograman",
+      "source": "Materi umum Algoritma & Dasar Pemrograman",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#9a3412",
+      "tags": [
+        "Variabel",
+        "Tipe data",
+        "If",
+        "Loop"
+      ],
+      "summary": "## Inti materi\nProgram mengolah data. Data disimpan dalam variabel, memiliki tipe, diolah dengan operator, lalu dikendalikan dengan percabangan dan perulangan.\n\n## 1. Variabel dan konstanta\n**Variabel** adalah tempat menyimpan nilai yang bisa berubah. **Konstanta** menyimpan nilai yang tetap selama program berjalan.\n\nAturan nama identifier yang umum:\n- boleh huruf, angka, dan underscore;\n- tidak boleh diawali angka;\n- tidak boleh memakai spasi;\n- tidak boleh sama dengan kata kunci bahasa pemrograman;\n- sebaiknya deskriptif: nilai_akhir, total_harga, bukan x1.\n\n## 2. Tipe data dasar\n| Tipe | Isi | Contoh |\n|---|---|---|\n| Integer | Bilangan bulat | 10, -3, 0 |\n| Real/Float | Bilangan desimal | 3.14, 2.5 |\n| Char | Satu karakter | 'A', '7' |\n| String | Kumpulan karakter | \"Budi\", \"2026\" |\n| Boolean | Benar/salah | true, false |\n\nPemilihan tipe memengaruhi operasi yang bisa dilakukan dan memori yang dipakai.\n\n## 3. Operator\n### Aritmatika\n+ tambah, - kurang, * kali, / bagi, MOD sisa bagi, ^ pangkat.\n\n### Perbandingan\n= sama dengan, <> atau != tidak sama, <, >, <=, >=. Hasilnya boolean.\n\n### Logika\nAND, OR, NOT. Dipakai untuk menggabungkan kondisi.\n\n### Penugasan\n= atau := untuk menyimpan nilai ke variabel.\n\nContoh:\n~~~text\numur = 20\nif umur >= 18 AND umur <= 25 THEN\n  OUTPUT \"dewasa muda\"\nENDIF\n~~~\n\n## 4. Urutan operasi\nUmumnya:\n1. tanda kurung;\n2. pangkat;\n3. kali, bagi, MOD;\n4. tambah, kurang;\n5. perbandingan;\n6. logika.\n\nKalau ragu, gunakan tanda kurung agar maksudnya jelas.\n\n## 5. Input dan output\n~~~text\nINPUT nama\nINPUT nilai\nOUTPUT \"Nama: \", nama\nOUTPUT \"Nilai: \", nilai\n~~~\n\nInput membaca data dari pengguna; output menampilkan hasil.\n\n## 6. Percabangan\n### If sederhana\n~~~text\nIF nilai >= 70 THEN\n  OUTPUT \"Lulus\"\nENDIF\n~~~\n\n### If-else\n~~~text\nIF nilai >= 70 THEN\n  OUTPUT \"Lulus\"\nELSE\n  OUTPUT \"Tidak lulus\"\nENDIF\n~~~\n\n### If bersarang\n~~~text\nIF nilai >= 85 THEN\n  OUTPUT \"A\"\nELSE\n  IF nilai >= 70 THEN\n    OUTPUT \"B\"\n  ELSE\n    OUTPUT \"C\"\n  ENDIF\nENDIF\n~~~\n\n### Switch/case\nCocok untuk banyak pilihan berdasarkan satu nilai.\n~~~text\nCASE pilihan OF\n  1: OUTPUT \"Tambah\"\n  2: OUTPUT \"Ubah\"\n  3: OUTPUT \"Hapus\"\n  DEFAULT: OUTPUT \"Tidak valid\"\nENDCASE\n~~~\n\n## 7. Perulangan\n### For\nDipakai jika jumlah perulangan sudah diketahui.\n~~~text\nFOR i = 1 TO 5 DO\n  OUTPUT i\nENDFOR\n~~~\n\n### While\nDipakai jika perulangan bergantung pada kondisi.\n~~~text\ni = 1\nWHILE i <= 5 DO\n  OUTPUT i\n  i = i + 1\nENDWHILE\n~~~\n\n### Do-while\nMenjalankan blok minimal satu kali, lalu memeriksa kondisi.\n~~~text\ni = 1\nDO\n  OUTPUT i\n  i = i + 1\nWHILE i <= 5\n~~~\n\nPerbedaan penting:\n- **For**: jumlah iterasi jelas.\n- **While**: kondisi dicek sebelum blok.\n- **Do-while**: kondisi dicek setelah blok.\n\n## 8. Nested loop\nPerulangan di dalam perulangan. Contoh mencetak pola:\n~~~text\nFOR i = 1 TO 3 DO\n  FOR j = 1 TO 3 DO\n    OUTPUT \"*\"\n  ENDFOR\n  OUTPUT newline\nENDFOR\n~~~\nHasilnya tiga baris, masing-masing tiga bintang.\n\n## 9. Kesalahan umum\n- lupa menaikkan nilai counter sehingga loop tak berhenti;\n- off-by-one: loop berjalan satu kali lebih banyak/kurang;\n- memakai = untuk perbandingan di bahasa yang membedakan = dan ==;\n- kondisi if tidak saling eksklusif sehingga hasilnya tumpang tindih;\n- variabel belum diinisialisasi;\n- salah memilih tipe data, misalnya angka disimpan sebagai string lalu dijumlahkan menjadi teks.\n\n## Prediksi soal\n1. Menentukan output dari potongan if/else.\n2. Menentukan jumlah iterasi for atau while.\n3. Mencari kesalahan pada loop.\n4. Menulis percabangan untuk kategori nilai.\n5. Menjelaskan perbedaan while dan do-while.\n\n## Cara menjawab soal\nUntuk soal output, tracing baris per baris. Untuk soal loop, tulis nilai counter di setiap iterasi. Untuk soal \"cari kesalahan\", periksa inisialisasi, kondisi berhenti, dan perubahan counter.",
+      "sections": [
+        {
+          "title": "Variabel dan identifier",
+          "slides": "Dasar",
+          "body": "Variabel menyimpan nilai yang bisa berubah; konstanta tetap. Nama harus deskriptif, tidak diawali angka, tanpa spasi, dan bukan kata kunci."
+        },
+        {
+          "title": "Tipe data",
+          "slides": "Dasar",
+          "body": "Integer, real/float, char, string, dan boolean. Tipe menentukan operasi yang valid dan memori yang dipakai."
+        },
+        {
+          "title": "Operator",
+          "slides": "Operasi",
+          "body": "Aritmatika, perbandingan, logika, dan penugasan. Perhatikan urutan operasi dan gunakan tanda kurung bila perlu."
+        },
+        {
+          "title": "If dan switch",
+          "slides": "Percabangan",
+          "body": "If-else memilih dua jalur. If bersarang untuk kondisi bertingkat. Switch/case cocok untuk banyak pilihan berdasarkan satu nilai."
+        },
+        {
+          "title": "For dan while",
+          "slides": "Perulangan",
+          "body": "For dipakai saat jumlah iterasi diketahui. While bergantung pada kondisi. Do-while menjalankan blok minimal satu kali."
+        },
+        {
+          "title": "Nested loop",
+          "slides": "Perulangan",
+          "body": "Loop di dalam loop. Contoh dua loop 1–3 menghasilkan 9 iterasi dan pola tiga baris tiga bintang."
+        },
+        {
+          "title": "Kesalahan umum",
+          "slides": "Tips",
+          "body": "Loop tak berhenti karena counter tidak berubah, off-by-one, salah memakai = dan ==, kondisi tumpang tindih, dan variabel belum diinisialisasi."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa bedanya variabel dan konstanta?",
+          "back": "Variabel menyimpan nilai yang bisa berubah; konstanta menyimpan nilai yang tetap selama program berjalan."
+        },
+        {
+          "front": "Sebutkan aturan nama variabel yang umum.",
+          "back": "Boleh huruf, angka, underscore; tidak diawali angka; tanpa spasi; bukan kata kunci; sebaiknya deskriptif."
+        },
+        {
+          "front": "Sebutkan lima tipe data dasar.",
+          "back": "Integer, real/float, char, string, dan boolean."
+        },
+        {
+          "front": "Apa fungsi operator MOD?",
+          "back": "Menghasilkan sisa pembagian. Contoh 7 MOD 2 = 1."
+        },
+        {
+          "front": "Apa hasil dari 2 + 3 * 4?",
+          "back": "14, karena perkalian dihitung lebih dulu daripada penjumlahan."
+        },
+        {
+          "front": "Apa bedanya if-else dan switch/case?",
+          "back": "If-else untuk kondisi umum dan bertingkat. Switch/case cocok untuk banyak pilihan berdasarkan satu nilai."
+        },
+        {
+          "front": "Kapan memakai for?",
+          "back": "Saat jumlah perulangan sudah diketahui atau bisa dihitung di awal."
+        },
+        {
+          "front": "Kapan memakai while?",
+          "back": "Saat perulangan bergantung pada kondisi yang bisa berubah, dan jumlah iterasinya belum tentu diketahui."
+        },
+        {
+          "front": "Apa bedanya while dan do-while?",
+          "back": "While memeriksa kondisi sebelum blok. Do-while menjalankan blok minimal satu kali, lalu memeriksa kondisi."
+        },
+        {
+          "front": "Apa yang terjadi jika counter loop tidak pernah berubah?",
+          "back": "Loop bisa berjalan terus tanpa berhenti (infinite loop) jika kondisinya selalu benar."
+        },
+        {
+          "front": "Apa itu off-by-one error?",
+          "back": "Kesalahan batas perulangan sehingga berjalan satu kali lebih banyak atau lebih sedikit dari yang seharusnya."
+        },
+        {
+          "front": "Berapa iterasi dari FOR i = 1 TO 5?",
+          "back": "Lima iterasi: i = 1, 2, 3, 4, 5."
+        },
+        {
+          "front": "Apa hasil nested loop 1 TO 3 di dalam 1 TO 3?",
+          "back": "Sembilan iterasi total. Jika mencetak bintang per iterasi dalam, hasilnya tiga baris dengan tiga bintang."
+        },
+        {
+          "front": "Mengapa tipe data penting?",
+          "back": "Karena tipe menentukan operasi yang valid, hasil perhitungan, dan memori. Salah tipe bisa membuat penjumlahan angka menjadi penggabungan teks."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Nama variabel yang valid adalah...",
+          "options": [
+            "2nilai",
+            "nilai akhir",
+            "nilai_akhir",
+            "if"
+          ],
+          "answer": 2,
+          "explanation": "Nilai_akhir valid: tidak diawali angka, tanpa spasi, dan bukan kata kunci."
+        },
+        {
+          "question": "Tipe data untuk true/false adalah...",
+          "options": [
+            "Integer",
+            "String",
+            "Boolean",
+            "Char"
+          ],
+          "answer": 2,
+          "explanation": "Boolean menyimpan nilai benar atau salah."
+        },
+        {
+          "question": "Hasil 10 MOD 3 adalah...",
+          "options": [
+            "1",
+            "3",
+            "3.33",
+            "0"
+          ],
+          "answer": 0,
+          "explanation": "10 dibagi 3 adalah 3 sisa 1."
+        },
+        {
+          "question": "Hasil 2 + 3 * 4 adalah...",
+          "options": [
+            "20",
+            "14",
+            "24",
+            "9"
+          ],
+          "answer": 1,
+          "explanation": "Perkalian dikerjakan lebih dulu: 3*4 = 12, lalu 2+12 = 14."
+        },
+        {
+          "question": "Struktur yang cocok untuk banyak pilihan berdasarkan satu nilai adalah...",
+          "options": [
+            "For",
+            "While",
+            "Switch/case",
+            "Sequence"
+          ],
+          "answer": 2,
+          "explanation": "Switch/case memilih blok berdasarkan nilai tertentu."
+        },
+        {
+          "question": "Perulangan yang menjalankan blok minimal satu kali adalah...",
+          "options": [
+            "For",
+            "While",
+            "Do-while",
+            "If"
+          ],
+          "answer": 2,
+          "explanation": "Do-while memeriksa kondisi setelah blok dijalankan."
+        },
+        {
+          "question": "Berapa kali OUTPUT dijalankan pada FOR i = 1 TO 4?",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "Tak hingga"
+          ],
+          "answer": 1,
+          "explanation": "i bernilai 1, 2, 3, 4 sehingga blok dijalankan empat kali."
+        },
+        {
+          "question": "Penyebab umum infinite loop adalah...",
+          "options": [
+            "Counter tidak pernah berubah",
+            "Terlalu banyak variabel",
+            "Memakai string",
+            "Tidak ada output"
+          ],
+          "answer": 0,
+          "explanation": "Jika kondisi selalu benar karena counter tidak berubah, loop tidak berhenti."
+        },
+        {
+          "question": "Jika nilai = 75, output dari IF nilai >= 85 THEN \"A\" ELSE IF nilai >= 70 THEN \"B\" ELSE \"C\" adalah...",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "Tidak ada"
+          ],
+          "answer": 1,
+          "explanation": "75 tidak >= 85, tetapi >= 70 sehingga masuk cabang B."
+        },
+        {
+          "question": "Nested loop FOR i = 1 TO 3 dan FOR j = 1 TO 3 menghasilkan total iterasi...",
+          "options": [
+            "3",
+            "6",
+            "9",
+            "12"
+          ],
+          "answer": 2,
+          "explanation": "3 × 3 = 9 iterasi."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa bedanya variabel dan konstanta?",
+          "a": "Variabel menyimpan nilai yang bisa berubah selama program. Konstanta menyimpan nilai tetap dan tidak diubah setelah ditetapkan.",
+          "tags": [
+            "variabel"
+          ],
+          "slide": "Dasar"
+        },
+        {
+          "q": "Apa saja tipe data dasar?",
+          "a": "Integer untuk bilangan bulat, real/float untuk desimal, char untuk satu karakter, string untuk kumpulan karakter, dan boolean untuk benar/salah.",
+          "tags": [
+            "tipe data"
+          ],
+          "slide": "Dasar"
+        },
+        {
+          "q": "Apa bedanya for, while, dan do-while?",
+          "a": "For dipakai saat jumlah iterasi diketahui. While memeriksa kondisi sebelum blok. Do-while menjalankan blok minimal satu kali lalu memeriksa kondisi.",
+          "tags": [
+            "loop"
+          ],
+          "slide": "Perulangan"
+        },
+        {
+          "q": "Apa penyebab infinite loop?",
+          "a": "Biasanya kondisi berhenti tidak pernah tercapai, misalnya counter tidak dinaikkan atau kondisi selalu bernilai benar.",
+          "tags": [
+            "error"
+          ],
+          "slide": "Tips"
+        },
+        {
+          "q": "Bagaimana menentukan output potongan if/else?",
+          "a": "Tracing kondisi satu per satu. Periksa kondisi dari atas, lalu jalankan cabang pertama yang benar. Jangan mengeksekusi cabang lain setelahnya.",
+          "tags": [
+            "if"
+          ],
+          "slide": "Percabangan"
+        }
+      ],
+      "quick": [
+        "Apa bedanya variabel dan konstanta?",
+        "Apa saja tipe data dasar?",
+        "Apa bedanya for, while, dan do-while?",
+        "Apa penyebab infinite loop?"
+      ]
+    },
+    {
+      "id": "algo-array-fungsi",
+      "order": 3,
+      "courseId": "algoritma-dasar-pemrograman",
+      "title": "Array, Fungsi & Algoritma Dasar",
+      "short": "Array, fungsi, pencarian, pengurutan, dan kompleksitas dasar.",
+      "course": "Algoritma & Dasar Pemrograman",
+      "source": "Materi umum Algoritma & Dasar Pemrograman",
+      "slides": 0,
+      "slideDir": null,
+      "accent": "#7c2d12",
+      "tags": [
+        "Array",
+        "Fungsi",
+        "Searching",
+        "Sorting"
+      ],
+      "summary": "## Inti materi\nSetelah variabel dan struktur kontrol, program perlu mengelola banyak data sekaligus dan memecah logika menjadi bagian kecil. Di sinilah array, fungsi, searching, dan sorting dipakai.\n\n## 1. Array\nArray adalah kumpulan nilai dengan tipe yang sama dan disimpan dalam satu nama, diakses lewat indeks.\n\n~~~text\nnilai = [80, 75, 90, 60, 85]\nOUTPUT nilai[0]   // 80\nOUTPUT nilai[2]   // 90\n~~~\n\nCatatan indeks:\n- banyak bahasa memulai indeks dari 0;\n- pseudocode tertentu memulai dari 1;\n- selalu periksa konvensi yang dipakai soal.\n\n### Operasi dasar array\n- **Traversal** — mengunjungi semua elemen.\n- **Pencarian** — mencari nilai tertentu.\n- **Penjumlahan/rata-rata** — mengolah semua elemen.\n- **Maksimum/minimum** — membandingkan elemen.\n- **Pengurutan** — menyusun elemen.\n\nContoh menjumlahkan array:\n~~~text\ntotal = 0\nFOR i = 0 TO n-1 DO\n  total = total + nilai[i]\nENDFOR\nrata = total / n\nOUTPUT rata\n~~~\n\nContoh mencari nilai terbesar:\n~~~text\nmaks = nilai[0]\nFOR i = 1 TO n-1 DO\n  IF nilai[i] > maks THEN\n    maks = nilai[i]\n  ENDIF\nENDFOR\nOUTPUT maks\n~~~\n\n## 2. Array dua dimensi\nArray 2D dipakai untuk tabel atau matriks.\n\n~~~text\nmatriks[2][3] = 5\n~~~\n\nArtinya baris indeks 2, kolom indeks 3. Traversal biasanya memakai dua loop bersarang.\n\n## 3. Fungsi dan prosedur\nFungsi adalah blok kode yang diberi nama, bisa menerima parameter, dan mengembalikan nilai. Prosedur mirip fungsi tetapi tidak mengembalikan nilai.\n\n~~~text\nFUNCTION luasPersegi(sisi)\n  RETURN sisi * sisi\nENDFUNCTION\n\nOUTPUT luasPersegi(4)   // 16\n~~~\n\nManfaat fungsi:\n- menghindari kode berulang;\n- memecah masalah menjadi bagian kecil;\n- memudahkan pengujian;\n- membuat kode lebih mudah dibaca.\n\nIstilah penting:\n- **Parameter** — variabel penerima nilai di definisi fungsi.\n- **Argumen** — nilai yang dikirim saat fungsi dipanggil.\n- **Return** — nilai yang dikembalikan fungsi.\n- **Scope** — wilayah berlakunya variabel.\n\n## 4. Linear search\nLinear search memeriksa elemen satu per satu dari awal sampai ditemukan atau habis.\n\n~~~text\nFUNCTION cariLinear(data, target)\n  FOR i = 0 TO n-1 DO\n    IF data[i] = target THEN\n      RETURN i\n    ENDIF\n  ENDFOR\n  RETURN -1\nENDFUNCTION\n~~~\n\nKelebihan: data tidak perlu terurut.\nKekurangan: lambat untuk data besar.\nKompleksitas: O(n).\n\n## 5. Binary search\nBinary search hanya bisa dipakai pada data yang **sudah terurut**. Caranya membagi ruang pencarian menjadi dua.\n\n~~~text\nlow = 0\nhigh = n-1\nWHILE low <= high DO\n  mid = (low + high) / 2\n  IF data[mid] = target THEN\n    RETURN mid\n  ELSE IF data[mid] < target THEN\n    low = mid + 1\n  ELSE\n    high = mid - 1\n  ENDIF\nENDWHILE\nRETURN -1\n~~~\n\nKompleksitas: O(log n).\nSyarat wajib: data terurut.\n\n## 6. Sorting dasar\n### Bubble sort\nMembandingkan pasangan bersebelahan dan menukarnya jika urutannya salah. Elemen terbesar \"menggelembung\" ke akhir.\n\n~~~text\nFOR i = 0 TO n-2 DO\n  FOR j = 0 TO n-2-i DO\n    IF data[j] > data[j+1] THEN\n      tukar data[j] dan data[j+1]\n    ENDIF\n  ENDFOR\nENDFOR\n~~~\n\n### Selection sort\nMencari nilai terkecil, lalu menukarnya ke posisi paling depan, dan mengulang untuk sisa array.\n\n### Insertion sort\nMenyisipkan elemen ke posisi yang tepat di bagian array yang sudah terurut. Cocok untuk data kecil atau hampir terurut.\n\n## 7. Perbandingan kompleksitas\n| Algoritma | Waktu rata-rata | Catatan |\n|---|---|---|\n| Linear search | O(n) | Tidak perlu terurut |\n| Binary search | O(log n) | Wajib terurut |\n| Bubble sort | O(n²) | Mudah dipahami, lambat |\n| Selection sort | O(n²) | Sedikit pertukaran |\n| Insertion sort | O(n²) | Baik untuk data hampir terurut |\n\n## 8. Kesalahan umum\n- indeks array keluar batas (off-by-one);\n- binary search dipakai pada data yang belum terurut;\n- lupa mengembalikan nilai pada fungsi;\n- parameter dan argumen tertukar;\n- loop sorting salah batas sehingga elemen terakhir tidak diperiksa;\n- menukar nilai tanpa variabel bantu.\n\n## Prediksi soal\n1. Menentukan output traversal array.\n2. Mencari nilai maksimum/minimum.\n3. Menjelaskan perbedaan linear dan binary search.\n4. Menentukan syarat binary search.\n5. Menelusuri satu putaran bubble sort.\n6. Menulis fungsi sederhana.\n7. Menentukan kompleksitas algoritma.\n\n## Cara menjawab soal\nUntuk soal array, tulis indeks dan nilainya. Untuk searching, sebutkan syarat data. Untuk sorting, tulis array setelah setiap putaran. Untuk fungsi, pastikan ada parameter, proses, dan return.",
+      "sections": [
+        {
+          "title": "Konsep array",
+          "slides": "Array",
+          "body": "Array adalah kumpulan nilai bertipe sama yang diakses lewat indeks. Banyak bahasa mulai dari indeks 0; pseudocode tertentu mulai dari 1."
+        },
+        {
+          "title": "Traversal dan agregasi",
+          "slides": "Array",
+          "body": "Traversal mengunjungi semua elemen. Contoh agregasi: menjumlahkan semua nilai lalu membaginya untuk rata-rata, atau membandingkan untuk mencari maksimum."
+        },
+        {
+          "title": "Array dua dimensi",
+          "slides": "Array",
+          "body": "Array 2D menyimpan data tabel/matriks dan biasanya diproses dengan dua loop bersarang, satu untuk baris dan satu untuk kolom."
+        },
+        {
+          "title": "Fungsi dan prosedur",
+          "slides": "Fungsi",
+          "body": "Fungsi menerima parameter dan mengembalikan nilai. Prosedur tidak mengembalikan nilai. Manfaatnya mengurangi duplikasi dan memecah masalah."
+        },
+        {
+          "title": "Linear search",
+          "slides": "Searching",
+          "body": "Memeriksa elemen satu per satu. Tidak perlu data terurut. Kompleksitas O(n)."
+        },
+        {
+          "title": "Binary search",
+          "slides": "Searching",
+          "body": "Membagi ruang pencarian menjadi dua. Wajib data terurut. Kompleksitas O(log n)."
+        },
+        {
+          "title": "Sorting dasar",
+          "slides": "Sorting",
+          "body": "Bubble sort menukar pasangan bersebelahan, selection sort memilih nilai terkecil, insertion sort menyisipkan ke bagian terurut. Semuanya O(n²) pada kasus rata-rata."
+        },
+        {
+          "title": "Kesalahan umum",
+          "slides": "Tips",
+          "body": "Indeks keluar batas, binary search pada data tidak terurut, lupa return, parameter/argumen tertukar, batas loop sorting salah, dan tukar nilai tanpa variabel bantu."
+        }
+      ],
+      "cards": [
+        {
+          "front": "Apa itu array?",
+          "back": "Kumpulan nilai dengan tipe yang sama, disimpan dalam satu nama, dan diakses lewat indeks."
+        },
+        {
+          "front": "Mengapa indeks array perlu diperhatikan?",
+          "back": "Karena banyak bahasa mulai dari 0, tetapi pseudocode tertentu mulai dari 1. Salah indeks menyebabkan off-by-one atau keluar batas."
+        },
+        {
+          "front": "Apa itu traversal array?",
+          "back": "Mengunjungi semua elemen array satu per satu, biasanya dengan loop, untuk membaca, menjumlahkan, atau mengolah nilainya."
+        },
+        {
+          "front": "Tulis logika mencari nilai maksimum array.",
+          "back": "Simpan elemen pertama sebagai maks, lalu bandingkan setiap elemen berikutnya; jika lebih besar, ganti nilai maks."
+        },
+        {
+          "front": "Apa itu array dua dimensi?",
+          "back": "Array yang menyimpan data dalam baris dan kolom, seperti tabel atau matriks, diakses dengan dua indeks."
+        },
+        {
+          "front": "Apa bedanya fungsi dan prosedur?",
+          "back": "Fungsi mengembalikan nilai; prosedur menjalankan aksi tanpa mengembalikan nilai."
+        },
+        {
+          "front": "Apa bedanya parameter dan argumen?",
+          "back": "Parameter adalah variabel penerima di definisi fungsi. Argumen adalah nilai yang dikirim saat fungsi dipanggil."
+        },
+        {
+          "front": "Bagaimana cara kerja linear search?",
+          "back": "Memeriksa elemen satu per satu dari awal sampai target ditemukan atau data habis. Tidak perlu data terurut. O(n)."
+        },
+        {
+          "front": "Apa syarat binary search?",
+          "back": "Data harus sudah terurut. Binary search membagi ruang pencarian menjadi dua setiap langkah. O(log n)."
+        },
+        {
+          "front": "Apa ide dasar bubble sort?",
+          "back": "Membandingkan pasangan bersebelahan dan menukarnya jika urutannya salah, sehingga nilai terbesar bergerak ke akhir."
+        },
+        {
+          "front": "Apa ide dasar selection sort?",
+          "back": "Mencari nilai terkecil pada bagian yang belum terurut, lalu menukarnya ke posisi paling depan, dan mengulang."
+        },
+        {
+          "front": "Apa ide dasar insertion sort?",
+          "back": "Menyisipkan setiap elemen ke posisi yang tepat di bagian array yang sudah terurut."
+        },
+        {
+          "front": "Sebutkan kompleksitas linear search, binary search, dan bubble sort.",
+          "back": "Linear search O(n), binary search O(log n), bubble sort O(n²)."
+        },
+        {
+          "front": "Apa kesalahan umum saat menukar nilai?",
+          "back": "Menukar tanpa variabel bantu sehingga salah satu nilai tertimpa. Gunakan temp untuk menyimpan nilai sementara."
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Array adalah...",
+          "options": [
+            "Kumpulan nilai bertipe sama yang diakses lewat indeks",
+            "Satu nilai yang tidak bisa berubah",
+            "Fungsi untuk mencetak",
+            "Perulangan tanpa akhir"
+          ],
+          "answer": 0,
+          "explanation": "Array menyimpan banyak nilai bertipe sama dalam satu nama dan diakses dengan indeks."
+        },
+        {
+          "question": "Jika array dimulai dari indeks 0, elemen kelima berada di indeks...",
+          "options": [
+            "4",
+            "5",
+            "6",
+            "1"
+          ],
+          "answer": 0,
+          "explanation": "Indeks 0,1,2,3,4 — elemen kelima ada di indeks 4."
+        },
+        {
+          "question": "Algoritma pencarian yang wajib menggunakan data terurut adalah...",
+          "options": [
+            "Linear search",
+            "Binary search",
+            "Bubble sort",
+            "Traversal"
+          ],
+          "answer": 1,
+          "explanation": "Binary search membagi ruang pencarian berdasarkan urutan, sehingga data harus terurut."
+        },
+        {
+          "question": "Kompleksitas binary search adalah...",
+          "options": [
+            "O(1)",
+            "O(n)",
+            "O(log n)",
+            "O(n²)"
+          ],
+          "answer": 2,
+          "explanation": "Binary search membagi data menjadi dua setiap langkah sehingga O(log n)."
+        },
+        {
+          "question": "Algoritma yang membandingkan pasangan bersebelahan adalah...",
+          "options": [
+            "Selection sort",
+            "Insertion sort",
+            "Bubble sort",
+            "Binary search"
+          ],
+          "answer": 2,
+          "explanation": "Bubble sort membandingkan dan menukar pasangan bersebelahan."
+        },
+        {
+          "question": "Fungsi yang tidak mengembalikan nilai disebut...",
+          "options": [
+            "Parameter",
+            "Prosedur",
+            "Array",
+            "Argumen"
+          ],
+          "answer": 1,
+          "explanation": "Prosedur menjalankan aksi tanpa mengembalikan nilai; fungsi mengembalikan nilai."
+        },
+        {
+          "question": "Nilai yang dikirim saat fungsi dipanggil disebut...",
+          "options": [
+            "Parameter",
+            "Argumen",
+            "Return",
+            "Scope"
+          ],
+          "answer": 1,
+          "explanation": "Argumen adalah nilai aktual yang dikirim; parameter adalah variabel penerima di definisi."
+        },
+        {
+          "question": "Hasil traversal total dari array [2, 4, 6, 8] adalah...",
+          "options": [
+            "16",
+            "20",
+            "18",
+            "10"
+          ],
+          "answer": 1,
+          "explanation": "2+4+6+8 = 20."
+        },
+        {
+          "question": "Kesalahan pada binary search sering terjadi karena...",
+          "options": [
+            "Data belum terurut",
+            "Data terlalu sedikit",
+            "Tidak memakai array",
+            "Tidak memakai fungsi"
+          ],
+          "answer": 0,
+          "explanation": "Binary search hanya valid jika data terurut."
+        },
+        {
+          "question": "Kompleksitas bubble sort pada kasus rata-rata adalah...",
+          "options": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n²)"
+          ],
+          "answer": 3,
+          "explanation": "Bubble sort memiliki dua loop bersarang sehingga O(n²)."
+        }
+      ],
+      "tutor": [
+        {
+          "q": "Apa itu array?",
+          "a": "Kumpulan nilai bertipe sama yang disimpan dalam satu nama dan diakses lewat indeks. Indeks bisa mulai 0 atau 1 tergantung bahasa atau pseudocode.",
+          "tags": [
+            "array"
+          ],
+          "slide": "Array"
+        },
+        {
+          "q": "Apa bedanya linear search dan binary search?",
+          "a": "Linear search memeriksa elemen satu per satu dan tidak perlu data terurut, O(n). Binary search membagi ruang pencarian dan wajib data terurut, O(log n).",
+          "tags": [
+            "searching"
+          ],
+          "slide": "Searching"
+        },
+        {
+          "q": "Apa bedanya fungsi dan prosedur?",
+          "a": "Fungsi menerima parameter dan mengembalikan nilai. Prosedur menjalankan aksi tanpa mengembalikan nilai.",
+          "tags": [
+            "fungsi"
+          ],
+          "slide": "Fungsi"
+        },
+        {
+          "q": "Bagaimana cara kerja bubble sort?",
+          "a": "Membandingkan pasangan bersebelahan dan menukarnya jika salah urutan. Setiap putaran membawa nilai terbesar ke posisi akhir. Kompleksitasnya O(n²).",
+          "tags": [
+            "sorting"
+          ],
+          "slide": "Sorting"
+        },
+        {
+          "q": "Apa kesalahan umum pada array?",
+          "a": "Indeks keluar batas, off-by-one, lupa batas loop, dan menukar nilai tanpa variabel bantu. Pada binary search, kesalahan umum adalah memakai data yang belum terurut.",
+          "tags": [
+            "tips"
+          ],
+          "slide": "Tips"
+        }
+      ],
+      "quick": [
+        "Apa itu array?",
+        "Apa bedanya linear search dan binary search?",
+        "Apa bedanya fungsi dan prosedur?",
+        "Bagaimana cara kerja bubble sort?"
+      ]
     }
   ],
   "courses": [
@@ -2117,7 +4174,7 @@
       "date": "2026-11-12",
       "day": "Kamis",
       "time": "09.00",
-      "status": "soon",
+      "status": "ready",
       "accent": "#be185d"
     },
     {
@@ -2147,7 +4204,7 @@
       "date": "2026-11-18",
       "day": "Rabu",
       "time": "09.00",
-      "status": "soon",
+      "status": "ready",
       "accent": "#0e7490"
     },
     {
@@ -2157,7 +4214,7 @@
       "date": "2026-11-19",
       "day": "Kamis",
       "time": "09.00",
-      "status": "soon",
+      "status": "ready",
       "accent": "#c2410c"
     }
   ]
